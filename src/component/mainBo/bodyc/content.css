@@ -1,0 +1,37 @@
+.mcn{
+
+     padding-top: 70px;
+          background-color: #deb88c;
+    .cntnt{
+         h1{
+          
+            margin-left: 50px;
+            color: #283618;
+         }
+         p{ 
+            padding-left: 50px;
+            padding-right: 40px;
+            font-size: 25px;
+           letter-spacing: 2px;
+           word-spacing: 6px;
+           line-height: 1.5;
+         }
+    }
+
+    .cntnrpr{
+     
+       padding-left: 40px;
+       padding-right: 40px;
+         display: grid;
+         grid-template-columns: auto auto auto auto;
+        
+        .pcntr{
+             width: 250px;
+             height: 400px;
+             border: 2px solid #283618;
+             border-radius: 5px;
+             margin-bottom: 30px;
+        }
+    }
+
+}

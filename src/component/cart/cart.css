@@ -1,0 +1,102 @@
+.cart{
+     margin-top: 20px;
+    text-align: center;
+    height: 400px;
+    font-size: 30px;
+   color: #283618;
+
+    button{
+        cursor: pointer;
+        width: 250px;
+        height: 60px;
+        border-radius: 5px;
+        border: 1px solid #283618;
+    }
+
+    .cartdd{
+       font-size: 16px;
+        
+       padding: 40px 40px 40px 40px;
+            
+        .head{
+            height: 40px;
+            font-size: 12px;
+            border-bottom: 1px solid gray;
+            h4{
+                margin-top: 20px;
+            }
+        }
+        
+        .items{
+            display: flex;
+            margin-top: 20px;
+            border-bottom: 1px solid gray;
+            .pr{
+                
+                display: flex;
+                justify-content: flex-start;
+                margin-bottom: 20px;
+            }
+
+            p{
+                
+                margin-left: 30px;
+            }
+             
+        }
+
+                 .checkout{
+                    margin-top: 30px;
+
+                    button{
+
+                       height: 30px;
+                    }
+                 }
+            img{
+                width: 100px;
+                border-radius: 5px;
+ 
+            }
+          
+               .icp{
+                display: flex;
+                align-items: center;
+
+            .but{
+                margin-left: 140px;
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                width: 100px;
+                height: 30px;
+                border: 2px solid #b16f23;
+                margin-bottom: 20px;
+                justify-content: space-between;
+                button{
+                 border: none;
+                 width: 0px;
+                 background-color: none;
+                };
+
+                
+             }
+
+             .del{
+                margin-left: 30px;
+                color: rgb(156, 55, 85);
+                margin-bottom: 20px;
+                font-size: 20px;
+             }
+               .del:hover{
+                 font-size: 24px;
+               }
+
+               }
+ 
+             .to{
+                margin-left: 400px;
+             }
+ 
+    }
+}
