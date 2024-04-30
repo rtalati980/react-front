@@ -11,7 +11,7 @@ const DetailsPro = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`http://localhost:8080/product/api/id/${id}`, {
+            const response = await fetch(`http://ec2-3-111-149-200.ap-south-1.compute.amazonaws.com:8080/product/api/id/${id}`, {
                 method: 'GET'
             });
 
@@ -55,9 +55,7 @@ const DetailsPro = () => {
     return (
         <div className="product-container">
             <div className="left">
-            <img 
-             src= {`http://localhost:8080/product/api/images${product.images[0]}`}
-              alt={product.name} />
+            
             </div>
             <div className="right">
                 {product && (

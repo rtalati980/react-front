@@ -30,11 +30,13 @@
         .items{
             display: flex;
             margin-top: 20px;
+            justify-content: space-between;
             border-bottom: 1px solid gray;
             .pr{
                 
                 display: flex;
-                justify-content: flex-start;
+                align-items: center;
+               
                 margin-bottom: 20px;
             }
 
@@ -62,41 +64,81 @@
                .icp{
                 display: flex;
                 align-items: center;
-
-            .but{
-                margin-left: 140px;
-                display: flex;
+                margin-left: 300px;
                 gap: 10px;
-                align-items: center;
-                width: 100px;
-                height: 30px;
                 border: 2px solid #b16f23;
-                margin-bottom: 20px;
-                justify-content: space-between;
-                button{
-                 border: none;
-                 width: 0px;
-                 background-color: none;
-                };
+                 height: 20px;
+                 border-radius: 10px;
+                 padding: 10px;
 
-                
-             }
+                 p{
 
-             .del{
-                margin-left: 30px;
+                    margin-left: -6px;
+                 }
+
+               }
+               .del{
+               
                 color: rgb(156, 55, 85);
-                margin-bottom: 20px;
+               margin-left: 30px;
                 font-size: 20px;
              }
                .del:hover{
                  font-size: 24px;
                }
-
-               }
  
              .to{
-                margin-left: 400px;
+                margin-left: 330px;
              }
  
     }
 }
+
+
+@media only screen and (max-width: 600px) {
+    .cart {
+      height: auto; /* Allow content to define height */
+    }
+  
+    .cartdd {
+      padding: 20px; /* Reduce padding on smaller screens */
+    }
+  
+    .cartdd .head {
+      height: auto; /* Remove fixed height for head */
+    }
+  
+    .cartdd .items {
+      flex-direction: column; /* Stack items vertically on mobile */
+    }
+  
+    .cartdd .items .pr,
+    .cartdd .items .checkout {
+      margin-top: 10px; /* Reduce margin between items */
+    }
+  
+    .cartdd .items p {
+      margin-left: 0; /* Remove left margin for better alignment */
+    }
+  
+    .cartdd .items .icp {
+     margin-left: 90px;/* Center icon group horizontally */
+      gap: 5px; /* Reduce gap between icon and text */
+      padding: 5px; /* Reduce padding for smaller screens */
+    }
+  
+    .cartdd .items .icp p {
+      margin-left: 0px; /* Remove left margin for text */
+    }
+  
+    .cartdd .del {
+      margin-left: -10px; /* Move delete icon to the right */
+    }
+  
+    .cartdd .to {
+     
+        
+            margin-left: -600px;
+        
+    }
+  }

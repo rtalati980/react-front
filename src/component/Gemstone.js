@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 const fetchData = async () => {
  
   try {
-    const response = await fetch(`http://localhost:8080/category/api/`,{
+    const response = await fetch(`http://ec2-3-111-149-200.ap-south-1.compute.amazonaws.com:8080/category/api/`,{
       method: 'GET'
     }
     
@@ -63,12 +63,12 @@ const GemStone = ({ addToCart }) => {
       {(cat.products).map(pro => (
         <div key={pro.id}  className='ctpro' >
           <img 
-             src= {`http://localhost:8080/product/api/images${pro.images[0]}`}
+             src= {`http://ec2-3-111-149-200.ap-south-1.compute.amazonaws.com:8080/product/api/images${pro.images[0]}`}
               alt={pro.name} />
           <h2><Link to={`/product/${pro.id}`}>{pro.name}</Link></h2> 
           <h3>Rs. {pro.price}.00</h3>
            <p>Radhe Krishna Mart</p>
-           <Link to='/cart'><button   onClick={() => addToCart(pro)}>Add To Cart</button></Link>
+           <Link to={'/cart'}><button   onClick={() => addToCart(pro)}>Add To Cart</button></Link>
         </div>
       ))}
     </div>

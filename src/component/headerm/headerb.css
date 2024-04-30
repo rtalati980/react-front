@@ -69,6 +69,14 @@ body {
   height: 80px;
 }
 
+.hc {
+  /* Your styles for the AnchorTemporaryDrawer */
+  /* For example: */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
 .title {
   margin-left: 30px;
 
@@ -110,8 +118,9 @@ ul li a {
 
 .ricons {
  
-  margin-top: 20px;
-  font-size: 28px;
+  margin-top: 22px;
+  font-size: 24px;
+  
 }
 
 .fa {
@@ -129,26 +138,24 @@ ul li a {
   .head .title {
     display: flex;
     align-items: center;
-  }
-  .head .title #ic {
-    display: block;
-    font-size: 60px;
-    margin-right: 120px;
-    cursor: pointer;
     
   }
+  
   .head h1 {
-    width: 100%;
+    
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: -1px;
+   margin-left: -60px;
   }
   .head .naviga {
     display: none;
   }
   .head .naviga ul {
-    color: #283618;
+   
     display: flex;
-    gap: 12px;
+   
     list-style-type: none;
     font-size: 12px;
   }
@@ -162,9 +169,10 @@ ul li a {
   .head .ricons {
     margin-top: 15px;
     font-size: 28px;
+    color: #b16f23;
   }
   .head .ricons .fa #ci {
-    display: block;
+   
   }
   .head .ricons .fa #fi {
     margin-left: 20px;
@@ -248,8 +256,9 @@ ul li a {
 .overlay.active {
   display: block; /* Show the overlay when active */
   background-color: rgba(162, 94, 34, 0.9);
- 
+  
 }
+
 
 .overlay-content {
   position: relative;
@@ -303,6 +312,8 @@ ul li a {
     top: 15px;
     right: 35px;
   }
+
+ 
 }
 
 
@@ -350,5 +361,6 @@ body.overlay-active {
   background-color: #fefae0;
   border-radius: 10px;
 }
+
 
 /* Add your other banner styles here */
