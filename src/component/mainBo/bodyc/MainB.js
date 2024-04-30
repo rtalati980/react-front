@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
  
 const fetchData = async () => {
   try {
-    const response = await fetch('http://ec2-3-111-149-200.ap-south-1.compute.amazonaws.com:8080/category/api/',{
+    const response = await fetch('http://ec2-13-201-60-182.ap-south-1.compute.amazonaws.com:8080/category/api/',{
       method: 'GET'
     }
     
@@ -50,7 +50,7 @@ export default function MainB ({cat}) {
         {category.map(cat => (
           <div key={cat.catid} className='pro'>
            <Link to={`/collection/${cat.name}`}><img
-    src={`http://ec2-3-111-149-200.ap-south-1.compute.amazonaws.com:8080/category/api${cat.imgPath}`}
+    src={`http://ec2-13-201-60-182.ap-south-1.compute.amazonaws.com:8080/category/api${cat.imgPath}`}
 alt={`${cat.imgPath}`}
   /></Link>
             <div className='textlink'>  <h3>{cat.name} </h3>

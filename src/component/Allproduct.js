@@ -5,7 +5,7 @@ import './productc.css'
 // Function to fetch products data
 const fetchData = async () => {
   try {
-    const response = await fetch(`http://ec2-3-111-149-200.ap-south-1.compute.amazonaws.com:8080/product/api/`, {
+    const response = await fetch(`http://ec2-13-201-60-182.ap-south-1.compute.amazonaws.com:8080/product/api/`, {
       method: 'GET'
     });
 
@@ -46,7 +46,7 @@ const AllProducts = ({ addToCart }) => {
 
       {products.map(product => (
         <div key={product.id} className='ctpro'>
-          <img src={`http://ec2-3-111-149-200.ap-south-1.compute.amazonaws.com:8080/product/api/images${product.images[0]}`} alt={product.name} />
+          <img src={`http://ec2-13-201-60-182.ap-south-1.compute.amazonaws.com:8080/product/api/images${product.images[0]}`} alt={product.name} />
           <h2><Link to={`/product/${product.id}`}>{product.name}</Link></h2> 
           <h3>Rs. {product.price}.00</h3>
           <p>Radhe Krishna Mart</p>

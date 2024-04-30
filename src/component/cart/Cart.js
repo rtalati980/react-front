@@ -44,7 +44,7 @@ const Cart = ({ cart }) => {
           <div className='items'>
             {cart.map((item) => (
               <div className='pr' key={item.id}>
-                <img src={`http://ec2-3-111-149-200.ap-south-1.compute.amazonaws.com:8080/product/api/images${item.images[0]}`} alt={item.name} />
+                <img src={`http://ec2-13-201-60-182.ap-south-1.compute.amazonaws.com:8080/product/api/images${item.images[0]}`} alt={item.name} />
                 <p>{item.name}</p>
                 <div className='icp'>
                  <FaMinus   onClick={() => handleDecrement(item.id)} />

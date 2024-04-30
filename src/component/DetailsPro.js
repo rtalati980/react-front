@@ -11,7 +11,7 @@ const DetailsPro = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`http://ec2-3-111-149-200.ap-south-1.compute.amazonaws.com:8080/product/api/id/${id}`, {
+            const response = await fetch(`http://ec2-13-201-60-182.ap-south-1.compute.amazonaws.com:8080/product/api/id/${id}`, {
                 method: 'GET'
             });
 
