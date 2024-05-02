@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 const fetchData = async () => {
  
   try {
-    const response = await fetch(`http://ec2-13-201-60-182.ap-south-1.compute.amazonaws.com:8080/category/api/`,{
+    const response = await fetch(`https://radhakrishnamart.azurewebsites.net/category/api/`,{
       method: 'GET'
     }
     
@@ -63,7 +63,7 @@ const Product = ({ addToCart }) => {
       {(cat.products).map(pro => (
         <div key={pro.id}  className='ctpro' >
           <img 
-             src= {`http://ec2-13-201-60-182.ap-south-1.compute.amazonaws.com:8080/product/api/images${pro.images[0]}`}
+             src= {`https://radhakrishnamart.azurewebsites.net/product/api/images${pro.images[0]}`}
               alt={pro.name} />
           <h2><Link to={`/product/${pro.id}`}>{pro.name}</Link></h2> 
           <h3>Rs. {pro.price}.00</h3>
