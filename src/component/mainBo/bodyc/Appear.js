@@ -11,18 +11,18 @@ import { LiaShippingFastSolid } from "react-icons/lia";
         <h2>Why Choose Radhe Krishna Mart?</h2>
         <div className='achil'>
             <div className='col'>
-            <TbMicroscope id='ic'/>
+            <TbMicroscope  id='ics' fontSize="5em" />
             <h2>Lab Certified</h2>
             <p>All of the products that we have in our stock, are tetsed through certified labs so you don't have to worry about the quality</p>
             </div>
             <div className='col'>
-            <SiFsecure id='ic'/>
+            <SiFsecure id='ict' fontSize="5em"/>
             <h2>Secure Payment</h2>
            <p> We have encrypted connection with enhanced security so you can pay using your credit card without being subjected to online scams.</p>
             </div>
            
             <div className='col'>
-               <LiaShippingFastSolid id='ic'/>
+               <LiaShippingFastSolid  id='icd' fontSize="5em" />
                <h2>Free  Shipping</h2>
                <p>Currently, we are shipping to customers all across India, serving our clients with the same level of excellence and commitment.</p>
             </div>
