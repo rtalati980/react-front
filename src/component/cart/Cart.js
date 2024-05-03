@@ -49,7 +49,7 @@ const Cart = ({ cart }) => {
           <div className='items'>
             {cart.map((item) => (
               <div className='pr' key={item.id}>
-                <img src={`https://radhakrishnamart.azurewebsites.net/product/api/images/product_images/${getFileName(product.images[0])}`} alt={product.name} />
+                <img src={`https://radhakrishnamart.azurewebsites.net/product/api/images/product_images/${getFileName(item.images[0])}`} alt={item.name} />
                 <p>{item.name}</p>
                 <div className='icp'>
                  <FaMinus   onClick={() => handleDecrement(item.id)} />
