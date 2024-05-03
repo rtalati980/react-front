@@ -52,10 +52,15 @@ const DetailsPro = () => {
         fetchProduct();
     }, []);
 
+    const getFileName = (path) => {
+        const parts = path.split('/');
+        return parts[parts.length - 1];
+      };
+
     return (
         <div className="product-container">
             <div className="left">
-            
+            <img src={`https://radhakrishnamart.azurewebsites.net/product/api/images/product_images/${getFileName(product.images[0])}`} alt={product.name} />
             </div>
             <div className="right">
                 {product && (
