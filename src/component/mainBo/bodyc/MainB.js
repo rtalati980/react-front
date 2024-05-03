@@ -50,7 +50,7 @@ export default function MainB ({cat}) {
         {category.map(cat => (
           <div key={cat.catid} className='pro'>
            <Link to={`/collection/${cat.name}`}><img
-    src={`http://ec2-13-201-60-182.ap-south-1.compute.amazonaws.com:8080/category/api${cat.imgPath}`}
+    src={`https://radhakrishnamart.azurewebsites.net/category/api/images/${getFileName(cat.imgPath)}`}
 alt={`${cat.imgPath}`}
   /></Link>
             <div className='textlink'>  <h3>{cat.name} </h3>
@@ -62,3 +62,8 @@ alt={`${cat.imgPath}`}
     </div>
   )
 }
+
+const getFileName = (path) => {
+  const parts = path.split('/');
+  return parts[parts.length - 1];
+};
