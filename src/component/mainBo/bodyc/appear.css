@@ -91,7 +91,7 @@
 @media only screen and (max-width: 600px) {
     .actnt{
         margin-top: 40px;
-        margin-left: -50px;
+        margin-left: -70px;
        
         h2{
             color:#b16f23;
@@ -103,7 +103,7 @@
             flex-direction: column;
             gap: 15px;
             .col{
-                width: 350px;
+                width: 340px;
                 border: 2px solid #b16f23;
                 height: 400px;
                 border-radius: 10px;
@@ -150,27 +150,31 @@
             margin-top: 30px;
             border-bottom: 2px solid #b16f23;
             margin-bottom: 50px;
+           
         }
         .rich-text-1{
             h2{
-                font-size: 22px;
+                font-size: 18px;
+                padding-left: 20px;
             }
             p{
                 padding-left: 80px;
-                padding-right: 80px;
-                font-size: 18px;
+                padding-right: 50px;
+                font-size: 15px;
                 
                line-height: 30px;
             }
         }
         .rich-text-2{
             h2{
-                font-size: 22px;
+                font-size: 18px;
+                padding-left: 20px;
+                
             }
             p{
                 padding-left: 80px;
-                padding-right: 60px;
-                font-size: 18px;
+                padding-right: 50px;
+                font-size: 15px;
                 
                 line-height: 35px;
             }

@@ -9,21 +9,24 @@
     display: flex;
     justify-content: space-around;
      
+
+    input{
+        margin-top: 20px;
+        width: 400px;
+        height: 40px;
+        border: 3px solid #d6dfb7;
+        border-radius: 10px;
+        background-color: #ceaa82;
+        
+    }
+    input:hover{
+        border: 3px solid #d6dfb7;
+
+    }
     .left{
         flex: 0.5;
         padding-left: 50px;
-        input{
-           
-            width: 400px;
-            height: 40px;
-            border: 3px solid #d6dfb7;
-            border-radius: 10px;
-            background-color: #ceaa82;
-        }
-        input:hover{
-            border: 3px solid #d6dfb7;
-
-        }
+       
     }
     .right{
         padding-top: 80px;
@@ -57,22 +60,24 @@
    }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
     .par {
         height: auto;
     }
 
     .top {
+        display: flex;
         flex-direction: column;
         align-items: center;
+         
+        input{
+            width: 250px;
+        }   
     }
 
-    .top .left input {
-        width: 20%;
-        
-       
-    }
- 
+   
+
+    
     .top .right {
         flex: 1;
         font-size: 18px;

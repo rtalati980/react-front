@@ -2,14 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 
 export default function AnchorTemporaryDrawer() {
@@ -35,13 +27,13 @@ export default function AnchorTemporaryDrawer() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <ul style={{ listStyleType: 'none', padding: 40, margin: '40px', display: 'flex', flexDirection: 'column' }}>
-  <li><a href='/'>Home</a></li>
-  <li><a href='/products'>All Product</a></li>
-  <li><a href='/rudraksh'>Rudhraksh</a></li>
-  <li><a href='/gemstone'>Gemstone</a></li>
-  <li><a href='/about'>About us</a></li>
-  <li><a href='/contact'>CONTACT US</a></li>
+      <ul style={{ listStyleType: 'none', padding: 40, margin: '40px', display: 'flex', flexDirection: 'column' ,color: '#b16f23'}}>
+  <li ><a style={{color: '#b16f23' }} href='/'>Home</a></li>
+  <li><a style={{color: '#b16f23'}} href='/products'>All Product</a></li>
+  <li><a style={{color: '#b16f23'}} href='/rudraksh'>Rudhraksh</a></li>
+  <li><a  style={{color: '#b16f23'}} href='/gemstone'>Gemstone</a></li>
+  <li><a  style={{color: '#b16f23'}} href='/about'>About us</a></li>
+  <li><a style={{color: '#b16f23'}} href='/contact'>CONTACT US</a></li>
 </ul>
     </Box>
   );

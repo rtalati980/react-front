@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './cart.css';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { MdOutlineDeleteForever } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const Cart = ({ cart }) => {
   const [counts, setCounts] = useState({});
@@ -68,7 +69,9 @@ const Cart = ({ cart }) => {
             ))}
           </div>
           <div className='checkout'>
-            <button>CHECKOUT</button>
+          <Link to='/checkout'>
+              <button>Proceed to Checkout</button>
+            </Link>
           </div>
         </div>
       ) : (

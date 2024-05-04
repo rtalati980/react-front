@@ -1,97 +1,92 @@
-.cart{
-     margin-top: 20px;
-    text-align: center;
-    height: 400px;
-    font-size: 30px;
-   color: #283618;
+.cart {
+  margin-top: 20px;
+  text-align: center;
+  height: 400px;
+  font-size: 30px;
+  color: #283618;
 
-    button{
-        cursor: pointer;
-        width: 250px;
-        height: 60px;
-        border-radius: 5px;
-        border: 1px solid #283618;
-    }
+  button {
+      cursor: pointer;
+      width: 250px;
+      height: 60px;
+      border-radius: 5px;
+      border: 1px solid #283618;
+  }
 
-    .cartdd{
-       font-size: 16px;
-        
-       padding: 40px 40px 40px 40px;
-            
-        .head{
-            height: 40px;
-            font-size: 12px;
-            border-bottom: 1px solid gray;
-            h4{
-                margin-top: 20px;
-            }
-        }
-        
-        .items{
-            display: flex;
-            margin-top: 20px;
-            justify-content: space-between;
-            border-bottom: 1px solid gray;
-            .pr{
-                
-                display: flex;
-                align-items: center;
-               
-                margin-bottom: 20px;
-            }
+  .cartdd {
+      font-size: 16px;
+      padding: 40px;
 
-            p{
-                
-                margin-left: 30px;
-            }
-             
-        }
+      .head {
+          height: 40px;
+          font-size: 12px;
+          border-bottom: 1px solid gray;
 
-                 .checkout{
-                    margin-top: 30px;
+          h4 {
+              margin-top: 20px;
+          }
+      }
 
-                    button{
+      .items {
+         
+          margin-top: 20px;
+         
+          border-bottom: 1px solid gray;
 
-                       height: 30px;
-                    }
-                 }
-            img{
-                width: 100px;
-                border-radius: 5px;
- 
-            }
+          .pr {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 20px;
+          }
+
+          p {
+              margin-left: 30px;
+          }
+      }
+
+      .checkout {
+          margin-top: 30px;
+
+          button {
+              height: 30px;
+          }
+      }
+
+      img {
+          width: 100px;
+          border-radius: 5px;
+      }
+
+      .icp {
+          display: flex;
+          align-items: center;
+         
+          gap: 10px;
+          border: 2px solid #b16f23;
+          height: 20px;
+          border-radius: 10px;
+          padding: 10px;
+
+          p {
+              margin-left: -6px;
+          }
+      }
+
+      .del {
+          color: rgb(156, 55, 85);
+          margin-left: 30px;
+          font-size: 20px;
+      }
+
+      .del:hover {
+          font-size: 24px;
+      }
+
+      .to {
           
-               .icp{
-                display: flex;
-                align-items: center;
-                margin-left: 300px;
-                gap: 10px;
-                border: 2px solid #b16f23;
-                 height: 20px;
-                 border-radius: 10px;
-                 padding: 10px;
-
-                 p{
-
-                    margin-left: -6px;
-                 }
-
-               }
-               .del{
-               
-                color: rgb(156, 55, 85);
-               margin-left: 30px;
-                font-size: 20px;
-             }
-               .del:hover{
-                 font-size: 24px;
-               }
- 
-             .to{
-                margin-left: 330px;
-             }
- 
-    }
+      }
+  }
 }
 
 
@@ -118,11 +113,11 @@
     }
   
     .cartdd .items p {
-      margin-left: 0; /* Remove left margin for better alignment */
+      margin-left: -10px; /* Remove left margin for better alignment */
     }
   
     .cartdd .items .icp {
-     margin-left: 90px;/* Center icon group horizontally */
+     margin-left: 3px;/* Center icon group horizontally */
       gap: 5px; /* Reduce gap between icon and text */
       padding: 5px; /* Reduce padding for smaller screens */
     }
@@ -132,13 +127,13 @@
     }
   
     .cartdd .del {
-      margin-left: -10px; /* Move delete icon to the right */
+      margin-left: 10px; /* Move delete icon to the right */
     }
   
-    .cartdd .to {
-     
-        
-            margin-left: -600px;
+    .cartdd{
+      .to {
+        margin-left: 0; /* Remove the margin-left on mobile devices */
+    }
         
     }
   }

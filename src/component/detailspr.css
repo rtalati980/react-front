@@ -9,13 +9,22 @@
 
         img{
            width: 450px;
-              border-radius: 10px;
+         border-radius: 10px;
         }
    }
 
    .right{
          flex: 0.6;
+             
 
+         .gemc{
+            width: 400px;
+            display: flex;
+            justify-content: space-between;   
+            button{
+                   width: 60px;
+            }
+         }
 
          button{
             width: 420px;
@@ -45,4 +54,43 @@
    }
 
 
+}
+
+@media only screen and (max-width: 600px) {
+   .product-container {
+       flex-direction: column;
+   }
+
+   .product-container .left,
+   .product-container .right {
+       flex: 1;
+   }
+
+   .product-container .left {
+       padding: 40px;
+       text-align: center;
+   }
+
+   .product-container .left img {
+       width: 60%;
+   }
+
+   .product-container .right {
+       padding: 20px;
+   }
+
+   .product-container .right .gemc {
+       width: 60%;
+       flex-wrap: wrap;
+   }
+
+   .product-container .right button {
+       width: 60%;
+       margin-bottom: 10px;
+   }
+
+   .product-container .right .cl {
+       width: 20%;
+       justify-content: center;
+   }
 }

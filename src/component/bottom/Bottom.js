@@ -10,9 +10,9 @@ export default function Bottom() {
   return (
     <div className='par'>
         <div className='top'>
-        <div className='left'>
-            <h2>Subscribe to our emails</h2>
+        <h2>Subscribe to our emails</h2>
             <input></input>
+        <div className='left'>
         </div>
         <div className='right'>
            <AiFillFacebook/>
