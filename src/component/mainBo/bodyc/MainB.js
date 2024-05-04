@@ -49,10 +49,10 @@ export default function MainB ({cat}) {
             <div className='colpro'>
         {category.map(cat => (
           <div key={cat.catid} className='pro'>
-           <Link to={`/collection/${cat.name}`}><img
-    src={`https://radhakrishnamart.azurewebsites.net/category/api/images/${getFileName(cat.imgPath)}`}
-alt={`${cat.imgPath}`}
-  /></Link>
+           <Link to={`/collection/${cat.name}`}>
+
+            <img src={`${cat.imgPath}`} alt={`${cat.imgPath}`}/>
+            </Link>
             <div className='textlink'>  <h3>{cat.name} </h3>
          <FaArrowRightLong id='fa'/></div>
           </div>
@@ -63,7 +63,3 @@ alt={`${cat.imgPath}`}
   )
 }
 
-const getFileName = (path) => {
-  const parts = path.split('/');
-  return parts[parts.length - 1];
-};

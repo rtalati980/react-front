@@ -52,10 +52,7 @@ export default function ({addToCart}){
     fetchCategory();
   }, []);
 
-  const getFileName = (path) => {
-    const parts = path.split('/');
-    return parts[parts.length - 1];
-  };
+  
 
    
   const filteredCategory = category.filter(cat => cat.name === "Rudraksha");
@@ -66,7 +63,7 @@ export default function ({addToCart}){
         <div className='pcntr' >
           {(cat.products).map(pro => (
             <div key={pro.id}  className='ctpro' >
-              <img src={`https://radhakrishnamart.azurewebsites.net/product/api/images/product_images/${getFileName(pro.images[0])}`} alt={pro.name} />
+             <img src={`${pro.images[0]}`} alt={`${pro.name}`} />
               <h2><Link to={`/product/${pro.id}`}>{pro.name}</Link></h2> 
               <h3>Rs. {pro.price}.00</h3>
                <p>Radhe Krishna Mart</p>

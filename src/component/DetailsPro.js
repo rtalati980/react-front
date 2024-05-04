@@ -60,7 +60,12 @@ const DetailsPro = () => {
     return (
         <div className="product-container">
             <div className="left">
-           
+            {product && product.images && product.images[0] && (
+    <img
+      src={`${product.images[0]}`}
+      alt={`${product.images[0]}`}
+    />
+  )}
             </div>
             <div className="right">
                 {product && (
