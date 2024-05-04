@@ -11,6 +11,10 @@ import AnchorTemporaryDrawer from './AnchorTemporaryDrawer';
 export default function Headerb() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const toggleSearch = () => {
+    setShowSearch(!showSearch);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -51,7 +55,14 @@ export default function Headerb() {
       
       <div className='ricons' >
         <div className='fa '>
-          <a id='ci' href='/cart'><CiSearch  style={{color: '#b16f23'}}/></a>
+          <a id='ci' onClick={toggleSearch} ><CiSearch  style={{color: '#b16f23' ,cursor:'pointer'} }/></a>
+          {showSearch && (
+        <input
+          type="text"
+          placeholder="Search..."
+          style={{ marginLeft: '10px', padding: '5px' }}
+        />
+      )}
           <a id='fi' href='/cart'><FiShoppingBag style={{color: '#b16f23'}}/></a>
         </div>
       </div>

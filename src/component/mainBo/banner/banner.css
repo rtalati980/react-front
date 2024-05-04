@@ -2,7 +2,7 @@
   margin-bottom: 70px;
   width: 100%; /* Set the width of the container */
   height: 500px;
-  background-image: url('../../../../public/png/rudraks.jpeg'); /* Set the path to your image */
+  background-image: url('https://martimages.blob.core.windows.net/imagesmart/rudhraa.jpeg'); /* Set the path to your image */
   background-size: cover; /* Make the background image cover the entire container */
   background-position: center; 
   position: relative;
@@ -84,7 +84,7 @@
 }
 
 .ban .child h1 {
- margin-left: -600px; /* Adjust margin-top for smaller screens */
+ margin-left: -620px; /* Adjust margin-top for smaller screens */
  /* Adjust margin-left for smaller screens */
   width: auto; /* Allow width to adjust based on content */
   font-size: 24px; /* Reduce font size for smaller screens */
@@ -92,18 +92,27 @@
 }
 
 .ban .child h3 {
-  margin-left: -600px;  /* Adjust margin-left for smaller screens */
+  margin-left: -670px;  /* Adjust margin-left for smaller screens */
   font-size: 18px; /* Reduce font size for smaller screens */
   color: #a78e8e;
 }
 
-.ban .child .but1,
-.ban .child .but2 {
+.ban .child .but1
+ {
   margin-left: -320px;  /* Adjust margin-left for smaller screens */
   margin-top: 10px; /* Adjust margin-top for smaller screens */
   border: 2px solid #a78e8e;
   cursor: pointer;
   border-bottom: 4px solid #a78e8e;
   color: #a78e8e;
+}
+
+.ban .child .but2{
+  margin-top: 80px;
+  margin-left: -560px;
+  border-bottom: 4px solid #a78e8e;
+  color: #a78e8e;
+  border: 2px solid #a78e8e;
+ 
 }
 }  

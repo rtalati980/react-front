@@ -67,7 +67,7 @@ h2{
         .child{
         h2{
             position:absolute;
-            left: 80px;
+            left: 30px;
             font-size: 32px;
             top: 50px;
             color:#fefae0;
@@ -80,7 +80,7 @@ h2{
             display: grid;
             grid-template-columns: auto auto;
             gap: 50px;
-            padding-left: 80px;
+            padding-left: 20px;
         
             .pro{
                 margin-top: 40px;

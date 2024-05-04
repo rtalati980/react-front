@@ -68,11 +68,12 @@
     }
 
     .top .left input {
-        width: 80%;
-    }
-
-    .top .right {
+        width: 20%;
         
+       
+    }
+ 
+    .top .right {
         flex: 1;
         font-size: 18px;
         gap: 20px;
@@ -85,9 +86,9 @@
         ul{
            
            margin-left: -40px;
-            display: flex;
-            font-size: 15px;
-            
+           display: flex;
+           font-size: 15px;
+           padding: 40px;
         }
     }
 
