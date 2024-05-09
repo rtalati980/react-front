@@ -18,8 +18,10 @@ function Home() {
     <div>
       <Banner />
       <MainB />
-      <GemStone addToCart={addToCart} cart={cart} /> {/* Pass cart to GemStone component */}
-      <Rudraksh addToCart={addToCart} cart={cart} /> {/* Pass cart to Rudraksh component */}
+      {/* Pass cart and addToCart function to GemStone component */}
+      <GemStone addToCart={addToCart} cart={cart} />
+      {/* Pass cart and addToCart function to Rudraksh component */}
+      <Rudraksh addToCart={addToCart} cart={cart} />
       <Appear />
       <FAQ />
     </div>

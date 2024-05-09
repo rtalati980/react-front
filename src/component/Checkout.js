@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
-const Checkout = ({ productName, quantity, totalPrice }) => {
+const Checkout = () => {
+  const location = useLocation();
+  const { productName, quantity, totalPrice } = location.state || {};
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',

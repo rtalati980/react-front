@@ -13,7 +13,7 @@ const DetailsPro = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`https://radhakrishnamart.azurewebsites.net/product/api/id/${id}`, {
+            const response = await fetch(`https://ec2.radhakrishnamart.com:8443/product/api/id/${id}`, {
                 method: 'GET'
             });
 

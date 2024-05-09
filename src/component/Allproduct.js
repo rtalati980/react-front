@@ -51,7 +51,7 @@ const AllProducts = ({ addToCart }) => {
 
       {products.map(product => (
         <div key={product.id} className='ctpro'>
-              <img src={`${product.images[0]}`} alt={`${product.name}`} />  
+              <Link to={`/product/${product.id}`}><img src={`${product.images[0]}`} alt={`${product.name}`} /></Link>  
           <h2><Link to={`/product/${product.id}`}>{product.name}</Link></h2> 
           <h3>Rs. {product.price}.00</h3>
           <p>Radhe Krishna Mart</p>

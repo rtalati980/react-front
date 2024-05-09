@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 const fetchData = async () => {
  
   try {
-    const response = await fetch(`https://radhakrishnamart.azurewebsites.net/category/api/`,{
+    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/category/api/`,{
       method: 'GET'
     }
     
@@ -63,7 +63,7 @@ export default function ({addToCart}){
         <div className='pcntr' >
           {(cat.products).map(pro => (
             <div key={pro.id}  className='ctpro' >
-             <img src={`${pro.images[0]}`} alt={`${pro.name}`} />
+            <Link to={`/product/${pro.id}`} ><img src={`${pro.images[0]}`} alt={`${pro.name}`} /></Link>
               <h2><Link to={`/product/${pro.id}`}>{pro.name}</Link></h2> 
               <h3>Rs. {pro.price}.00</h3>
                <p>Radhe Krishna Mart</p>

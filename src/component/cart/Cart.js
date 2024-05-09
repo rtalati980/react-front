@@ -99,9 +99,9 @@ const Cart = ({ cart }) => {
             ))}
           </div>
           <div className='checkout'>
-            <Link to='/checkout' onClick={handleCheckout}>
-              <button>Proceed to Checkout</button>
-            </Link>
+          <Link to={{ pathname: '/checkout', state: { productName, quantity, totalPrice } }}>
+  <button>Proceed to Checkout</button>
+</Link>
           </div>
         </div>
       ) : (

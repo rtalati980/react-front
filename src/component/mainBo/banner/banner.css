@@ -9,7 +9,7 @@
   .child{
     position: absolute;
     width: 600px;
-    height: 270px;
+    height: 200px;
     border: 2px solid  #b16f23;
     border-bottom: 15px solid #b16f23;
     left: 300px;
@@ -76,14 +76,19 @@
   }
   
   .ban .child {
-    margin-top: -150px;
+  
   position: relative; /* Position relative for child elements */
   background-color: transparent;
   border: none;
   /* Center text inside .child */
 }
 
+.child{
+  padding-bottom: -800px;
+}
+
 .ban .child h1 {
+  margin-top: -80px;
  margin-left: -620px; /* Adjust margin-top for smaller screens */
  /* Adjust margin-left for smaller screens */
   width: auto; /* Allow width to adjust based on content */
