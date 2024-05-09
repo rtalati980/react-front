@@ -20,6 +20,7 @@ function App() {
   const addToCart = (product) => {
     const updatedCart = [...cart, product];
     setCart(updatedCart);
+    console.log('cart:',cart);
   };
 
   // Function to handle adding a product to the cart with additional logic

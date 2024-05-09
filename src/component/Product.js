@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 const fetchData = async () => {
  
   try {
-    const response = await fetch(`https://radhakrishnamart.azurewebsites.net/category/api/`,{
+    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/category/api/`,{
       method: 'GET'
     }
     

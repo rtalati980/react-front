@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 
 const Cart = ({ cart }) => {
   const [counts, setCounts] = useState({});
+  const [productName, setProductName] = useState('');
+  const [quantity, setQuantity] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleIncrement = (itemId) => {
     setCounts({ ...counts, [itemId]: (counts[itemId] || 0) + 1 });
@@ -21,7 +24,6 @@ const Cart = ({ cart }) => {
     const updatedCounts = { ...counts };
     delete updatedCounts[itemId];
     setCounts(updatedCounts);
-    console.log(itemId);
   };
 
   useEffect(() => {
@@ -30,12 +32,42 @@ const Cart = ({ cart }) => {
       countsData[item.id] = 1;
     });
     setCounts(countsData);
+
+    // Calculate total price
+    let totalPrice = 0;
+    cart.forEach((item) => {
+      totalPrice += item.price * (counts[item.id] || 1);
+    });
+    setTotalPrice(totalPrice);
   }, [cart]);
 
-  const getFileName = (path) => {
-    const parts = path.split('/');
-    return parts[parts.length - 1];
+  const handleCheckout = () => {
+    // Calculate product name, quantity, and total price
+    let productName = '';
+    let totalQuantity = 0;
+    let totalPrice = 0;
+  
+    cart.forEach((item) => {
+      productName += item.name + ', ';
+      totalQuantity += counts[item.id] || 1;
+      totalPrice += item.price * (counts[item.id] || 1);
+    });
+  
+    // Remove trailing comma and space from productName
+    productName = productName.replace(/, $/, '');
+  
+    // Update state
+    setProductName(productName);
+    setQuantity(totalQuantity);
+    setTotalPrice(totalPrice);
+  
+    console.log(productName, totalQuantity, totalPrice); // Check the values immediately after setting state
   };
+  
+  useEffect(() => {
+    // This useEffect hook will be called after productName, quantity, and totalPrice have been updated
+    console.log(productName, quantity, totalPrice);
+  }, [productName, quantity, totalPrice]);
 
   return (
     <div className='cart'>
@@ -50,13 +82,12 @@ const Cart = ({ cart }) => {
           <div className='items'>
             {cart.map((item) => (
               <div className='pr' key={item.id}>
-                <img src={`https://radhakrishnamart.azurewebsites.net/product/api/images/product_images/${getFileName(item.images[0])}`} alt={item.name} />
+                <img src={`${item.images[0]}`} alt={`${item.name}`} />
                 <p>{item.name}</p>
                 <div className='icp'>
-                 <FaMinus   onClick={() => handleDecrement(item.id)} />
+                  <FaMinus onClick={() => handleDecrement(item.id)} />
                   <p>{counts[item.id] || 1}</p>
-                  <FaPlus   onClick={() => handleIncrement(item.id)} />
-                  
+                  <FaPlus onClick={() => handleIncrement(item.id)} />
                 </div>
                 <div className='del'>
                   <MdOutlineDeleteForever onClick={() => handleDeleteItem(item.id)} />
@@ -64,12 +95,11 @@ const Cart = ({ cart }) => {
                 <div className='to'>
                   <p>Rs.{item.price * (counts[item.id] || 1)}.00</p>
                 </div>
-                
               </div>
             ))}
           </div>
           <div className='checkout'>
-          <Link to='/checkout'>
+            <Link to='/checkout' onClick={handleCheckout}>
               <button>Proceed to Checkout</button>
             </Link>
           </div>

@@ -4,7 +4,6 @@ import "../../headerm/headerb.css";
 
 
 
-
 export default function ({isOpen}) {
   return (
     <div className={`ban ${isOpen ? 'overlay' : ''}`}> 

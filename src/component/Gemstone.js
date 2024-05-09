@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 const fetchData = async () => {
  
   try {
-    const response = await fetch(`https://radhakrishnamart.azurewebsites.net/category/api/`,{
+    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/category/api/`,{
       method: 'GET'
     }
     
@@ -67,7 +67,8 @@ const GemStone = ({ addToCart }) => {
           <h2><Link to={`/product/${pro.id}`}>{pro.name}</Link></h2> 
           <h3>Rs. {pro.price}.00</h3>
            <p>Radhe Krishna Mart</p>
-           <Link to={'/cart'}><button   onClick={() => addToCart(pro)}>Add To Cart</button></Link>
+           <Link to={'/cart'}><button onClick={() => handleAddToCart(pro)}>Add To Cart</button>
+</Link>
         </div>
       ))}
     </div>
