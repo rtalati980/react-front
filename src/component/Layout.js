@@ -4,13 +4,13 @@ import Footer from './bottom/Bottom';
 import {Outlet} from 'react-router-dom'
 
 
-const layout=()=> {
+const Layout = ({ children }) => {
     return <>
       <Header />
       <Headerb/>
-      <Outlet/>
+      <main>{children}</main>
       <Footer/>
   </>
   }
   
-  export default layout
+  export default Layout

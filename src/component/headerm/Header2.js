@@ -35,7 +35,7 @@ export default function Headerb() {
   };
 
   return (
-    <div className='head'>
+    <div className='head '>
       {isMobile && <AnchorTemporaryDrawer  />} 
       <div className='title'>
         

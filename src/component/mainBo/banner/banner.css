@@ -1,3 +1,8 @@
+:root {
+  --primary: #b16f23;
+}
+
+
 .ban{
   margin-bottom: 70px;
   width: 100%; /* Set the width of the container */
@@ -6,7 +11,8 @@
   background-size: cover; /* Make the background image cover the entire container */
   background-position: center; 
   position: relative;
-  .child{
+}
+ /* .child{
     position: absolute;
     width: 600px;
     height: 200px;
@@ -63,102 +69,34 @@
    } 
 
   }
+  
 
 }
+*/
 
 
 @media only screen and (max-width: 600px){
   .ban {
-    display: flex; /* Use flexbox for layout */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    height: 100vh; /* Ensure proper positioning for child elements */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
-  .ban .child {
-  
-  position: relative; /* Position relative for child elements */
-  background-color: transparent;
-  border: none;
-  /* Center text inside .child */
-}
+  .child {
+    width: 90%;
+    max-width: 90%; /* Adjust this value as needed */
+    border: none !important;
+    border-bottom: 15px solid #b16f23;
+    background-color: transparent !important;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+  }
 
-.child{
-  padding-bottom: -800px;
-}
+  .btm{
+     display: flex !important;
+     flex-direction: column !important;
+  }
 
-.ban .child h1 {
-  margin-top: -80px;
- margin-left: -620px; /* Adjust margin-top for smaller screens */
- /* Adjust margin-left for smaller screens */
-  width: auto; /* Allow width to adjust based on content */
-  font-size: 24px; /* Reduce font size for smaller screens */
-  color: #bd6500;
-}
-
-.ban .child h3 {
-  margin-left: -670px;  /* Adjust margin-left for smaller screens */
-  font-size: 18px; /* Reduce font size for smaller screens */
-  color:#b16f23;
-}
-
-.ban .child .but1
- {
-  margin-left: -320px;  /* Adjust margin-left for smaller screens */
-  margin-top: 10px; /* Adjust margin-top for smaller screens */
-  border: 2px solid #b16f23;
-  cursor: pointer;
-  border-bottom: 4px solid #b16f23;
-  color: #b16f23;
-}
-
-.ban .child .but2{
-  margin-top: 80px;
-  margin-left: -560px;
-  border-bottom: 4px solid #b16f23;
-  color: #b16f23;
-  border: 2px solid #b16f23;
- 
-}
- 
-
-.ban {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.ban .child {
-  margin-top: 0; /* Remove margin-top */
-  background-color: transparent;
-  border: none;
-  text-align: center; /* Center text horizontally */
-}
-
-.ban .child h1 {
-  width: auto;
-  font-size: 20px; /* Adjust font size for smaller screens */
-  color: #bd6500;
-}
-
-.ban .child h3 {
-  font-size: 16px; /* Adjust font size for smaller screens */
-  color: #b16f23;
-}
-
-.ban .child .but1 {
-  margin-top: 10px;
-  border: 2px solid #b16f23;
-  cursor: pointer;
-  border-bottom: 4px solid #b16f23;
-  color: #b16f23;
-}
-
-.ban .child .but2 {
-  margin-top: 80px; /* Adjust margin-top for smaller screens */
-  border-bottom: 4px solid #b16f23;
-  color: #b16f23;
-  border: 2
-}
 }

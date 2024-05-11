@@ -44,20 +44,21 @@ export default function MainB ({cat}) {
 
   return (
     <div className='parent '>
-         <div className='child'>
-            <h2>Collections</h2>
+         <div className='child '>
+            <h2 className=''>Collections</h2>
             <div className='colpro'>
-        {category.map(cat => (
-          <div key={cat.catid} className='pro'>
-           <Link to={`/collection/${cat.name}`}>
-
-            <img src={`${cat.imgPath}`} alt={`${cat.imgPath}`}/>
-            </Link>
-            <div className='textlink'>  <h3>{cat.name} </h3>
-         <FaArrowRightLong id='fa'/></div>
-          </div>
-        ))}
-               </div> 
+  {category.map(cat => (
+    <div key={cat.catid} className='pro '>
+      <Link to={`/collection/${cat.name}`}>
+        <img src={`${cat.imgPath}`} alt={`${cat.imgPath}`} />
+      </Link>
+      <div className='textlink'>
+        <h3>{cat.name}</h3>
+        <FaArrowRightLong id='fa' />
+      </div>
+    </div>
+  ))}
+</div>
          </div>
     </div>
   )

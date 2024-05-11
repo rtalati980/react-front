@@ -1,113 +1,94 @@
 import React, { useState, useEffect } from 'react';
-import './cart.css';
-import { FaPlus, FaMinus } from 'react-icons/fa';
-import { MdOutlineDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { useCart } from '../CartContext'; // Import the useCart hook
 
-const Cart = ({ cart }) => {
+const Cart = () => {
+  const { state } = useCart(); // Use the useCart hook to access the state from the context
+  const { cart } = state; // Destructure the cart from the state
+
   const [counts, setCounts] = useState({});
+  const [totalPrice, setTotalPrice] = useState(0);
   const [productName, setProductName] = useState('');
   const [quantity, setQuantity] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
 
-  const handleIncrement = (itemId) => {
-    setCounts({ ...counts, [itemId]: (counts[itemId] || 0) + 1 });
+  // Function to update counts state and save to local storage
+  const updateCounts = (newCounts) => {
+    setCounts(newCounts);
+    localStorage.setItem('cartCounts', JSON.stringify(newCounts));
   };
 
+  // Function to update total price state and save to local storage
+  const updateTotalPrice = (newTotalPrice) => {
+    setTotalPrice(newTotalPrice);
+    localStorage.setItem('totalPrice', newTotalPrice);
+  };
+
+  useEffect(() => {
+    // Load cart counts from session storage on component mount
+    const savedCounts = JSON.parse(sessionStorage.getItem('cartCounts'));
+    if (savedCounts) {
+      setCounts(savedCounts);
+    }
+
+    // Load total price from session storage on component mount
+    const savedTotalPrice = sessionStorage.getItem('totalPrice');
+    if (savedTotalPrice) {
+      setTotalPrice(parseFloat(savedTotalPrice));
+    }
+  }, []);
+
+  // Increment count for a specific item
+  const handleIncrement = (itemId) => {
+    updateCounts((prevCounts) => ({ ...prevCounts, [itemId]: (prevCounts[itemId] || 0) + 1 }));
+  };
+
+  // Decrement count for a specific item
   const handleDecrement = (itemId) => {
     if (counts[itemId] && counts[itemId] > 1) {
-      setCounts({ ...counts, [itemId]: counts[itemId] - 1 });
+      updateCounts((prevCounts) => ({ ...prevCounts, [itemId]: prevCounts[itemId] - 1 }));
     }
   };
 
+  // Delete item from counts
   const handleDeleteItem = (itemId) => {
     const updatedCounts = { ...counts };
     delete updatedCounts[itemId];
-    setCounts(updatedCounts);
+    updateCounts(updatedCounts);
   };
-
-  useEffect(() => {
-    const countsData = {};
-    cart.forEach((item) => {
-      countsData[item.id] = 1;
-    });
-    setCounts(countsData);
-
-    // Calculate total price
-    let totalPrice = 0;
-    cart.forEach((item) => {
-      totalPrice += item.price * (counts[item.id] || 1);
-    });
-    setTotalPrice(totalPrice);
-  }, [cart]);
-
-  const handleCheckout = () => {
-    // Calculate product name, quantity, and total price
-    let productName = '';
-    let totalQuantity = 0;
-    let totalPrice = 0;
-  
-    cart.forEach((item) => {
-      productName += item.name + ', ';
-      totalQuantity += counts[item.id] || 1;
-      totalPrice += item.price * (counts[item.id] || 1);
-    });
-  
-    // Remove trailing comma and space from productName
-    productName = productName.replace(/, $/, '');
-  
-    // Update state
-    setProductName(productName);
-    setQuantity(totalQuantity);
-    setTotalPrice(totalPrice);
-  
-    console.log(productName, totalQuantity, totalPrice); // Check the values immediately after setting state
-  };
-  
-  useEffect(() => {
-    // This useEffect hook will be called after productName, quantity, and totalPrice have been updated
-    console.log(productName, quantity, totalPrice);
-  }, [productName, quantity, totalPrice]);
 
   return (
-    <div className='cart'>
+    <div className='container'>
       {cart.length > 0 ? (
-        <div className='cartdd'>
-          <h1>Your Cart</h1>
-          <div className='head'>
-            <p>Product</p>
-            <p>Quantity</p>
-            <p>Total</p>
-          </div>
-          <div className='items'>
-            {cart.map((item) => (
-              <div className='pr' key={item.id}>
-                <img src={`${item.images[0]}`} alt={`${item.name}`} />
-                <p>{item.name}</p>
-                <div className='icp'>
-                  <FaMinus onClick={() => handleDecrement(item.id)} />
-                  <p>{counts[item.id] || 1}</p>
-                  <FaPlus onClick={() => handleIncrement(item.id)} />
+          <div className='cart'>
+          {cart.map((product) => (
+            <div key={product.id} className='card mb-3'>
+              <div className='row g-0'>
+                <div className='col-md-4'>
+                  <img src={`${product.images[0]}`} alt={`${product.name}`} className='img-fluid' />
                 </div>
-                <div className='del'>
-                  <MdOutlineDeleteForever onClick={() => handleDeleteItem(item.id)} />
-                </div>
-                <div className='to'>
-                  <p>Rs.{item.price * (counts[item.id] || 1)}.00</p>
+                <div className='col-md-8'>
+                  <div className='card-body'>
+                    <h5 className='card-title'>{product.name}</h5>
+                    <p className='card-text'>Price: {product.price}</p>
+                    <div className='d-flex align-items-center'>
+                      <button className='btn btn-outline-secondary me-2' onClick={() => handleDecrement(product.id)}>-</button>
+                      <span>{counts[product.id] || 0}</span>
+                      <button className='btn btn-outline-secondary ms-2' onClick={() => handleIncrement(product.id)}>+</button>
+                    </div>
+                    <button className='btn btn-danger mt-2' onClick={() => handleDeleteItem(product.id)}>Remove</button>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-          <div className='checkout'>
-          <Link to={{ pathname: '/checkout', state: { productName, quantity, totalPrice } }}>
-  <button>Proceed to Checkout</button>
-</Link>
-          </div>
+            </div>
+          ))}
+          <div>Total Price: {totalPrice}</div>
         </div>
-      ) : (
-        <div>
+      )  : (
+        <div className='text-center'>
           <h1>Your Cart Is Empty</h1>
-          <button>Continue Shopping</button>
+          <Link to='/'>
+            <button className='btn btn-primary'>Continue Shopping</button>
+          </Link>
         </div>
       )}
     </div>

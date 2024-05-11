@@ -90,8 +90,8 @@
 
 @media only screen and (max-width: 600px) {
     .actnt{
-        margin-top: 40px;
-        margin-left: -70px;
+        
+        margin-left: -40px;
        
         h2{
             color:#b16f23;

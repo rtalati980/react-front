@@ -1,6 +1,7 @@
+
 .parent{
 background-color: #c37721;
-height: 800px;
+height: 600px;
 position: relative;
 
 .child{
@@ -8,14 +9,15 @@ h2{
     position:absolute;
     left: 80px;
     font-size: 32px;
-    top: 50px;
+    top: 30px;
     color:#fefae0;
     font-family: sans-serif;
+    
 }
 
 .colpro{
     position: absolute;
-    top: 120px;
+    top: 50px;
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap: 50px;
@@ -24,7 +26,7 @@ h2{
     .pro{
         margin-top: 40px;
         width: 200px;
-        height: 230px;
+        height: 150px;
        
         img{
             width: 180px;
@@ -60,60 +62,43 @@ h2{
 
 @media only screen and (max-width: 600px) {
     .parent{
+      margin-left: -50px;
         background-color: #c37721;
-        height: 1300px;
+        height: 900px;
         position: relative;
-        margin-left: -25px;
+       
         .child{
-        h2{
-            position:absolute;
-            left: 30px;
-            font-size: 32px;
-            top: 50px;
-            color:#fefae0;
-            font-family: sans-serif;
-        }
         
-        .colpro{
-            position: absolute;
-            top: 120px;
-            display: grid;
+          .colpro{
             grid-template-columns: auto auto;
-            gap: 40px;
-            padding-left: 40px;
-        
-            .pro{
-                margin-top: 40px;
-                width: 150px;
-                height: 190px;
-               
-                img{
-                    width: 180px;
-                    height: 160px;
-                    border-radius: 10px;
-                }
-        
-          .textlink{
+            gap: 10px;
+            
            
-            display: flex;
-             align-items: center;
-             color: #fefae0;
-              justify-content: space-evenly;
-              h3{
-                font-size: 18px;
-              }
-        
-              #fa{
-                font-size: 18px;
-                
-              }
           }
-        
-                
-            }
-        
+
+          .pro{
+            margin-top: 40px !important;
+            width: 150px !important;
+            height: 150px !important;}
+          
+          img{
+            width: 150px !important;
+            height: 120px !important;
+            border-radius: 10px !important;
         }
         
         
+        .textlink{
+   
+            h3{
+              font-size: 15px !important;
+            }
+      
+            #fa{
+              font-size: 12px;
+              
+            }
+        }
         }
         }}
+        

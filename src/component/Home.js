@@ -5,13 +5,22 @@ import FAQ from './mainBo/bodyc/FAQ';
 import MainB from './mainBo/bodyc/MainB';
 import GemStone from './Gemstone';
 import Rudraksh from './Rudraksh';
+import Cart from './cart/Cart';
 
 function Home() {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (product) => {
-    const updatedCart = [...cart, product];
+  const addToCart = (pro) => {
+    const updatedCart = [...cart, pro];
     setCart(updatedCart);
+    
+  };
+
+  // Function to handle adding a product to the cart with additional logic
+  const handleAddToCart = (pro) => {
+    addToCart(pro); // Call the addToCart function to add the product to the cart
+   
+    // You can add more custom logic here if needed
   };
 
   return (
@@ -19,9 +28,10 @@ function Home() {
       <Banner />
       <MainB />
       {/* Pass cart and addToCart function to GemStone component */}
-      <GemStone addToCart={addToCart} cart={cart} />
+      <GemStone addToCart={handleAddToCart} />
       {/* Pass cart and addToCart function to Rudraksh component */}
-      <Rudraksh addToCart={addToCart} cart={cart} />
+      <Rudraksh addToCart={handleAddToCart}  />
+      <div style={{display:'none'}}> <Cart  cart={cart}  /></div>
       <Appear />
       <FAQ />
     </div>

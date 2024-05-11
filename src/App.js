@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import './App.css';
-import Layout from './component/Layout';
+// App.js
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CartProvider } from './component/CartContext';
+import Layout from './component/Layout';
 import Home from './component/Home';
 import About from './component/about/About';
 import Contact from './component/contact/Contact';
@@ -14,40 +15,25 @@ import Checkout from './component/Checkout';
 import AllProducts from './component/Allproduct';
 
 function App() {
-  const [cart, setCart] = useState([]);
-
-  // Function to add a product to the cart
-  const addToCart = (product) => {
-    const updatedCart = [...cart, product];
-    setCart(updatedCart);
-    console.log('cart:',cart);
-  };
-
-  // Function to handle adding a product to the cart with additional logic
-  const handleAddToCart = (product) => {
-    addToCart(product); // Call the addToCart function to add the product to the cart
-    console.log('Product added to cart:', product);
-    // You can add more custom logic here if needed
-  };
-
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/collection/:categoryName" element={<Product addToCart={handleAddToCart} />} />
-            <Route path="/product/:id" element={<DetailsPro />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/rudraksh" element={<Rudraksh addToCart={handleAddToCart} />} />
-            <Route path="/gemstone" element={<Gemstone addToCart={handleAddToCart} />} />
-            <Route path="/products/" element={<AllProducts addToCart={handleAddToCart} />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/cart" element={<Cart cart={cart} />} />
-            <Route path="/checkout" element={<Checkout />} />
-          </Route>
-        </Routes>
+        <CartProvider>
+          <Layout>
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="/collection/:categoryName" element={<Product />} />
+              <Route path="/product/:id" element={<DetailsPro />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/rudraksh" element={<Rudraksh />} />
+              <Route path="/gemstone" element={<Gemstone />} />
+              <Route path="/products/" element={<AllProducts />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
+            </Routes>
+          </Layout>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );

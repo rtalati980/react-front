@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './productc.css'
+import './productc.css';
+import { useCart } from './CartContext';
 
 // Function to fetch products data
 const fetchData = async () => {
@@ -24,11 +25,12 @@ const fetchData = async () => {
 const AllProducts = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
 
-  // Function to add a product to the cart
+  const { dispatch } = useCart(); // Use the useCart hook to access the dispatch function
+
   const handleAddToCart = (product) => {
-    addToCart(product); // Pass the product to the addToCart function
-    console.log("Added to cart:", product);
+    dispatch({ type: 'ADD_TO_CART', payload: product });
   };
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -55,7 +57,7 @@ const AllProducts = ({ addToCart }) => {
           <h2><Link to={`/product/${product.id}`}>{product.name}</Link></h2> 
           <h3>Rs. {product.price}.00</h3>
           <p>Radhe Krishna Mart</p>
-          <Link to='/cart'><button   onClick={() => addToCart(product)}>Add To Cart</button></Link>
+          <button   onClick={() =>handleAddToCart(product)}>Add To Cart</button>
         </div>
       ))}
       </div>

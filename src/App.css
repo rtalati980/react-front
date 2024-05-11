@@ -6,6 +6,11 @@ html,body{
   overflow-x: hidden;
   
 }
+
+
+:root{
+  --primary:#b16f23
+}
 .App{
   background-color:#f7f7f7 ;
   
