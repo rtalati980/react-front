@@ -1,7 +1,7 @@
 @media only screen and (max-width: 600px){
   
   .cnt-fl{
-    height: 950px !important;
+    height: 1000px !important;
   }
 
   .cnt-fl .pct .box{
@@ -11,7 +11,7 @@
       }
 
       h5{
-        font-size: 12px;
+        font-size: 8px !important;
       }
 
 

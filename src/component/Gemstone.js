@@ -61,7 +61,7 @@ const { cart } = useSelector((state) => state);
   const filteredCategory = category.filter((cat) => cat.name === 'Gemstone');
 
   return (
-    <div className='container-fluid ct' style={{ backgroundColor: '#deb88c', minHeight: '100vh' }}>
+    <div className='container-fluid ct' style={{ backgroundColor: '#deb88c' ,height: 'auto'}}>
   <div className='row row-cols-1  ctr row-cols-sm-2 row-cols-lg-4'>
     {filteredCategory.map((cat) => (
       cat.products.map((pro) => (
@@ -72,7 +72,7 @@ const { cart } = useSelector((state) => state);
             </Link>
             <div className='card-body'>
               <h5 className='card-title' style={{ color: '#b16f23' }}>
-                <Link to={`/product/${pro.id}`} style={{ textDecoration: 'none' }}>{pro.name}</Link>
+                <Link to={`/product/${pro.id}`} style={{ fontSize:'15px',color: '#b16f23',textDecoration: 'none' }}>{pro.name}</Link>
               </h5>
               <p className='card-text'>Price: Rs. {pro.price}.00</p>
               <p className='card-text'>Radhe Krishna Mart</p>

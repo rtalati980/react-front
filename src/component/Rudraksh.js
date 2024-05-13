@@ -55,7 +55,7 @@ const GemStone = () => {
   const filteredCategory = category.filter((cat) => cat.name === 'Rudraksha');
 
   return (
-    <div className='container-fluid ct' style={{ backgroundColor: '#deb88c', minHeight: '100vh' }}>
+    <div className='container-fluid ct' style={{ backgroundColor: '#deb88c', height:'auto'  }}>
   <div className='row row-cols-1  ctr row-cols-sm-2 row-cols-lg-4'>
     {filteredCategory.map((cat) => (
       cat.products.map((pro) => (

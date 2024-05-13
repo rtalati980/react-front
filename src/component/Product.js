@@ -46,7 +46,7 @@ const Product = ({ pro }) => {
   const filteredCategory = category.filter((cat) => cat.name === categoryName);
 
   return (
-    <div className='container-fluid' style={{ backgroundColor: '#deb88c', minHeight: '100vh' }}>
+    <div className='container-fluid' style={{ backgroundColor: '#deb88c', height:'auto' }}>
       {isLoading ? ( // Conditionally render loading message or spinner
         <p>Loading products...</p>
       ) : (
