@@ -13,9 +13,9 @@ import Gemstone from './component/Gemstone';
 import DetailsPro from './component/DetailsPro';
 import Checkout from './component/Checkout';
 import AllProducts from './component/Allproduct';
-
 function App() {
   return (
+   
     <div className="App">
       <BrowserRouter>
         <CartProvider>
@@ -36,6 +36,7 @@ function App() {
         </CartProvider>
       </BrowserRouter>
     </div>
+    
   );
 }
 

@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
+
 const Checkout = () => {
   const location = useLocation();
-  const { productName, quantity, totalPrice } = location.state || {};
+  const searchParams = new URLSearchParams(location.search);
+
+  const totalPrice = searchParams.get('totalPrice');
+  const totalQuantity = searchParams.get('totalQuantity');
+  const productNames = searchParams.get('productNames');
+  const productQuantities = searchParams.get('productQuantities');
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -14,16 +21,18 @@ const Checkout = () => {
     zip: ''
   });
 
+  // Handle form input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // Handle payment
   const handlePayment = async () => {
     try {
       const response = await axios.post('YOUR_BACKEND_API_ENDPOINT', {
-        productName,
-        quantity,
+        productNames,
+        productQuantities,
         totalPrice,
         ...formData
       });
@@ -37,16 +46,24 @@ const Checkout = () => {
 
   return (
     <div>
-      <h3>Order Summary</h3>
-      <div>
-        <strong>Product Name:</strong> {productName}
-      </div>
-      <div>
-        <strong>Quantity:</strong> {quantity}
-      </div>
-      <div>
-        <strong>Total Price:</strong> Rs.{totalPrice}.00
-      </div>
+  <h3>Order Summary</h3>
+  {/* Render individual product names and quantities */}
+  {productNames.split(',').map((productName, index) => (
+    <div key={index}>
+      <strong>Product Name:</strong> {productName}
+      <br />
+      <strong>Quantity:</strong> {productQuantities}
+      <hr />
+    </div>
+  ))}
+  {/* Display total quantity */}
+  <div>
+    <strong>Total Quantity:</strong> {totalQuantity}
+  </div>
+  <div>
+    <strong>Total Price:</strong> Rs.{totalPrice}.00
+  </div>
+
       <h3>Billing Address</h3>
       <label htmlFor="fullName"><i className="fa fa-user"></i> Full Name</label>
       <input type="text" id="fullName" name="fullName" placeholder="John M. Doe" onChange={handleInputChange} />

@@ -4,10 +4,10 @@ import Footer from './bottom/Bottom';
 import {Outlet} from 'react-router-dom'
 
 
-const Layout = ({ children }) => {
+const Layout = ({ children ,  itemCount}) => {
     return <>
       <Header />
-      <Headerb/>
+      <Headerb itemCount={itemCount}/>
       <main>{children}</main>
       <Footer/>
   </>

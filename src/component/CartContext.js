@@ -1,3 +1,4 @@
+// CartContext.js
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
 // Define the initial state
@@ -13,6 +14,8 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
       return { ...state, cart: [...state.cart, action.payload] };
+    case 'LOAD_CART_DATA':
+      return { ...state, cart: action.payload.cart };
     // Add more cases for other actions if needed
     default:
       return state;

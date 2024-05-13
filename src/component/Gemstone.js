@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './productc.css';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { useCart } from './CartContext'; // Import the useCart hook
+import { add, remove } from "../component/Slices/CartSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { useSnackbar } from "notistack";
 
 const fetchData = async () => {
   try {
@@ -21,13 +23,28 @@ const fetchData = async () => {
   }
 };
 
-const GemStone = () => {
+const GemStone = ({pro}) => {
   const [category, setCategory] = useState([]);
   const { categoryName } = useParams();
-  const { dispatch } = useCart(); // Use the useCart hook to access the dispatch function
+ // Use the useCart hook to access the dispatch function
 
-  const handleAddToCart = (product) => {
-    dispatch({ type: 'ADD_TO_CART', payload: product });
+  /*const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(pro));
+  };
+*/
+const { cart } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const addToCart = (product) => {
+    dispatch(add(product)); // Pass product as payload to the add action
+    enqueueSnackbar(`Item added to your cart successfully`, {
+      variant: "success",
+      autoHideDuration: 3000,
+    });
+    console.log(cart);
   };
 
   useEffect(() => {
@@ -43,31 +60,33 @@ const GemStone = () => {
 
   const filteredCategory = category.filter((cat) => cat.name === 'Gemstone');
 
-  console.log(categoryName);
-
   return (
-    <div className='mcn'>
-      {filteredCategory.map((cat) => (
-        <div key={cat.name} className='pcb'>
-          <div className='pcntr'>
-            {cat.products.map((pro) => (
-              <div key={pro.id} className='ctpro'>
-                <Link to={`/product/${pro.id}`}>
-                  <img src={`${pro.images[0]}`} alt={`${pro.name}`} />
-                </Link>
-                <h2>
-                  <Link to={`/product/${pro.id}`}>{pro.name}</Link>
-                </h2>
-                <h3>Rs. {pro.price}.00</h3>
-                <p>Radhe Krishna Mart</p>
-                <Link to='/cart'><button   onClick={() =>handleAddToCart(pro)}>Add To Cart</button></Link>
-              </div>
-            ))}
+    <div className='container-fluid ct' style={{ backgroundColor: '#deb88c', minHeight: '100vh' }}>
+  <div className='row row-cols-1  ctr row-cols-sm-2 row-cols-lg-4'>
+    {filteredCategory.map((cat) => (
+      cat.products.map((pro) => (
+        <div key={pro.id} className='col cp p-3'> {/* Use product id as key */}
+          <div className='card mb-3 crd' style={{ border: '1px solid #b16f23', padding: '10px', backgroundColor: '#deb88c', width: '250px' }}>
+            <Link to={`/product/${pro.id}`}>
+              <img src={`${pro.images[0]}`} className='card-img-top' alt={`${pro.name}`} style={{ height: '200px', objectFit: 'cover' }} />
+            </Link>
+            <div className='card-body'>
+              <h5 className='card-title' style={{ color: '#b16f23' }}>
+                <Link to={`/product/${pro.id}`} style={{ textDecoration: 'none' }}>{pro.name}</Link>
+              </h5>
+              <p className='card-text'>Price: Rs. {pro.price}.00</p>
+              <p className='card-text'>Radhe Krishna Mart</p>
+              <button className='btn btn-primary' style={{ backgroundColor: '#b16f23', border: 'none' }} onClick={() => addToCart(pro)} >Add To Cart</button>
+            </div>
           </div>
         </div>
-      ))}
-    </div>
-  );
+      ))
+    ))}
+  </div>
+</div>
+);
 };
+
+
 
 export default GemStone;

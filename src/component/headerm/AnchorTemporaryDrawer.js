@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
 
 export default function AnchorTemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -28,12 +29,12 @@ export default function AnchorTemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <ul style={{ listStyleType: 'none', padding: 40, margin: '40px', display: 'flex', flexDirection: 'column' ,color: '#b16f23'}}>
-  <li ><a style={{color: '#b16f23' }} href='/'>Home</a></li>
-  <li><a style={{color: '#b16f23'}} href='/products'>All Product</a></li>
-  <li><a style={{color: '#b16f23'}} href='/rudraksh'>Rudhraksh</a></li>
-  <li><a  style={{color: '#b16f23'}} href='/gemstone'>Gemstone</a></li>
-  <li><a  style={{color: '#b16f23'}} href='/about'>About us</a></li>
-  <li><a style={{color: '#b16f23'}} href='/contact'>CONTACT US</a></li>
+  <li ><Link style={{color: '#b16f23' }} to='/'>Home</Link></li>
+  <li><Link style={{color: '#b16f23'}} to='/products'>All Product</Link></li>
+  <li><Link style={{color: '#b16f23'}} to='/rudraksh'>Rudhraksh</Link></li>
+  <li><Link  style={{color: '#b16f23'}} to='/gemstone'>Gemstone</Link></li>
+  <li><Link  style={{color: '#b16f23'}} to='/about'>About us</Link></li>
+  <li><Link style={{color: '#b16f23'}} to='/contact'>CONTACT US</Link></li>
 </ul>
     </Box>
   );

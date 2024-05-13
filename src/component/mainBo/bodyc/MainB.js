@@ -43,24 +43,29 @@ export default function MainB ({cat}) {
   }, []);
 
   return (
-    <div className='parent '>
-         <div className='child '>
-            <h2 className=''>Collections</h2>
-            <div className='colpro'>
-  {category.map(cat => (
-    <div key={cat.catid} className='pro '>
-      <Link to={`/collection/${cat.name}`}>
-        <img src={`${cat.imgPath}`} alt={`${cat.imgPath}`} />
-      </Link>
-      <div className='textlink'>
-        <h3>{cat.name}</h3>
-        <FaArrowRightLong id='fa' />
-      </div>
+    <div className='container-fluid cnt-fl' style={{ height: '500px', backgroundColor: '#b16f23' }}>
+    <div className='text-center' style={{ color: 'white' }}>
+      <h2>Collections</h2>
     </div>
-  ))}
-</div>
-         </div>
+    <div className='row row-cols-2 row-cols-sm-2 row-cols-md-4 justify-content-center'>
+      {category.map(cat => (
+        <div key={cat.catid} className='col'>
+          <div className='box'>
+            <Link to={`/collection/${cat.name}`}>
+              <img src={`${cat.imgPath}`} className='card-img-top img-fluid' alt={`${cat.imgPath}`} style={{ width: '220px', height: '180px', borderRadius: '10px' }} />
+            </Link>
+            <div className='card-body'>
+              <div className='d-flex flex-row align-items-center'>
+                <Link to={`/collection/${cat.name}`} className='btn'>
+                  <h5 className='card-title' style={{ color: 'white' }}>{cat.name}</h5>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
+  </div>
   )
 }
 
