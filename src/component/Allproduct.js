@@ -57,7 +57,7 @@ const AllProducts = ({ product }) => {
   };
 
   return (
-    <div className='container-fluid' style={{ backgroundColor: '#deb88c' ,minHeight:'100vh'}}>
+    <div className='container-fluid' style={{ backgroundColor: '#deb88c' ,height: 'auto'}}>
   <div className='row  row-cols-2 row-cols-md-2 row-cols-lg-4'>
     {products.map(product => (
       <div key={product.id} className='col  mt-5 mb-4 '>
