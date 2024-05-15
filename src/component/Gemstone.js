@@ -62,7 +62,7 @@ const { cart } = useSelector((state) => state);
 
   return (
    <div className='container-fluid ct' style={{ backgroundColor: '#deb88c', height: 'auto' }}>
-   <div className='row ctr row-cols-2 row-cols-sm-2 row-cols-md-4 justify-content-center'>
+   <div className='row ctr row-cols-2 row-cols-sm-2 row-cols-md-4 '>
      {filteredCategory.map((cat) => (
        cat.products.map((pro) => (
          <div key={pro.id} className='col cp p-3'>
