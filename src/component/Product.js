@@ -3,16 +3,13 @@ import axios from 'axios';
 import './productc.css';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-// Import useDispatch
-
 import { add, remove } from "../component/Slices/CartSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { useSnackbar } from "notistack";// Import the addToCart action
+import { useSnackbar } from "notistack";
 
-const Product = ({ pro }) => {
-  const [isLoading, setIsLoading] = useState(true); // Add a loading state
-
-  const [category, setCategory] = useState([]); 
+const Product = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [category, setCategory] = useState([]);
   const { categoryName } = useParams();
 
   const { cart } = useSelector((state) => state);
@@ -20,7 +17,7 @@ const Product = ({ pro }) => {
   const { enqueueSnackbar } = useSnackbar();
 
   const addToCart = (product) => {
-    dispatch(add(product)); // Pass product as payload to the add action
+    dispatch(add(product));
     enqueueSnackbar(`Item added to your cart successfully`, {
       variant: "success",
       autoHideDuration: 3000,
@@ -36,7 +33,7 @@ const Product = ({ pro }) => {
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
-        setIsLoading(false); // Set loading state to false after fetching (optional)
+        setIsLoading(false);
       }
     };
 
@@ -46,31 +43,31 @@ const Product = ({ pro }) => {
   const filteredCategory = category.filter((cat) => cat.name === categoryName);
 
   return (
-    <div className='container-fluid' style={{ backgroundColor: '#deb88c', height:'auto' }}>
-      {isLoading ? ( // Conditionally render loading message or spinner
+    <div className='container-fluid' style={{ backgroundColor: '#deb88c', height: 'auto' }}>
+      {isLoading ? (
         <p>Loading products...</p>
       ) : (
-        <div className='row ctr row-cols-2 row-cols-sm-2 row-cols-md-4 '>
-     {filteredCategory.map((cat) => (
-       cat.products.map((pro) => (
-         <div key={pro.id} className='col cp p-3'>
-           <div className='card mb-3 crd' style={{ border: '1px solid #b16f23', padding: '10px', backgroundColor: '#deb88c', maxWidth: '250px', height:'auto' }}>
-             <Link to={`/product/${pro.id}`}>
-               <img src={`${pro.images[0]}`} className='card-img-top' alt={`${pro.name}`} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
-             </Link>
-             <div className='card-body'>
-               <h5 className='card-title' style={{ color: '#b16f23' }}>
-                 <Link to={`/product/${pro.id}`} style={{ fontSize: '15px', color: '#b16f23', textDecoration: 'none' }}>{pro.name}</Link>
-               </h5>
-               <p className='card-text'>Starting from: Rs. {pro.price}.00</p>
-               <p className='card-text logss'>Radhe Krishna Mart</p>
-               <button className='btn btn-primary' style={{ backgroundColor: '#b16f23', border: 'none' }} onClick={() => addToCart(pro)}>Add To Cart</button>
-             </div>
-           </div>
-         </div>
-       ))
-     ))}
-   </div>
+        <div className='row ctr row-cols-2 row-cols-sm-2 row-cols-md-4'>
+          {filteredCategory.map((cat) => (
+            cat.products.map((pro) => (
+              <div key={pro.id} className='col cp p-3'>
+                <div className='card mb-3 crd' style={{ border: '1px solid #b16f23', padding: '10px', backgroundColor: '#deb88c', maxWidth: '250px', height: 'auto' }}>
+                  <Link to={`/product/${pro.id}`}>
+                    <img src={`${pro.images[0]}`} className='card-img-top' alt={`${pro.name}`} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
+                  </Link>
+                  <div className='card-body'>
+                    <h5 className='card-title' style={{ color: '#b16f23' }}>
+                      <Link to={`/product/${pro.id}`} style={{ fontSize: '15px', color: '#b16f23', textDecoration: 'none' }}>{pro.name}</Link>
+                    </h5>
+                    <p className='card-text'>Starting from: Rs. {pro.price}.00</p>
+                    <p className='card-text logss'>Radhe Krishna Mart</p>
+                    <button className='btn btn-primary' style={{ backgroundColor: '#b16f23', border: 'none' }} onClick={() => addToCart(pro)}>Add To Cart</button>
+                  </div>
+                </div>
+              </div>
+            ))
+          ))}
+        </div>
       )}
     </div>
   );

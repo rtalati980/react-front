@@ -1,6 +1,7 @@
 import { AiFillFacebook, AiOutlineInstagram } from "react-icons/ai";
 import { BsYoutube, BsTwitter } from "react-icons/bs";
 import { FaPinterestSquare } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -27,10 +28,10 @@ export default function Footer() {
     </div>
     <div class="col-md-6 text-center">
       <ul class="list-unstyled d-flex justify-content-around">
-        <li>Refund Policy</li>
-        <li>Privacy Policy</li>
-        <li>Terms & Condition</li>
-        <li>Shipping Policy</li>
+        <li><Link   to="/refund"  style={{textDecoration:'none' ,color:'white'}}>Refund Policy </Link></li>
+        <li><Link to='/privacy' style={{textDecoration:'none' ,color:'white'}}>Privacy Policy </Link></li>
+        <li><Link to='/terms'style={{textDecoration:'none' ,color:'white'}} >Terms & Condition </Link></li>
+        <li><Link to='/shipping' style={{textDecoration:'none' ,color:'white'}} >Shipping Policy</Link></li>
       </ul>
     </div>
   </div>

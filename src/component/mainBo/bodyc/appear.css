@@ -185,3 +185,10 @@
         }
     
     }}
+
+
+@media only screen and (max-width: 345px) {
+    .card{
+        width: 100% !important;
+    }
+}

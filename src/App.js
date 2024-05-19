@@ -13,6 +13,10 @@ import Gemstone from './component/Gemstone';
 import DetailsPro from './component/DetailsPro';
 import Checkout from './component/Checkout';
 import AllProducts from './component/Allproduct';
+import Terms from './pages/Terms';
+import Shipping from './pages/Shipping';
+import Privacy from './pages/Privacy';
+import Refund from './pages/Refund';
 function App() {
   return (
    
@@ -31,6 +35,10 @@ function App() {
               <Route path="/products/" element={<AllProducts />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/refund" element={<Refund />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/shipping" element={<Shipping />} />
             </Routes>
           </Layout>
         </CartProvider>

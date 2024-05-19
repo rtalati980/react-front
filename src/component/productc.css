@@ -1,112 +1,126 @@
+
+
 .mcn{
 
-    padding-top: 70px;
-    background-color: #deb88c; 
-    
-       .pcb{
-       .pcntr{
-        padding-left: 40px;
-        padding-right: 40px;
-        display: grid;
-        grid-template-columns: auto auto auto auto;    
-       }
+  padding-top: 70px;
+  background-color: #deb88c; 
+  .gemston-product{
+    background-color: '#deb88c';
+  }
+     .pcb{
+     .pcntr{
+      padding-left: 40px;
+      padding-right: 40px;
+      display: grid;
+      grid-template-columns: auto auto auto auto;    
+     }
 
-       .ctpro{
+     .ctpro{
+      width: 250px;
+      height: 450px;
+      border: 1px solid  #b16f23;
+      border-radius: 5px;
+      margin-bottom: 30px;
+
+      img{
         width: 250px;
-        height: 450px;
-        border: 1px solid  #b16f23;
         border-radius: 5px;
-        margin-bottom: 30px;
-
-        img{
-          width: 250px;
-          border-radius: 5px;
-        }
-           
-        
-       
-        h2{
-          padding-left: 20px;
-          font-size: 14px;
-          font-weight: 500;
-          
-
-          a{
-            text-decoration: none;
-            color: #b16f23;
-          }
-        }
-
-        h2:hover{
-          font-weight: 700;
-        }
-       h3{
-        padding-left: 20px;
-        font-size: 13px;
-        font-weight: 500;
-        
-       }
-
-       p{
-        padding-left: 20px;
-        font-size: 8px;
-        font-weight: 500;
-       text-align: justify;
+      }
+         
       
-       }
-       button{
-           width: 150px;
-           height: 30px;
-           margin-left: 50px;
-           margin-right: 50px;
-           background-color: transparent;
-           border: 2px solid #b16f23 ;
-           border-radius: 5px;
-       }
-
-       button:hover{
-        border: 3px solid #b16f23 ;
-       }
-       }
-   }
-  }
-
-  @media only screen and (max-width: 600px){
-
-  .ct .ctr .cp .crd{
-   height: 300px !important;
-
-   img{
-    height: 130px !important;
-    border-radius: 5px;
-   }
-
-    h5 a{ 
-      width: 200px;
-      font-size: 10px !important;
-      word-spacing: -1px;
-      line-height: -1px;
-      line-height: 1; /* Adjust the line height */
-      margin-bottom:-5px;
      
-      
-    }
-    p{
-      font-size: 8px !important;
-      margin-bottom: 12px;
-    }
+      h2{
+        padding-left: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        
 
-    .logss{
-      font-size: 6px !important;
-      margin-top: -6px;
-      color:#B48811
-    }
+        a{
+          text-decoration: none;
+          color: #b16f23;
+        }
+      }
+
+      h2:hover{
+        font-weight: 700;
+      }
+     h3{
+      padding-left: 20px;
+      font-size: 13px;
+      font-weight: 500;
       
-    button{
-      margin-top: -20px;
-         height: 30px !important;
-         font-size: 12px !important;
-    }
+     }
+
+     p{
+      padding-left: 20px;
+      font-size: 8px;
+      font-weight: 500;
+     text-align: justify;
+    
+     }
+     button{
+         width: 150px;
+         height: 30px;
+         margin-left: 50px;
+         margin-right: 50px;
+         background-color: transparent;
+         border: 2px solid #b16f23 ;
+         border-radius: 5px;
+     }
+
+     button:hover{
+      border: 3px solid #b16f23 ;
+     }
+     }
+ }
+}
+
+@media only screen and (max-width: 600px){
+
+.ct .ctr .cp .crd{
+      min-height: 405px;
+
+
+ img{
+  border-radius: 5px;
+  height: unset !important;
+ }
+
+  h5 a{ 
+    width: 200px;
+    font-size: 10px !important;
+    word-spacing: -1px;
+    line-height: -1px;
+    line-height: 1; /* Adjust the line height */
+    margin-bottom:-5px;
+   
+    
+  }
+  p{
+    font-size: 8px !important;
+    margin-bottom: 12px;
   }
 
+  .logss{
+    font-size: 6px !important;
+    color:#B48811
   }
+    
+  button{
+    
+ 
+       font-size: 10px;
+  }
+}
+  .all-pro-img{
+    height: unset !important;
+  }
+}
+
+@media only screen and (max-width: 324px){
+  button {
+    
+    font-size: 7px !important;
+}
+  
+}
