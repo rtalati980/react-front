@@ -43,7 +43,7 @@ export default function Headerb() {
     <div className='head d-flex justify-content-space-between align-items-center'>
       {isMobile && <AnchorTemporaryDrawer />}
       <div className='title text-center'>
-        <h1 style={{ color: '#b16f23' }}><Link to='/' style={{ color: '#b16f23' ,textDecoration:'none'}}>Radhe Krishna Mart</Link></h1>
+        <h1 style={{ color: '#b16f23' }}><Link to='/' style={{ color: '#b16f23' ,textDecoration:'none'}}>Radha Krishna Mart</Link></h1>
       </div>
 
       <div className={`naviga ${isOpen ? 'active overlay' : ''}`}>
