@@ -9,14 +9,14 @@ export default function ({isOpen}) {
     <div className={`container-fluid p-1 ban ${isOpen ? 'overlay' : ''}`}> 
       <div className='d-flex justify-content-center align-items-center' style={{ height: '500px', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
       <div className={`child d-flex flex-column align-items-center ${isOpen ? 'd-none' : ''}`} style={{ width: '90%', maxWidth: '600px', border: '2px solid #b16f23', borderBottom: '15px solid #b16f23', backgroundColor: '#fefae0', borderRadius: '10px', padding: '10px' }}>
-      <h1 className='mb-2 fs-2 ' style={{ textDecoration: 'underline',color:'#b16f23' }}>CLICK HERE TO BUY JAAPMALA</h1>
+      <h1 className='mb-2 fs-1 ' style={{ textDecoration: 'underline',color:'#b16f23' }}>CLICK HERE TO BUY JAAPMALA</h1>
       <div className="btm d-flex justify-content-between" style={{ width: '50%' }}>
             <Link to="/rudraksh">
-              <button className='but1 mb-2 mt-3' style={{border:'1px solid #b16f23 ' ,borderBottom: '5px solid #b16f23' ,borderRadius: '10px',color:'#b16f23'}}>Buy Rudhraksh</button>
+              <button className='but1 mb-2 mt-3' style={{border:'1px solid #b16f23 ' ,borderBottom: '5px solid #b16f23' ,borderRadius: '10px',color:'#b16f23',backgroundColor: '#fefae0'}}>Buy Rudhraksh</button>
             </Link>
 
             <Link to="/gemstone">
-              <button className='but2 mb-2 mt-3'style={{border:'1px solid #b16f23' ,borderBottom: '5px solid #b16f23',borderRadius: '10px' ,color:'#b16f23'}}>Buy Gemstone</button>
+              <button className='but2 mb-2 mt-3'style={{border:'1px solid #b16f23' ,borderBottom: '5px solid #b16f23',borderRadius: '10px' ,color:'#b16f23',backgroundColor: '#fefae0'}}>Buy Gemstone</button>
             </Link>
           </div>
     </div>

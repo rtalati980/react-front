@@ -9,7 +9,7 @@ export default function  () {
         <div className='text-center mn text-white border-bottom fs-8'>
             <p>CUSTOMER SUPPORT +917300002965 (10 Am - 7Pm )</p>
         </div>
-        <div className='tst text-center text-white cursor-pointer mt-2 fs-8'>
+        <div className='tst text-center text-white cursor-pointer mt-0.5 fs-8'>
           <p>DISCOUNT 30 % OFF ON BUY ANY GEM STONE</p>
          </div>
     </div>

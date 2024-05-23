@@ -47,7 +47,7 @@ export default function Headerb() {
       </div>
 
       <div className={`naviga ${isOpen ? 'active overlay' : ''}`}>
-        <ul className="text-center">
+        <ul className="text-center" style={{marginLeft:'-100px'}}>
         <li><Link  style={{ color: '#b16f23' }}>Track Order</Link></li>
           <li><Link to='/products' style={{ color: '#b16f23' }}>All Product</Link></li>
           <li><Link to='/rudraksh' style={{ color: '#b16f23' }}>Rudhraksh</Link></li>
