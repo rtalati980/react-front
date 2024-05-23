@@ -3,45 +3,48 @@ import React from 'react'
 export default function Terms() {
   return (
     <div>
-        At Radha Krishna Mart, we are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy outlines the types of information we collect, how we use it, and the measures we take to protect it.
+        Terms and Conditions of RadhakrishnMart
+1. Introduction
+Welcome to RadhakrishnMart. By accessing and using our website, you agree to comply with and be bound by the following terms and conditions. Please review them carefully. If you do not agree with these terms, you should not use our website.
 
-Information We Collect:
+2. Acceptance of Terms
+By accessing, browsing, or using this website, you acknowledge that you have read, understood, and agree to be bound by these terms and conditions and to comply with all applicable laws and regulations.
 
-When you make a purchase from Radha Krishna Mart, we collect certain personal information necessary to complete your transaction. This may include your name, email address, billing and shipping address, phone number, and payment information such as credit card details, UPI, or banking details.
+3. Modifications to Terms
+RadhakrishnMart reserves the right to modify these terms and conditions at any time without prior notice. Your continued use of the website after any such changes constitutes your acceptance of the new terms.
 
-Use of Information:
+4. Use of the Website
+Eligibility: You must be at least 18 years old to use our website.
+Account Security: You are responsible for maintaining the confidentiality of your account information and password. You agree to accept responsibility for all activities that occur under your account.
+Prohibited Activities: You agree not to use the website for any unlawful purpose or in any way that could harm, disable, overburden, or impair the site.
+5. Products and Orders
+Product Descriptions: We strive to ensure that the product descriptions are accurate. However, we do not warrant that the descriptions or other content is error-free.
+Pricing: All prices are listed in [Currency] and are subject to change without notice. Prices do not include applicable taxes or shipping costs.
+Order Acceptance: We reserve the right to refuse or cancel any order for any reason at any time. If your order is canceled, we will notify you and refund any payments made.
+6. Payment
+Payment Methods: We accept various payment methods including credit/debit cards, and other electronic payment methods.
+Payment Security: All transactions are processed through secure payment gateways to ensure your information is protected.
+7. Shipping and Delivery
+Shipping Policy: Our standard delivery timeframe is within 7 to 10 days from the date of shipping. See our Shipping Policy for more details.
+Delivery Issues: If there are any issues with your delivery, please contact our customer service team.
+8. Returns and Refunds
+Return Policy: Products can be returned within [X] days of receipt. Items must be unused and in their original packaging. See our Return Policy for more details.
+Refunds: Refunds will be processed within [X] days of receiving the returned items. Refunds will be issued to the original payment method.
+9. Intellectual Property
+All content on this website, including text, graphics, logos, images, and software, is the property of RadhakrishnMart and is protected by intellectual property laws. Unauthorized use of any content is prohibited.
 
-The personal information you provide is used solely for processing your order, including payment processing, shipping, and customer service. We do not store your credit card details, UPI, or banking information on our servers. This information is used only at the time of the transaction and is not saved for future use.
+10. Limitation of Liability
+RadhakrishnMart will not be liable for any direct, indirect, incidental, special, or consequential damages that result from the use or inability to use our website or products. This includes, but is not limited to, reliance by a user on any information obtained from RadhakrishnMart or that result from mistakes, omissions, interruptions, deletion of files or email, loss of or damage to data, errors, defects, viruses, or delays in operation or transmission.
 
-Payment Information:
+11. Governing Law
+These terms and conditions are governed by and construed in accordance with the laws of [Your Country/State], without regard to its conflict of law principles. You agree to submit to the exclusive jurisdiction of the courts located in [Your Country/State] for the resolution of any disputes.
 
-To ensure the highest level of security, we do not store or retain any payment information. When you enter your credit card details, UPI, or banking information, it is securely processed through our payment gateway and is not stored on our servers. Any temporary caching of payment information for the purpose of completing the transaction is cleared immediately after the transaction is completed or upon refreshing the page.
+12. Contact Information
+For any questions about these terms and conditions, please contact us at:
 
-Cookies and Cache:
-
-We may use cookies to enhance your shopping experience on our website. Cookies are small data files that are temporarily stored on your device to help us remember your preferences and provide a more personalized experience. These cookies do not store sensitive information such as credit card details, UPI, or banking information. Any temporary cache used for facilitating your browsing experience is cleared upon refreshing the page or closing your browser.
-
-Data Security:
-
-We implement a variety of security measures to maintain the safety of your personal information. These measures include using secure servers and encrypting sensitive information during transmission. We are committed to protecting your data from unauthorized access, alteration, disclosure, or destruction.
-
-Third-Party Services:
-
-Radha Krishna Mart may use third-party service providers to assist with various aspects of our business operations, such as payment processing and shipping. These third-party providers have access to your personal information only to the extent necessary to perform their functions and are obligated to maintain the confidentiality and security of your information.
-
-Your Consent:
-
-By using our website and providing your personal information, you consent to the terms of this Privacy Policy. If you do not agree with any part of this policy, please do not use our website or provide your personal information.
-
-Changes to Our Privacy Policy:
-
-Radha Krishna Mart reserves the right to update or modify this Privacy Policy at any time. Any changes will be posted on this page, and we encourage you to review our Privacy Policy periodically to stay informed about how we are protecting your information.
-
-Contact Us:
-
-If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at [insert contact email/phone number]. We are committed to addressing any issues or inquiries you may have regarding your privacy and the security of your personal information.
-
-Thank you for trusting Radha Krishna Mart with your personal information. We value your privacy and are dedicated to safeguarding your data.
+Email: radhakrishnmart6@gmail.com
+Phone: +917300002965 
+Business Hours: Monday to Friday, 9 AM to 6 PM (local time)
     </div>
   )
 }
