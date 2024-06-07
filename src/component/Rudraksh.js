@@ -70,7 +70,7 @@ const GemStone = () => {
                 </h5>
                 <p className='card-text'>Starting from: Rs. {pro.price}.00</p>
                 <p className='card-text logss'>Radhe Krishna Mart</p>
-                <button className='btn btn-primary' style={{ backgroundColor: '#b16f23', border: 'none' }} onClick={() => addToCart(pro)}>Add To Cart</button>
+              {/*  <button className='btn btn-primary' style={{ backgroundColor: '#b16f23', border: 'none' }} onClick={() => addToCart(pro)}>Add To Cart</button> */}
               </div>
             </div>
           </div>

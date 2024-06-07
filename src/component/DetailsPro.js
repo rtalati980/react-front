@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './detailspr.css';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { FaPlus, FaMinus } from "react-icons/fa";
-import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from './detailspr.module.css';
 
 const DetailsPro = () => {
     const { id } = useParams();
@@ -11,6 +10,7 @@ const DetailsPro = () => {
     const [count, setCount] = useState(1);
     const [selectedCarat, setSelectedCarat] = useState(null);
     const [fluctuatedPrice, setFluctuatedPrice] = useState(null);
+    const [mainImage, setMainImage] = useState('');
 
     const fetchData = async () => {
         try {
@@ -42,9 +42,7 @@ const DetailsPro = () => {
 
     const handleCaratChange = (carat) => {
         setSelectedCarat(carat);
-
-        // Calculate the fluctuated price based on the selected carat and count
-        const newPrice = (product.price + carat * 300) * count; // Adjusted based on count
+        const newPrice = (product.price + carat * 300) * count;
         setFluctuatedPrice(newPrice);
     };
 
@@ -53,6 +51,7 @@ const DetailsPro = () => {
             const fetchedProduct = await fetchData();
             if (fetchedProduct) {
                 setProduct(fetchedProduct);
+                setMainImage(fetchedProduct.images[0]);
             }
         };
 
@@ -60,38 +59,42 @@ const DetailsPro = () => {
     }, []);
 
     useEffect(() => {
-        // Recalculate the fluctuated price whenever the selected carat changes
-        if (selectedCarat !== null) {
+        if (selectedCarat !== null && product) {
             const newPrice = (product.price + selectedCarat * 300) * count;
             setFluctuatedPrice(newPrice);
         }
     }, [selectedCarat, count, product]);
 
-    const getFileName = (path) => {
-        const parts = path.split('/');
-        return parts[parts.length - 1];
-    };
-
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-lg-6 col-12 mb-4">
-                    {product && product.images && product.images[0] && (
+        <div className={styles.container}>
+            <div className={styles['product-container']}>
+                <div className={styles.left}>
+                    {mainImage && (
                         <img
-                            src={`${product.images[0]}`}
-                            alt={`${product.images[0]}`}
-                            className="img-fluid"
+                            src={mainImage}
+                            alt="Main Product"
+                            className={`${styles['img-fluid']} ${styles['main-image']}`}
                         />
                     )}
+                    <div className={styles['thumbnail-container']}>
+                        {product && product.images && product.images.map((image, index) => (
+                            <img
+                                key={index}
+                                src={image}
+                                alt={`Thumbnail ${index}`}
+                                className={styles.thumbnail}
+                                onClick={() => setMainImage(image)}
+                            />
+                        ))}
+                    </div>
                 </div>
-                <div className="col-lg-6 col-12">
+                <div className={styles.right}>
                     {product && (
                         <>
                             <h1>{product.name}</h1>
                             <h2>Rs. {fluctuatedPrice !== null ? fluctuatedPrice : product.price * count}</h2>
                             {(product.category).name === 'Gemstone' && (
-                                <div className='gemc mb-3'>
-                                    {/* Display carat selection buttons only if the product category is "gemstone" */}
+                                <div className={`${styles.gemc} mb-3`}>
                                     <button className="btn btn-outline-primary me-2" onClick={() => handleCaratChange(1)}>6.5 Carat</button>
                                     <button className="btn btn-outline-primary me-2" onClick={() => handleCaratChange(2)}>7.5 Carat</button>
                                     <button className="btn btn-outline-primary me-2" onClick={() => handleCaratChange(3)}>8.5 Carat</button>

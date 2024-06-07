@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Assuming you're using react-router for navigation
 import './faq.css';
 
 export default function FAQ() {
   // Create state variables for each section
   const [activeSections, setActiveSections] = useState({});
 
-  // Array of FAQ items
-  const faqItems = [
+  // FAQ data
+  const faqData = [
     {
       question: "What are gemstones and rudraksha?",
       answer: "Gemstones are natural minerals or rocks that are cut and polished for use in jewelry or other adornments. Rudraksha is a seed traditionally used as prayer beads in Hinduism, especially for meditation."
@@ -44,27 +45,29 @@ export default function FAQ() {
       answer: "The time it takes to experience the effects of wearing gemstones and rudraksha can vary from person to person and depend on factors such as belief, intention, and consistency of wear."
     },
     {
-      question:"Can gemstones and rudraksha be worn during meditation or yoga?",
-      answer:"Yes, wearing gemstones and rudraksha during meditation or yoga practice is believed to enhance the spiritual experience and deepen the connection with oneself."
+      question: "Can gemstones and rudraksha be worn during meditation or yoga?",
+      answer: "Yes, wearing gemstones and rudraksha during meditation or yoga practice is believed to enhance the spiritual experience and deepen the connection with oneself."
     },
     {
-      question:"Do gemstones and rudraksha have any religious significance?",
-      answer:"Yes, gemstones and rudraksha hold religious significance in various cultures and spiritual traditions, often associated with deities, rituals, and ceremonies."
-    },
-
-    {
-      question:"What is the difference between natural and synthetic gemstones?",
-      answer:"Natural gemstones are formed in the earth's crust over millions of years, while synthetic gemstones are created in laboratories to mimic natural gemstones' appearance and properties.Synthetic gemstones may look like Natural Gemstones but do not offer any astrogical benefits."
+      question: "Do gemstones and rudraksha have any religious significance?",
+      answer: "Yes, gemstones and rudraksha hold religious significance in various cultures and spiritual traditions, often associated with deities, rituals, and ceremonies."
     },
     {
-      question:"Are gemstones and rudraksha certified?",
-      answer:"Some gemstones and rudraksha may come with certifications from reputable gemological institutes, ensuring their authenticity and quality."
+      question: "What is the difference between natural and synthetic gemstones?",
+      answer: "Natural gemstones are formed in the earth's crust over millions of years, while synthetic gemstones are created in laboratories to mimic natural gemstones' appearance and properties. Synthetic gemstones may look like Natural Gemstones but do not offer any astrological benefits."
     },
     {
-      question:"What is the return or exchange policy for gemstones and rudraksha?",
-      answer:"Kindly check complete return  policy for gemstones and rudraksha here  ( Link of return policy)"
+      question: "Are gemstones and rudraksha certified?",
+      answer: "Some gemstones and rudraksha may come with certifications from reputable gemological institutes, ensuring their authenticity and quality."
+    },
+    {
+      question: "What is the return or exchange policy for gemstones and rudraksha?",
+      answer: (
+        <>
+          Kindly check the complete return policy for gemstones and rudraksha <Link to='/return'>here</Link>.
+        </>
+      )
     }
-    // Add more items as needed
   ];
 
   // Function to toggle a specific section
@@ -76,21 +79,41 @@ export default function FAQ() {
   };
 
   return (
-    <div className='faq'>
-      <p>FAQs:</p>
-      {faqItems.map((item, index) => (
-        <div key={index}>
-          <button
-            className={`collapsible ${activeSections[index] ? 'active' : ''}`}
-            onClick={() => toggleCollapsible(index)}
-          >
-            {item.question}
-          </button>
-          <div className="content" style={{ display: activeSections[index] ? 'block' : 'none' }}>
-            {item.answer}
+    <div className='container faq_accordion'>
+      <div className='row'>
+        <div className='col-md-12 mb-3'>
+          <h2 className="text-center">Frequently Asked Questions</h2>
+        </div>
+        <div className='col-md-12'>
+          <div className="accordion" id="accordionExample">
+            {faqData.map((item, index) => (
+              <div className="accordion-item" key={index}>
+                <h2 className="accordion-header" id={`heading${index}`}>
+                  <button
+                    className={`accordion-button ${activeSections[index] ? '' : 'collapsed'}`}
+                    type="button"
+                    onClick={() => toggleCollapsible(index)}
+                    aria-expanded={activeSections[index] ? 'true' : 'false'}
+                    aria-controls={`collapse${index}`}
+                  >
+                    {item.question}
+                  </button>
+                </h2>
+                <div
+                  id={`collapse${index}`}
+                  className={`accordion-collapse collapse ${activeSections[index] ? 'show' : ''}`}
+                  aria-labelledby={`heading${index}`}
+                  data-bs-parent="#accordionExample"
+                >
+                  <div className="accordion-body">
+                    <p>{item.answer}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 }

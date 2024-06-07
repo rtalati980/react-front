@@ -1,31 +1,39 @@
-.faq{
-  p{
-    text-align: center;
-    color: #b16f23;
-    font-size: 35px;
-  }
-  margin-bottom: 10px;
+.faq_accordion{
+  background-color: #fff !important;
+  padding: 60px 0px !important;
 }
-
-
-
+.faq_accordion h2{
+  color: rgb(177, 111, 35);
+}
+.accordion-button:focus {
+  box-shadow: 0 0 7px rgba(177, 111, 35, 0.5) !important;
+}
+.accordion-button:hover{
+  background-color: rgb(177, 111, 35) ;
+  color: white !important;
+}
+.faq_accordion .accordion-item button{
+  color: rgb(177, 111, 35);
+  font-size: 18px;
+  font-weight: 600;
+}
+.faq_accordion .accordion-button:not(.collapsed){
+  background-color: unset;
+}
 .collapsible {
-    background-color: #b16f23;
+    background-color: #777;
     color: white;
     cursor: pointer;
-    padding: 8PX;
+    padding: 18PX;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
     font-size: 15px;
-    margin-bottom: 5px;
   }
   
   .active, .collapsible:hover {
-    background-color: #f1f1f1;
-    color: #b16f23;
-    border: 2px solid #b16f23;
+    background-color: #555;
   }
   
   .content {
@@ -33,5 +41,4 @@
     display: none;
     overflow: hidden;
     background-color: #f1f1f1;
-    color: #b16f23;
   }

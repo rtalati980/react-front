@@ -63,12 +63,12 @@ const AllProducts = ({ product }) => {
 
   return (
     <div className='container-fluid' style={{ backgroundColor: '#deb88c', height: 'auto' }}>
-      <div className='row row-cols-2 row-cols-md-2 row-cols-lg-4'>
+      <div className='row ctr row-cols-2 row-cols-md-2 row-cols-lg-4'>
         {products.slice(0, visibleCount).map(product => (
           <div key={product.id} className='col mt-5 mb-4'>
-            <div className='card' style={{ border: '1px solid #b16f23', backgroundColor: 'transparent', height: '450px' }}>
+            <div className='card crd product_box' style={{ border: '1px solid #b16f23', backgroundColor: 'transparent' }}>
               <Link to={`/product/${product.id}`}>
-                <img src={product.images[0]} className='card-img-top' alt={product.name} style={{ height: '250px' }} />
+                <img src={product.images[0]} className='card-img-top all-pro-img' alt={product.name} style={{ height: '250px', width: '100%', objectFit: 'cover' }} />
               </Link>
               <div className='card-body'>
                 <h5 className='card-title'>
@@ -78,9 +78,9 @@ const AllProducts = ({ product }) => {
                 </h5>
                 <p className='card-text'>Rs. {product.price}.00</p>
                 <p className='card-text'>Radhe Krishna Mart</p>
-                <button className='btn btn-primary' style={{ backgroundColor: '#b16f23', border: 'none' }} onClick={() => addToCart(product)}>
+                {/* <button className='btn btn-primary' style={{ backgroundColor: '#b16f23', border: 'none' }} onClick={() => addToCart(product)}>
                   Add To Cart
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@ const AllProducts = ({ product }) => {
       </div>
       {visibleCount < products.length && (
         <div className='row'>
-          <div className='col text-center'>
+          <div className='col text-center mb-3'>
             <button className='btn btn-secondary' onClick={handleLoadMore}>
               View More
             </button>
