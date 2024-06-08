@@ -2,19 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './contact.css';
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import axiosInstance from '../axiousInstance'; // Corrected import statement
 
 const fetchContacts = async () => {
   try {
-    const response = await fetch('http://localhost:8080/api/contact', {
-      method: 'GET'
-    });
-    
-    if (!response.ok) {
-      throw new Error('Failed to fetch data');
-    }
-    
-    const data = await response.json();
-    return data;
+    const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/api/contact');
+    return response.data;
   } catch (error) {
     console.error('Error fetching data:', error);
     return [];
@@ -23,10 +16,7 @@ const fetchContacts = async () => {
 
 const deleteContact = async (contactId) => {
   try {
-    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/contact/api/${contactId}/`, {
-      method: 'DELETE'
-    });
-
+    const response = await axiosInstance.delete(`https://ec2.radhakrishnamart.com:8443/contact/api/${contactId}/`);
     if (!response.ok) {
       throw new Error('Failed to delete contact');
     }
@@ -41,9 +31,7 @@ export default function Contact() {
   useEffect(() => {
     const fetchContactData = async () => {
       const fetchedContacts = await fetchContacts();
-      if (fetchedContacts) {
-        setContacts(fetchedContacts);
-      }
+      setContacts(fetchedContacts);
     };
 
     fetchContactData();

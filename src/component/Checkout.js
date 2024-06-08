@@ -18,8 +18,11 @@ const Checkout = () => {
     address: '',
     city: '',
     state: '',
-    zip: ''
+    zip: '',
+    mobileno: ''
   });
+
+  const [formErrors, setFormErrors] = useState({});
 
   // Handle form input change
   const handleInputChange = (e) => {
@@ -27,19 +30,36 @@ const Checkout = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.fullName) errors.fullName = 'Full Name is required';
+    if (!formData.email) errors.email = 'Email is required';
+    if (!formData.address) errors.address = 'Address is required';
+    if (!formData.city) errors.city = 'City is required';
+    if (!formData.state) errors.state = 'State is required';
+    if (!formData.zip) errors.zip = 'Zip is required';
+    if (!formData.mobileno) errors.mobileno = 'Mobile Number is required';
+    return errors;
+  };
+
   // Handle payment
   const handlePayment = async () => {
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+
     try {
-      const response = await axios.post('http://localhost:8080/api/orders', {
+      const response = await axios.post('https://ec2.radhakrishnamart.com:8443/api/orders', {
         productId: 1, // Replace with actual product ID
         productName: productNames,
         quantity: totalQuantity,
         totalPrice: parseFloat(totalPrice),
-        
         customerName: formData.fullName,
         address: formData.address,
         zipCode: formData.zip,
-        mobileNumber: '1234567890', // Replace with actual mobile number if available
+        mobileNumber: formData.mobileno,
         emailAddress: formData.email,
         city: formData.city,
         state: formData.state
@@ -62,7 +82,6 @@ const Checkout = () => {
       </div>
     );
   };
-  
 
   return (
     <div>
@@ -86,21 +105,84 @@ const Checkout = () => {
 
       <h3>Billing Address</h3>
       <label htmlFor="fullName"><i className="fa fa-user"></i> Full Name</label>
-      <input type="text" id="fullName" name="fullName" placeholder="John M. Doe" onChange={handleInputChange} />
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        placeholder="John M. Doe"
+        onChange={handleInputChange}
+        required
+      />
+      {formErrors.fullName && <span className="error">{formErrors.fullName}</span>}
+      
       <label htmlFor="email"><i className="fa fa-envelope"></i> Email</label>
-      <input type="text" id="email" name="email" placeholder="john@example.com" onChange={handleInputChange} />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="john@example.com"
+        onChange={handleInputChange}
+        required
+      />
+      {formErrors.email && <span className="error">{formErrors.email}</span>}
+      
+      <label htmlFor="mobileno"><i className="fa fa-phone"></i> Mobile Number</label>
+      <input
+        type="tel"
+        id="mobileno"
+        name="mobileno"
+        placeholder="+9112347890"
+        onChange={handleInputChange}
+        required
+      />
+      {formErrors.mobileno && <span className="error">{formErrors.mobileno}</span>}
+      
       <label htmlFor="address"><i className="fa fa-address-card-o"></i> Address</label>
-      <input type="text" id="address" name="address" placeholder="542 W. 15th Street" onChange={handleInputChange} />
+      <input
+        type="text"
+        id="address"
+        name="address"
+        placeholder="542 W. 15th Street"
+        onChange={handleInputChange}
+        required
+      />
+      {formErrors.address && <span className="error">{formErrors.address}</span>}
+      
       <label htmlFor="city"><i className="fa fa-institution"></i> City</label>
-      <input type="text" id="city" name="city" placeholder="New York" onChange={handleInputChange} />
+      <input
+        type="text"
+        id="city"
+        name="city"
+        placeholder="New York"
+        onChange={handleInputChange}
+        required
+      />
+      {formErrors.city && <span className="error">{formErrors.city}</span>}
+      
       <div className="row">
         <div className="col-50">
           <label htmlFor="state">State</label>
-          <input type="text" id="state" name="state" placeholder="NY" onChange={handleInputChange} />
+          <input
+            type="text"
+            id="state"
+            name="state"
+            placeholder="NY"
+            onChange={handleInputChange}
+            required
+          />
+          {formErrors.state && <span className="error">{formErrors.state}</span>}
         </div>
         <div className="col-50">
           <label htmlFor="zip">Zip</label>
-          <input type="text" id="zip" name="zip" placeholder="10001" onChange={handleInputChange} />
+          <input
+            type="text"
+            id="zip"
+            name="zip"
+            placeholder="10001"
+            onChange={handleInputChange}
+            required
+          />
+          {formErrors.zip && <span className="error">{formErrors.zip}</span>}
         </div>
       </div>
       <button onClick={handlePayment}>Pay Now</button>

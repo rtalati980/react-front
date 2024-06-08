@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import axiosInstance from '../axiousInstance';
 
 export default function EmailSubscription() {
   const [subscriptions, setSubscriptions] = useState([]);
@@ -12,11 +13,11 @@ export default function EmailSubscription() {
 
   const fetchSubscriptions = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/email');
+      const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/api/email');
       setSubscriptions(response.data);
       setLoading(false);
     } catch (error) {
-      setError(error.message);
+      setError('Failed to fetch email subscriptions. Please try again later.');
       setLoading(false);
     }
   };
@@ -32,22 +33,26 @@ export default function EmailSubscription() {
   return (
     <div className="container">
       <h2>Email Subscriptions</h2>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {subscriptions.map((subscription) => (
-            <tr key={subscription.id}>
-              <td>{subscription.id}</td>
-              <td>{subscription.email}</td>
+      {subscriptions.length === 0 ? (
+        <div>No subscriptions found.</div>
+      ) : (
+        <table className="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Email</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {subscriptions.map((subscription) => (
+              <tr key={subscription.id}>
+                <td>{subscription.id}</td>
+                <td>{subscription.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }

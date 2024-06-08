@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axiosInstance from './admin/axiousInstance';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -11,12 +12,8 @@ const Dashboard = () => {
   // Function to fetch product count
   const fetchProductCount = async () => {
     try {
-      const response = await fetch('http://localhost:8080/product/api/');
-      if (!response.ok) {
-        throw new Error('Failed to fetch product count');
-      }
-      const data = await response.json();
-      setProductCount(data.length); // Assuming the response is an array
+      const response = await axiosInstance.get('/product/api/');
+      setProductCount(response.data.length); // Assuming the response is an array
     } catch (error) {
       console.error('Error fetching product count:', error);
     }
@@ -25,12 +22,8 @@ const Dashboard = () => {
   // Function to fetch order count
   const fetchOrderCount = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/orders');
-      if (!response.ok) {
-        throw new Error('Failed to fetch order count');
-      }
-      const data = await response.json();
-      setOrderCount(data.length); // Assuming the response is an array
+      const response = await axiosInstance.get('/api/orders');
+      setOrderCount(response.data.length); // Assuming the response is an array
     } catch (error) {
       console.error('Error fetching order count:', error);
     }
@@ -39,12 +32,8 @@ const Dashboard = () => {
   // Function to fetch subscribed email count
   const fetchSubscribedEmailCount = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/email');
-      if (!response.ok) {
-        throw new Error('Failed to fetch subscribed email count');
-      }
-      const data = await response.json();
-      setSubscribedEmailCount(data.length); // Assuming the response is an array
+      const response = await axiosInstance.get('/api/email');
+      setSubscribedEmailCount(response.data.length); // Assuming the response is an array
     } catch (error) {
       console.error('Error fetching subscribed email count:', error);
     }
@@ -53,12 +42,8 @@ const Dashboard = () => {
   // Function to fetch query count
   const fetchQueryCount = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/contact');
-      if (!response.ok) {
-        throw new Error('Failed to fetch query count');
-      }
-      const data = await response.json();
-      setQueryCount(data.length); // Assuming the response is an array
+      const response = await axiosInstance.get('/api/contact');
+      setQueryCount(response.data.length); // Assuming the response is an array
     } catch (error) {
       console.error('Error fetching query count:', error);
     }
@@ -67,12 +52,8 @@ const Dashboard = () => {
   // Function to fetch category count
   const fetchCategoryCount = async () => {
     try {
-      const response = await fetch('http://localhost:8080/category/api/');
-      if (!response.ok) {
-        throw new Error('Failed to fetch category count');
-      }
-      const data = await response.json();
-      setCategoryCount(data.length); // Assuming the response is an array
+      const response = await axiosInstance.get('/category/api/');
+      setCategoryCount(response.data.length); // Assuming the response is an array
     } catch (error) {
       console.error('Error fetching category count:', error);
     }

@@ -22,11 +22,11 @@ import AddProduct from './component/admin/AddProduct';
 import Category from './component/admin/category/Category';
 import AddCategory from './component/admin/addCategory/AddCategory';
 import Product2 from './component/admin/product/Product';
-import { Outlet } from 'react-router-dom';
-import Contact2 from './component/admin/contact/Contact'
-import  Email  from './component/admin/Subscribe/Subscribe';
-import Order from './component/admin/Order'
+import Contact2 from './component/admin/contact/Contact';
+import Email from './component/admin/Subscribe/Subscribe';
+import Order from './component/admin/Order';
 import Dashboard from './component/Dashboard';
+import PrivateRoute from './component/PrivateRoute';
 
 function App() {
   return (
@@ -34,15 +34,15 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/admin/login" element={<Login />} />
-          <Route path="/admin/dashboard" element={<AdminHome />}>
-          <Route path="" element={<Dashboard />} />
+          <Route path="/admin/dashboard" element={<PrivateRoute><AdminHome /></PrivateRoute>}>
+            <Route path="" element={<Dashboard />} />
             <Route path="product" element={<Product2 />} />
             <Route path="addproducts" element={<AddProduct />} />
             <Route path="category" element={<Category />} />
             <Route path="addcategory" element={<AddCategory />} />
-            <Route path='query' element= {<Contact2/>}/>
-            <Route path='subcribeEmail' element= {<Email/>}/>
-            <Route path='orders' element= {<Order/>}/>
+            <Route path="query" element={<Contact2 />} />
+            <Route path="subcribeEmail" element={<Email />} />
+            <Route path="orders" element={<Order />} />
           </Route>
           <Route
             path="*"

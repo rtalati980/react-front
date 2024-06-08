@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { useDispatch } from 'react-redux';
+import { add, remove } from "../component/Slices/CartSlice";
+import { useSnackbar } from "notistack";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './detailspr.module.css';
 
@@ -11,6 +14,8 @@ const DetailsPro = () => {
     const [selectedCarat, setSelectedCarat] = useState(null);
     const [fluctuatedPrice, setFluctuatedPrice] = useState(null);
     const [mainImage, setMainImage] = useState('');
+    const dispatch = useDispatch();
+    const { enqueueSnackbar } = useSnackbar();
 
     const fetchData = async () => {
         try {
@@ -65,6 +70,13 @@ const DetailsPro = () => {
         }
     }, [selectedCarat, count, product]);
 
+    const addToCart = () => {
+        dispatch(add(product));
+        enqueueSnackbar(`Item added to your cart successfully`, {
+            variant: "success",
+            autoHideDuration: 3000,
+        });
+    };
     return (
         <div className={styles.container}>
             <div className={styles['product-container']}>
@@ -107,7 +119,7 @@ const DetailsPro = () => {
                                 <p className="m-0">{count}</p>
                                 <FaMinus onClick={handleDecrement} className="ms-2" />
                             </div>
-                            <Link to={'/cart'} className="btn btn-primary me-2">Add To Cart</Link>
+                            <button onClick={addToCart}>Add to Cart</button>
                             <button className="btn btn-secondary">Buy Now</button>
                             <p className="mt-3">{product.description}</p>
                         </>

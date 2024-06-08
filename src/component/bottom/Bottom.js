@@ -12,7 +12,7 @@ export default function Footer() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/subscribe', {
+      const response = await fetch('https://ec2.radhakrishnamart.com:8443/api/email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,6 +43,8 @@ export default function Footer() {
               <form onSubmit={handleSubmit}>
                 <input
                   className="form-control"
+                  required
+                  type="email"  // Ensure the email format is validated
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -87,12 +89,12 @@ export default function Footer() {
             </div>
           </div>
           <p style={{ textAlign: 'center' }}>
-  Design & Developed by 
-  <span style={{ display: 'inline-block', margin: '0 5px' }}>
-    <CiHeart style={{ color: 'red', fontSize: '25px', verticalAlign: 'middle' }} />
-  </span>
-  CodeCraft.
-</p>
+            Design & Developed by 
+            <span style={{ display: 'inline-block', margin: '0 5px' }}>
+              <CiHeart style={{ color: 'red', fontSize: '25px', verticalAlign: 'middle' }} />
+            </span>
+            CodeCraft.
+          </p>
         </div>
         {showPopup && <div className="popup">Thanks for subscribing!</div>}
       </div>

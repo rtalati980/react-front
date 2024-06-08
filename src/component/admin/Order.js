@@ -2,25 +2,17 @@ import React, { useState, useEffect } from 'react';
 import './contact/contact.css';
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import axiosInstance from './axiousInstance'; // Corrected import statement
 
 const fetchOrders = async () => {
   try {
-    const response = await fetch('http://localhost:8080/api/orders', {
-      method: 'GET'
-    });
-    
-    if (!response.ok) {
-      throw new Error('Failed to fetch data');
-    }
-    
-    const data = await response.json();
-    return data;
+    const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/api/orders');
+    return response.data; // assuming the data is in response.data
   } catch (error) {
     console.error('Error fetching data:', error);
     return [];
   }
 };
-
 
 export default function Contact() {
   const [orders, setOrders] = useState([]);
@@ -37,7 +29,12 @@ export default function Contact() {
   }, []);
 
   const handleDelete = async (orderId) => {
-    setOrders(orders.filter(order => order.id !== orderId));
+    try {
+      await axiosInstance.delete(`/api/orders/${orderId}`);
+      setOrders(orders.filter(order => order.id !== orderId));
+    } catch (error) {
+      console.error('Error deleting order:', error);
+    }
   };
 
   return (

@@ -17,22 +17,23 @@ const Login = () => {
       username: loginData.email,
       password: loginData.password,
     };
-
+  
     try {
-      const response = await axios.post('http://localhost:8080/login', credentials, {
+      const response = await axios.post('https://ec2.radhakrishnamart.com:8443/login', credentials, {
         withCredentials: true, // Ensures cookies are included in requests
       });
-
+  
       if (response.status === 200) {
+        // Store login indicator
+        localStorage.setItem('isLoggedIn', 'true');
         // Redirect or update UI on successful login
         window.location.href = '/admin/dashboard';
       }
     } catch (error) {
       console.error('Login failed', error);
-      //setLoginMessage('Login failed. Please check your credentials and try again.');
+      setLoginMessage('Login failed. Please check your credentials and try again.');
     }
   };
-
   return (
     <div className='container'>
       <div className="login-container">

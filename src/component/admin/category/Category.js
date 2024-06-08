@@ -40,7 +40,7 @@ export default function Category() {
 
     const handleDelete = async (categoryId) => {
       try {
-          const response = await fetch(`http://localhost:3003/categories/${categoryId}`, {
+          const response = await fetch(`https://ec2.radhakrishnamart.com:8443/categories/${categoryId}`, {
               method: 'DELETE'
           });
           if (response.ok) {
