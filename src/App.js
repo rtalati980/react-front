@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack'; // Import SnackbarProvider
 import { CartProvider } from './component/CartContext';
 import Layout from './component/Layout';
 import Home from './component/Home';
@@ -32,44 +33,46 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/admin/login" element={<Login />} />
-          <Route path="/admin/dashboard" element={<PrivateRoute><AdminHome /></PrivateRoute>}>
-            <Route path="" element={<Dashboard />} />
-            <Route path="product" element={<Product2 />} />
-            <Route path="addproducts" element={<AddProduct />} />
-            <Route path="category" element={<Category />} />
-            <Route path="addcategory" element={<AddCategory />} />
-            <Route path="query" element={<Contact2 />} />
-            <Route path="subcribeEmail" element={<Email />} />
-            <Route path="orders" element={<Order />} />
-          </Route>
-          <Route
-            path="*"
-            element={
-              <CartProvider>
-                <Layout>
-                  <Routes>
-                    <Route index element={<Home />} />
-                    <Route path="/collection/:categoryName" element={<Product />} />
-                    <Route path="/product/:id" element={<DetailsPro />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/rudraksh" element={<Rudraksh />} />
-                    <Route path="/gemstone" element={<Gemstone />} />
-                    <Route path="/products" element={<AllProducts />} />
-                    <Route path="/cart" element={<Cart />} />
-                    <Route path="/checkout" element={<Checkout />} />
-                    <Route path="/terms" element={<Terms />} />
-                    <Route path="/refund" element={<Refund />} />
-                    <Route path="/privacy" element={<Privacy />} />
-                    <Route path="/shipping" element={<Shipping />} />
-                  </Routes>
-                </Layout>
-              </CartProvider>
-            }
-          />
-        </Routes>
+        <SnackbarProvider> {/* Wrap your entire application with SnackbarProvider */}
+          <Routes>
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin/dashboard" element={<PrivateRoute><AdminHome /></PrivateRoute>}>
+              <Route path="" element={<Dashboard />} />
+              <Route path="product" element={<Product2 />} />
+              <Route path="addproducts" element={<AddProduct />} />
+              <Route path="category" element={<Category />} />
+              <Route path="addcategory" element={<AddCategory />} />
+              <Route path="query" element={<Contact2 />} />
+              <Route path="subcribeEmail" element={<Email />} />
+              <Route path="orders" element={<Order />} />
+            </Route>
+            <Route
+              path="*"
+              element={
+                <CartProvider>
+                  <Layout>
+                    <Routes>
+                      <Route index element={<Home />} />
+                      <Route path="/collection/:categoryName" element={<Product />} />
+                      <Route path="/product/:id" element={<DetailsPro />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/rudraksh" element={<Rudraksh />} />
+                      <Route path="/gemstone" element={<Gemstone />} />
+                      <Route path="/products" element={<AllProducts />} />
+                      <Route path="/cart" element={<Cart />} />
+                      <Route path="/checkout" element={<Checkout />} />
+                      <Route path="/terms" element={<Terms />} />
+                      <Route path="/refund" element={<Refund />} />
+                      <Route path="/privacy" element={<Privacy />} />
+                      <Route path="/shipping" element={<Shipping />} />
+                    </Routes>
+                  </Layout>
+                </CartProvider>
+              }
+            />
+          </Routes>
+        </SnackbarProvider>
       </BrowserRouter>
     </div>
   );
