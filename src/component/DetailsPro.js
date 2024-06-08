@@ -121,7 +121,7 @@ const DetailsPro = () => {
                             </div>
                             <button onClick={addToCart}>Add to Cart</button>
                             <button className="btn btn-secondary">Buy Now</button>
-                            <p className="mt-3">{product.description}</p>
+                            <p className="mt-3">{product.discription}</p>
                         </>
                     )}
                 </div>

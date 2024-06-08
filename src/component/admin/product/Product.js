@@ -139,7 +139,7 @@ export default function Product() {
                   <TableCell>
                     <img src={product.images[0]} alt={product.name} width="50" height="50" />
                   </TableCell>
-                  <TableCell>{product.description}</TableCell>
+                  <TableCell>{product.discription}</TableCell>
                   <TableCell>{product.price}</TableCell>
                   <TableCell>
                     <IconButton onClick={() => handleEdit(product)}><FaEdit /></IconButton>
