@@ -12,7 +12,7 @@ const Dashboard = () => {
   // Function to fetch product count
   const fetchProductCount = async () => {
     try {
-      const response = await axiosInstance.get('/product/api/');
+      const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/product/api/');
       setProductCount(response.data.length); // Assuming the response is an array
     } catch (error) {
       console.error('Error fetching product count:', error);
@@ -22,7 +22,7 @@ const Dashboard = () => {
   // Function to fetch order count
   const fetchOrderCount = async () => {
     try {
-      const response = await axiosInstance.get('/api/orders');
+      const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/api/orders');
       setOrderCount(response.data.length); // Assuming the response is an array
     } catch (error) {
       console.error('Error fetching order count:', error);
@@ -32,8 +32,9 @@ const Dashboard = () => {
   // Function to fetch subscribed email count
   const fetchSubscribedEmailCount = async () => {
     try {
-      const response = await axiosInstance.get('/api/email');
-      setSubscribedEmailCount(response.data.length); // Assuming the response is an array
+      const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/api/email');
+      setSubscribedEmailCount(response.data.length);
+      console.log(response.data.length); // Assuming the response is an array
     } catch (error) {
       console.error('Error fetching subscribed email count:', error);
     }
@@ -42,7 +43,7 @@ const Dashboard = () => {
   // Function to fetch query count
   const fetchQueryCount = async () => {
     try {
-      const response = await axiosInstance.get('/api/contact');
+      const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/api/contact');
       setQueryCount(response.data.length); // Assuming the response is an array
     } catch (error) {
       console.error('Error fetching query count:', error);
@@ -52,7 +53,7 @@ const Dashboard = () => {
   // Function to fetch category count
   const fetchCategoryCount = async () => {
     try {
-      const response = await axiosInstance.get('/category/api/');
+      const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/category/api/');
       setCategoryCount(response.data.length); // Assuming the response is an array
     } catch (error) {
       console.error('Error fetching category count:', error);

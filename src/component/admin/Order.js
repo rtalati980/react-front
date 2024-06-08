@@ -7,7 +7,8 @@ import axiosInstance from './axiousInstance'; // Corrected import statement
 const fetchOrders = async () => {
   try {
     const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/api/orders');
-    return response.data; // assuming the data is in response.data
+    return response.data; 
+      console.log(response.data);// assuming the data is in response.data
   } catch (error) {
     console.error('Error fetching data:', error);
     return [];
@@ -20,6 +21,7 @@ export default function Contact() {
   useEffect(() => {
     const fetchOrderData = async () => {
       const fetchedOrders = await fetchOrders();
+      console.log("order ",fetchedOrders);
       if (fetchedOrders) {
         setOrders(fetchedOrders);
       }

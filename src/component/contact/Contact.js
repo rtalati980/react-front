@@ -24,7 +24,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/api/contact', {
+      const response = await fetch('https://ec2.radhakrishnamart.com:8443/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
