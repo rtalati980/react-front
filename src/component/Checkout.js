@@ -23,6 +23,7 @@ const Checkout = () => {
   });
 
   const [formErrors, setFormErrors] = useState({});
+  const [paymentError, setPaymentError] = useState(null);
 
   // Handle form input change
   const handleInputChange = (e) => {
@@ -51,7 +52,7 @@ const Checkout = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8080/api/orders', {
+      const response = await axios.post('https://ec2.radhakrishnamart.com:8443/api/orders/pg/v1/pay', {
         productId: 1, // Replace with actual product ID
         productName: productNames,
         quantity: totalQuantity,
@@ -68,7 +69,7 @@ const Checkout = () => {
       window.location.href = response.data.redirectUrl; // Redirect to the payment URL
     } catch (error) {
       console.error('Payment error:', error);
-      // Handle payment error
+      setPaymentError('Payment failed. Please try again.');
     }
   };
 
@@ -186,6 +187,7 @@ const Checkout = () => {
         </div>
       </div>
       <button onClick={handlePayment}>Pay Now</button>
+      {paymentError && <p className="error">{paymentError}</p>}
       {showModal && <Modal />}
     </div>
   );
