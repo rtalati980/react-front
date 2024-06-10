@@ -48,7 +48,7 @@ const updateCategory = async (categoryId, updatedCategory) => {
       formData.append('images', updatedCategory.image);
     }
 
-    const response = await fetch(`http://localhost:8080/category/api/id/${categoryId}`, {
+    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/category/api/id/${categoryId}`, {
       method: 'PATCH',
       body: formData
     });

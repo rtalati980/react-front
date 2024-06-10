@@ -54,7 +54,7 @@ const updateProduct = async (productId, updatedProduct, imageFiles) => {
       });
     }
 
-    const response = await fetch(`http://localhost:8080/product/api/${productId}`, {
+    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/product/api/${productId}`, {
       method: 'PATCH',
       body: formData
     });
