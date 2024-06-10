@@ -38,7 +38,7 @@ const AddProductForm = () => {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('price', price);
-    formData.append('discription', description);
+    formData.append('description', description);
     formData.append('category_id', categoryId);
     for (let i = 0; i < images.length; i++) {
       formData.append('images', images[i]);

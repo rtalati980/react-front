@@ -51,7 +51,7 @@ const Checkout = () => {
     }
 
     try {
-      const response = await axios.post('https://ec2.radhakrishnamart.com:8443/api/orders', {
+      const response = await axios.post('http://localhost:8080/api/orders', {
         productId: 1, // Replace with actual product ID
         productName: productNames,
         quantity: totalQuantity,

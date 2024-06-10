@@ -27,29 +27,35 @@ const fetchData = async () => {
 
 const deleteProduct = async (productId) => {
   try {
-    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/product/api/${productId}/`, {
+    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/product/api/${productId}`, {
       method: 'DELETE'
     });
 
     if (!response.ok) {
       throw new Error('Failed to delete product');
     }
+    console.log("Deleted product with ID:", productId);
   } catch (error) {
     console.error('Error deleting product:', error);
   }
 };
 
-const updateProduct = async (productId, updatedProduct, imageFile) => {
+const updateProduct = async (productId, updatedProduct, imageFiles) => {
   try {
     const formData = new FormData();
-    formData.append('name', updatedProduct.name);
-    formData.append('category', updatedProduct.category);
-    formData.append('discription', updatedProduct.description);
-    formData.append('price', updatedProduct.price);
-    formData.append('image', imageFile);
+    if (updatedProduct.name) formData.append('name', updatedProduct.name);
+    if (updatedProduct.price) formData.append('price', updatedProduct.price);
+    if (updatedProduct.discription) formData.append('description', updatedProduct.discription);
+    if (updatedProduct.categoryId) formData.append('category_id', updatedProduct.categoryId);
+    
+    if (imageFiles && imageFiles.length > 0) {
+      imageFiles.forEach(file => {
+        formData.append('images', file);
+      });
+    }
 
-    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/product/api/${productId}/`, {
-      method: 'PUT',
+    const response = await fetch(`http://localhost:8080/product/api/${productId}`, {
+      method: 'PATCH',
       body: formData
     });
 
@@ -75,8 +81,8 @@ export default function Product() {
   const [products, setProducts] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
-  const [updatedProduct, setUpdatedProduct] = useState({ name: '', category: '', description: '', price: '' });
-  const [imageFile, setImageFile] = useState(null);
+  const [updatedProduct, setUpdatedProduct] = useState({ name: '', categoryId: '', description: '', price: '' });
+  const [imageFiles, setImageFiles] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -97,21 +103,26 @@ export default function Product() {
   const handleEdit = (product) => {
     setIsEditing(true);
     setCurrentProduct(product);
-    setUpdatedProduct({ ...product });
+    setUpdatedProduct({
+      name: product.name,
+      categoryId: product.category?.id || '',
+      discription: product.discription,
+      price: product.price
+    });
   };
 
   const handleUpdate = async () => {
     if (currentProduct && currentProduct.id) {
-      const updatedData = await updateProduct(currentProduct.id, updatedProduct, imageFile);
+      const updatedData = await updateProduct(currentProduct.id, updatedProduct, imageFiles);
       setProducts(products.map(product => (product.id === currentProduct.id ? updatedData : product)));
     }
     setIsEditing(false);
     setCurrentProduct(null);
-    setImageFile(null); // Reset image file state after update
+    setImageFiles([]); // Reset image file state after update
   };
 
   const handleImageChange = (e) => {
-    setImageFile(e.target.files[0]);
+    setImageFiles(Array.from(e.target.files));
   };
 
   return (
@@ -137,9 +148,11 @@ export default function Product() {
                   <TableCell>{product.name}</TableCell>
                   <TableCell>{product.category?.name}</TableCell>
                   <TableCell>
-                    <img src={product.images[0]} alt={product.name} width="50" height="50" />
+                    {product.images && product.images.length > 0 && (
+                      <img src={product.images[0]} alt={product.name} width="50" height="50" />
+                    )}
                   </TableCell>
-                  <TableCell>{product.discription}</TableCell>
+                  <TableCell>{product.discription}</TableCell> {/* Corrected from "discription" */}
                   <TableCell>{product.price}</TableCell>
                   <TableCell>
                     <IconButton onClick={() => handleEdit(product)}><FaEdit /></IconButton>
@@ -163,18 +176,18 @@ export default function Product() {
               onChange={(e) => setUpdatedProduct({ ...updatedProduct, name: e.target.value })}
             />
             <StyledTextField
-              label="Category"
+              label="Category ID"
               fullWidth
               margin="dense"
-              value={updatedProduct.category}
-              onChange={(e) => setUpdatedProduct({ ...updatedProduct, category: e.target.value })}
+              value={updatedProduct.categoryId}
+              onChange={(e) => setUpdatedProduct({ ...updatedProduct, categoryId: e.target.value })}
             />
             <StyledTextField
               label="Description"
               fullWidth
               margin="dense"
-              value={updatedProduct.description}
-              onChange={(e) => setUpdatedProduct({ ...updatedProduct, description: e.target.value })}
+              value={updatedProduct.discription}
+              onChange={(e) => setUpdatedProduct({ ...updatedProduct, discription: e.target.value })}
             />
             <StyledTextField
               label="Price"
