@@ -28,6 +28,8 @@ import Email from './component/admin/Subscribe/Subscribe';
 import Order from './component/admin/Order';
 import Dashboard from './component/Dashboard';
 import PrivateRoute from './component/PrivateRoute';
+import ThankYou from './component/ThankYouPage';
+import Error from './component/ErrorPage';
 
 function App() {
   return (
@@ -35,8 +37,8 @@ function App() {
       <BrowserRouter>
         <SnackbarProvider> {/* Wrap your entire application with SnackbarProvider */}
           <Routes>
-            <Route path="/admin/login" element={<Login />} />
-            <Route path="/admin/dashboard" element={<PrivateRoute><AdminHome /></PrivateRoute>}>
+              <Route path="/admin/login" element={<Login />} />
+              <Route path="/admin/dashboard" element={<PrivateRoute><AdminHome /></PrivateRoute>}>
               <Route path="" element={<Dashboard />} />
               <Route path="product" element={<Product2 />} />
               <Route path="addproducts" element={<AddProduct />} />
@@ -66,6 +68,8 @@ function App() {
                       <Route path="/refund" element={<Refund />} />
                       <Route path="/privacy" element={<Privacy />} />
                       <Route path="/shipping" element={<Shipping />} />
+                      <Route path="/thankyou" element={<ThankYou/>} />
+                      <Route path="/error" element={<Error/>} />
                     </Routes>
                   </Layout>
                 </CartProvider>
