@@ -56,7 +56,7 @@ const Checkout = () => {
         productId: 1, // Replace with actual product ID
         productName: productNames,
         quantity: totalQuantity,
-        totalPrice: parseFloat(totalPrice),
+        totalPrice: totalPrice,
         customerName: formData.fullName,
         address: formData.address,
         zipCode: formData.zip,
