@@ -1,6 +1,6 @@
 .faq_accordion{
   background-color: #fff !important;
-  padding: 60px 0px !important;
+  padding: 80px 0px !important;
 }
 .faq_accordion h2{
   color: rgb(177, 111, 35);
@@ -24,7 +24,7 @@
     background-color: #777;
     color: white;
     cursor: pointer;
-    padding: 18PX;
+    padding: 25PX;
     width: 100%;
     border: none;
     text-align: left;
