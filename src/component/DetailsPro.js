@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
-import { add, remove } from "../component/Slices/CartSlice";
+import { add } from "../component/Slices/CartSlice";
 import { useSnackbar } from "notistack";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './detailspr.module.css';
@@ -77,6 +77,7 @@ const DetailsPro = () => {
             autoHideDuration: 3000,
         });
     };
+
     return (
         <div className={styles.container}>
             <div className={styles['product-container']}>
@@ -120,8 +121,12 @@ const DetailsPro = () => {
                                 <FaMinus onClick={handleDecrement} className="ms-2" />
                             </div>
                             <button onClick={addToCart}>Add to Cart</button>
-                            <button className="btn btn-secondary">Buy Now</button>
-                            <p className="mt-3">{product.discription}</p>
+                            <Link to={`/checkout?totalPrice=${product.price * count}&totalQuantity=${count}&productNames=${product.name}&productQuantities=${count}`}>
+                                <button className='btn btn-primary'>Buy Now</button>
+                            </Link>
+                            <div className={styles.description}>
+                                <p dangerouslySetInnerHTML={{ __html: product.discription }}></p>
+                            </div>
                         </>
                     )}
                 </div>

@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { AiFillFacebook, AiOutlineInstagram } from "react-icons/ai";
 import { BsYoutube, BsTwitter } from "react-icons/bs";
 import { FaPinterestSquare } from "react-icons/fa";
-import { CiHeart } from "react-icons/ci";
+import { IoHeart } from "react-icons/io5";
 import './bottom.css';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -55,10 +56,10 @@ export default function Footer() {
             <div className='col-md-3'>
               <h2>Our Policies</h2>
               <ul>
-                <li><a href="/refund-policy">Refund Policy</a></li>
-                <li><a href="/privacy-policy">Privacy Policy</a></li>
-                <li><a href="/terms-conditions">Terms & Conditions</a></li>
-                <li><a href="/shipping-policy">Shipping Policy</a></li>
+                <li><a href="/refund">Refund Policy</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms & Conditions</a></li>
+                <li><a href="/shipping">Shipping Policy</a></li>
               </ul>
             </div>
             <div className='col-md-4'>
@@ -80,20 +81,19 @@ export default function Footer() {
             </div>
             <div className="col-md-6 d-flex justify-content-end">
               <div className='social-icons' style={{ fontSize: '24px' }}>
-                <AiFillFacebook className="mr-3" />
-                <AiOutlineInstagram className="mr-3" />
-                <BsYoutube className="mr-3" />
-                <BsTwitter className="mr-3" />
-                <FaPinterestSquare />
+               <Link to="https://www.facebook.com/profile.php?id=61559847878765" style={{color:'white'}}> <AiFillFacebook className="mr-3" /></Link>
+               <Link to="https://www.instagram.com/radha_krishna_mart_com?igsh=MTg3dXpuYWgwcmxxbA==" style={{color:'white'}}> <AiOutlineInstagram className="mr-3" /></Link>
+               <Link to="https://www.youtube.com/channel/UCqtCL7lgLHHtPbcyDw3z7ng"  style={{color:'white'}}> <BsYoutube className="mr-3" /></Link>
+                
               </div>
             </div>
           </div>
-          <p style={{ textAlign: 'center' }}>
+          <p style={{ textAlign: 'center',fontSize:'25px',marginTop:'20px'  }}>
             Design & Developed by 
             <span style={{ display: 'inline-block', margin: '0 5px' }}>
-              <CiHeart style={{ color: 'red', fontSize: '25px', verticalAlign: 'middle' }} />
+              <IoHeart style={{ color: 'white', fontSize: '25px', verticalAlign: 'middle' }} />
             </span>
-            CodeCraft.
+            CodeCrafters.
           </p>
         </div>
         {showPopup && <div className="popup">Thanks for subscribing!</div>}
