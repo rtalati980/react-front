@@ -40,7 +40,7 @@ export default function AnchorTemporaryDrawer() {
     </Box>
   );
   return (
-    <div  style={{padding:20} }>
+    <div >
       {/* Replacing the button with MenuIcon */}
       <Button onClick={toggleDrawer('left', true) }><MenuIcon  style={{color: '#b16f23'}}/></Button>
       <Drawer

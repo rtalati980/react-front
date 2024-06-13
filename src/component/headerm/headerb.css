@@ -4,7 +4,9 @@
   align-items: center;
   padding: 10px 20px;
   background-color: white;
-  position: relative; /* To position search input absolutely within the header */
+  position: relative;
+  
+ /* To position search input absolutely within the header */
 }
 
 .title {
@@ -12,6 +14,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  padding-left: 10px;
 }
 
 .naviga {
@@ -42,6 +45,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding-right: 30px;
 }
 
 .fa {
@@ -93,7 +97,22 @@
 } 
 
 @media only screen and (max-width: 600px) {
+
+  .head{
+    AnchorTemporaryDrawer{
+      margin-left: -30px;
+    }
+  }
+
+  .title h1{
+    font-size: 20px;
+  }
+
   .naviga {
     display: none;
+  }
+
+  .ricons{
+    padding-right: 10px;
   }
 }
