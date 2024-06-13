@@ -47,11 +47,11 @@ const Product = () => {
       {isLoading ? (
         <p>Loading products...</p>
       ) : (
-        <div className='row ctr row-cols-2 row-cols-sm-2 row-cols-md-4'>
+        <div className='row ctr row-cols-2 row-cols-sm-2 row-cols-md-4 '>
           {filteredCategory.map((cat) => (
             cat.products.map((pro) => (
-              <div key={pro.id} className='col cp p-3'>
-                <div className='card mb-3 crd' style={{ border: '1px solid #b16f23', padding: '10px', backgroundColor: '#deb88c', maxWidth: '250px', height: 'auto' }}>
+              <div key={pro.id} className='col cp p-2'>
+                <div className='card mb-2 crd' style={{ border: '1px solid #b16f23', padding: '10px', backgroundColor: '#deb88c', width: '400px', height: 'auto' }}>
                   <Link to={`/product/${pro.id}`}>
                     <img src={`${pro.images[0]}`} className='card-img-top' alt={`${pro.name}`} style={{ height: '200px', width: '100%', objectFit: 'cover' }} />
                   </Link>

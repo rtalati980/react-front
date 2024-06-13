@@ -6,7 +6,7 @@ import { LiaShippingFastSolid } from "react-icons/lia";
 
 export default function Appear() {
   return (
-    <div className="container-fluid appear_main_container">
+    <div className="container-fluid appear_main_container " >
   <div className="row">
     <div className='col-md-12 mb-3 appear_heading'>
       <h2> Why Choose Us? </h2>

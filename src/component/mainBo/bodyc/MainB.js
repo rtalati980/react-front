@@ -47,7 +47,7 @@ export default function MainB ({cat}) {
     <div className='text-center' style={{ color: 'white' }}>
       <h2>Collections</h2>
     </div>
-    <div className='row row-cols-2 row-cols-sm-2 row-cols-md-4 justify-content-center'>
+    <div className='row row-cols-2 row-cols-sm-2 row-cols-md-4 justify-content-center p-4'>
       {category.map(cat => (
         <div key={cat.catid} className='col'>
           <div className='box'>

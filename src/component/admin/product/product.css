@@ -48,11 +48,3 @@
   z-index: 1000; /* Less than edit-modal */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="submit"],
-textarea {
- 
-  border: none  !important ;
-  
-}

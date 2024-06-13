@@ -9,7 +9,7 @@
   box-shadow: 0 0 7px rgba(177, 111, 35, 0.5) !important;
 }
 .accordion-button:hover{
-  background-color: rgb(177, 111, 35) ;
+  background-color: rgb(177, 111, 35)!important  ;
   color: white !important;
 }
 .faq_accordion .accordion-item button{
@@ -22,7 +22,7 @@
 }
 .collapsible {
     background-color: #777;
-    color: white;
+    color:rgb(177, 111, 35) ;
     cursor: pointer;
     padding: 25PX;
     width: 100%;

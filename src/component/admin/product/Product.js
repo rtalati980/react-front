@@ -47,14 +47,16 @@ const updateProduct = async (productId, updatedProduct, imageFiles) => {
     if (updatedProduct.price) formData.append('price', updatedProduct.price);
     if (updatedProduct.discription) formData.append('description', updatedProduct.discription);
     if (updatedProduct.categoryId) formData.append('category_id', updatedProduct.categoryId);
-    
+
     if (imageFiles && imageFiles.length > 0) {
       imageFiles.forEach(file => {
         formData.append('images', file);
       });
     }
 
-    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/product/api/${productId}`, {
+    console.log(formData.get('description')); // Debug: log the description field to check its length and content
+
+    const response = await fetch(`http://localhost:8080/product/api/${productId}`, {
       method: 'PATCH',
       body: formData
     });
@@ -81,7 +83,7 @@ export default function Product() {
   const [products, setProducts] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
-  const [updatedProduct, setUpdatedProduct] = useState({ name: '', categoryId: '', description: '', price: '' });
+  const [updatedProduct, setUpdatedProduct] = useState({ name: '', categoryId: '', discription: '', price: '' });
   const [imageFiles, setImageFiles] = useState([]);
 
   useEffect(() => {
@@ -152,7 +154,7 @@ export default function Product() {
                       <img src={product.images[0]} alt={product.name} width="50" height="50" />
                     )}
                   </TableCell>
-                  <TableCell>{product.discription}</TableCell> {/* Corrected from "discription" */}
+                  <TableCell>{product.discription}</TableCell>
                   <TableCell>{product.price}</TableCell>
                   <TableCell>
                     <IconButton onClick={() => handleEdit(product)}><FaEdit /></IconButton>
@@ -186,6 +188,8 @@ export default function Product() {
               label="Description"
               fullWidth
               margin="dense"
+              multiline
+              rows={4}
               value={updatedProduct.discription}
               onChange={(e) => setUpdatedProduct({ ...updatedProduct, discription: e.target.value })}
             />
