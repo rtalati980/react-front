@@ -27,6 +27,48 @@
   }
 }
 
+.intro {
+  padding: 20px;
+ 
+  
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.intro h2 {
+  color: #b16f23;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.intro h3 {
+  color: #b16f23;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.intro p {
+  color: #b16f23;
+  margin-bottom: 10px;
+}
+
+.intro ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.intro ul li {
+  color: #b16f23;
+  margin-bottom: 5px;
+}
+
+.intro ul li strong {
+  color: #b16f23;
+  font-weight: 900;
+}
+
+
 @media only screen and (max-width: 600px){
   
 

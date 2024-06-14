@@ -89,7 +89,7 @@ const AllProducts = ({ product }) => {
       {visibleCount < products.length && (
         <div className='row'>
           <div className='col text-center mb-3'>
-            <button className='btn btn-secondary' onClick={handleLoadMore}>
+            <button className='btn btn-secondary' style={{width:'15%' ,backgroundColor:'#b16f23',color:'white'}} onClick={handleLoadMore}>
               View More
             </button>
           </div>

@@ -43,11 +43,11 @@ export default function MainB ({cat}) {
   }, []);
 
   return (
-    <div className='container-fluid cnt-fl' style={{ height: '500px', backgroundColor: '#b16f23' }}>
-    <div className='text-center' style={{ color: 'white' }}>
+    <div className='container-fluid cnt cnt-fl' style={{ height: '500px', backgroundColor: '#b16f23' }}>
+    <div className='text-center' style={{ color: 'white'  }}>
       <h2>Collections</h2>
     </div>
-    <div className='row row-cols-2 row-cols-sm-2 row-cols-md-4 justify-content-center p-4'>
+    <div className='row row-cols-2 row-cols-sm-2 row-cols-md-4 justify-content-center '>
       {category.map(cat => (
         <div key={cat.catid} className='col'>
           <div className='box'>
