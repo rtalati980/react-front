@@ -6,6 +6,7 @@ import AnchorTemporaryDrawer from './AnchorTemporaryDrawer';
 import { useCart } from '../CartContext';
 import { useSelector } from "react-redux"; 
 import { Link } from 'react-router-dom';
+import radhakrilogo from 'https://martimages.blob.core.windows.net/imagesmart/White And Black Modern Abstract Beauty Logo.jpg';
 
 export default function Headerb() {
   const { cart } = useSelector((state) => state);
@@ -41,7 +42,7 @@ export default function Headerb() {
     <div className={`head ${showSearch ? 'show-search' : ''}`}>
       {isMobile && <AnchorTemporaryDrawer />}
       <div className='title'>
-        <h1><Link to='/' style={{ color: '#b16f23' ,textDecoration:'none'}}>Radha Krishna Mart</Link></h1>
+        <img src={radhakrilogo} alt ><Link to='/' style={{ textDecoration:'none'}}></Link></img>
       </div>
 
       <div className={`naviga ${isOpen && !showSearch ? 'active overlay' : ''}`}>
