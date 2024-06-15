@@ -13,7 +13,7 @@
 }
 
 .left {
-    flex: 0.4;
+    flex: 0.5;
     padding: 40px 20px 20px 20px;
 }
 
@@ -43,10 +43,13 @@
 }
 
 .right {
-    flex: 0.6;
+    flex: 0.5;
     padding: 20px;
 }
 
+.right h1 , h2{
+    color: #b16f23;
+}
 .gemc {
     width: 100%;
     display: flex;
@@ -55,6 +58,11 @@
     margin-bottom: 20px;
 }
 
+
+.gemc button{
+    border: 1px solid #b16f23 !important;
+    color: #b16f23;
+}
 .gemc button {
     width: calc(20% - 10px);
     margin-bottom: 10px;

@@ -6,9 +6,11 @@ import { LiaShippingFastSolid } from "react-icons/lia";
 
 export default function Appear() {
   return (
+    <div className='whychoose'>
     <div className="container-fluid appear_main_container " >
+     
   <div className="row">
-    <div className='col-md-12 mb-3 appear_heading'>
+    <div className='col-md-12 mb-3 appear_heading' >
       <h2> Why Choose Us? </h2>
     </div>
     <div className="col-md-4 mb-4">
@@ -39,7 +41,10 @@ export default function Appear() {
       </div>
     </div>
   </div>
+  </div>
   <hr />
+  <div className='text-row'>
+  <div className="container-fluid  " >
   <div className="row">
   <div className="col">
     <h2 style={{ color: '#b16f23' }}>Buy Spiritual Items Online at Hare Krishna Mart</h2>
@@ -53,6 +58,7 @@ export default function Appear() {
   </div>
 </div>
 </div>
-
+</div>
+</div>
   );
 }

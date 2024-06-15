@@ -1,3 +1,16 @@
+.collection_section{
+  
+   background-color: #b16f23 !important;
+}
+
+.box img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.box img:hover {
+  transform: scale(1.1);
+}
+
 
 @media only screen and (max-width: 600px){
   

@@ -108,11 +108,11 @@ const DetailsPro = () => {
                             <h2>Rs. {fluctuatedPrice !== null ? fluctuatedPrice : product.price * count}</h2>
                             {(product.category).name === 'Gemstone' && (
                                 <div className={`${styles.gemc} mb-3`}>
-                                    <button className="btn btn-outline-primary me-2" onClick={() => handleCaratChange(1)}>6.5 Carat</button>
-                                    <button className="btn btn-outline-primary me-2" onClick={() => handleCaratChange(2)}>7.5 Carat</button>
-                                    <button className="btn btn-outline-primary me-2" onClick={() => handleCaratChange(3)}>8.5 Carat</button>
-                                    <button className="btn btn-outline-primary me-2" onClick={() => handleCaratChange(4)}>9.5 Carat</button>
-                                    <button className="btn btn-outline-primary me-2" onClick={() => handleCaratChange(5)}>10.5 Carat</button>
+                                    <button className="btn crt-btn me-2" onClick={() => handleCaratChange(1)}>6.5 Carat</button>
+                                    <button className="btn crt-btn me-2" onClick={() => handleCaratChange(2)}>7.5 Carat</button>
+                                    <button className="btn crt-btn  me-2" onClick={() => handleCaratChange(3)}>8.5 Carat</button>
+                                    <button className="btn crt-btn me-2" onClick={() => handleCaratChange(4)}>9.5 Carat</button>
+                                    <button className="btn crt-btn me-2" onClick={() => handleCaratChange(5)}>10.5 Carat</button>
                                 </div>
                             )}
                             <div className='d-flex align-items-center mb-3'>

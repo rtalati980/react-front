@@ -52,20 +52,14 @@ const GemStone = () => {
   const filteredCategory = category.filter((cat) => cat.name === 'Rudraksha');
 
   return (
-      <div className='container-fluid ct' style={{ backgroundColor: '#deb88c', height: 'auto' }}>
+    <div className='product_rudraksh'>
+      <div className='container-fluid ct' >
       <div className='intro'>
         <h2>Discover the Assurance of Certified Rudraksha</h2>
         <p>
           When it comes to spiritual and healing practices, authenticity and quality are of utmost importance. At Hare Krishna Mart, we are dedicated to providing you with the finest certified Rudraksha beads, ensuring that each bead you purchase is genuine and holds its spiritual essence.
         </p>
-        <h3>Why Choose Certified Rudraksha?</h3>
-        <ul>
-          <li><strong>Guaranteed Authenticity:</strong> Certified Rudraksha beads come with a certificate of authenticity from reputable sources, verifying the bead's origin, type, and quality.</li>
-          <li><strong>Spiritual Benefits:</strong> Authentic Rudraksha beads are known to offer numerous spiritual and health benefits, including enhancing meditation, reducing stress, and promoting overall well-being.</li>
-          <li><strong>Quality Assurance:</strong> Certification ensures that the Rudraksha bead meets specific standards for its mukhi (faces), size, shape, and natural properties, giving you confidence in your purchase.</li>
-          <li><strong>Ethical Sourcing:</strong> Certified Rudraksha beads are sourced ethically, ensuring they are harvested and processed in a sustainable and responsible manner.</li>
-          <li><strong>Peace of Mind:</strong> When you buy a certified Rudraksha, you have peace of mind knowing that you are receiving a genuine and potent spiritual tool. The certification provides detailed information about the bead, removing any doubts about its authenticity and efficacy.</li>
-        </ul>
+        
       </div>
       <div className='row ctr row-cols-2 row-cols-sm-2 row-cols-md-4'>
         {filteredCategory.map((cat) => (
@@ -79,7 +73,7 @@ const GemStone = () => {
                   <h5 className='card-title' style={{ color: '#b16f23'  }}>
                     <Link to={`/product/${pro.id}`} style={{ fontSize: '17px', color: '#b16f23', textDecoration: 'none' }}>{pro.name}</Link>
                   </h5>
-                  <p className='card-text' style={{ color: '#b16f23' }}>Starting from: Rs. {pro.price}.00</p>
+                  <p className='card-text' style={{ color: '#b16f23',fontWeight:'bold' }}>Starting from: Rs. {pro.price}.00</p>
                   <p className='card-text logss' style={{ color: '#b16f23' }}>Radhe Krishna Mart</p>
                  
                 </div>
@@ -89,7 +83,7 @@ const GemStone = () => {
         ))}
       </div>
       </div>
-    
+      </div>
   );
 };
 

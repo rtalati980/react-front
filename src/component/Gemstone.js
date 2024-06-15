@@ -53,25 +53,20 @@ const GemStone = () => {
   const filteredCategory = category.filter((cat) => cat.name === 'Gemstone');
 
   return (
-    <div className='container-fluid ct' style={{ backgroundColor: '#deb88c', height: 'auto' }}>
+    <div className='product_section'>
+    <div className='container-fluid ct' >
       <div className='intro'>
         <h2>Discover the Assurance of Certified Gemstones</h2>
         <p>
           When it comes to purchasing gemstones, authenticity and quality are paramount. At Radha Krishna Mart, we are committed to providing you with only the finest certified gemstones, ensuring that every piece you purchase is genuine and of the highest quality.
         </p>
-        <h3>Why Choose Certified Gemstones?</h3>
-        <ul>
-          <li><strong>Guaranteed Authenticity:</strong> Certified gemstones come with a certificate of authenticity from reputable gemological laboratories, verifying the gemstone's origin, quality, and properties.</li>
-          <li><strong>Quality Assurance:</strong> Certification ensures that the gemstone meets specific standards for color, clarity, cut, and carat weight, giving you confidence in your purchase.</li>
-          <li><strong>Ethical Sourcing:</strong> Certified gemstones often come with assurance of ethical sourcing, meaning they are mined and processed in a responsible and sustainable manner.</li>
-          <li><strong>Peace of Mind:</strong> When you buy a certified gemstone, you have peace of mind knowing that you are getting what you pay for. The certification provides detailed information about the gemstone, removing any doubts about its quality and authenticity.</li>
-        </ul>
+        
       </div>
-
-      <div className='row ctr row-cols-2 row-cols-sm-2 row-cols-md-4'>
+          <div  className='' style={{ backgroundColor: '#deb88c', height: 'auto' }}>
+      <div className='row ctr row-cols-2 row-cols-sm-2  row-cols-md-4' >
         {filteredCategory.map((cat) => (
           cat.products.map((pro) => (
-            <div key={pro.id} className='col cp p-3'>
+            <div key={pro.id} className='col cp '>
               <div className='card mb-3 crd' style={{ border: '1px solid #b16f23', padding: '10px', backgroundColor: '#deb88c', maxWidth: '250px', height:'auto' }}>
                 <Link to={`/product/${pro.id}`}>
                   <img src={`${pro.images[0]}`} className='card-img-top' alt={`${pro.name}`} style={{ height: 'auto', width: '100%', objectFit: 'cover' }} />
@@ -80,7 +75,7 @@ const GemStone = () => {
                   <h5 className='card-title' style={{ color: '#b16f23'  }}>
                     <Link to={`/product/${pro.id}`} style={{ fontSize: '17px', color: '#b16f23', textDecoration: 'none' }}>{pro.name}</Link>
                   </h5>
-                  <p className='card-text' style={{ color: '#b16f23' }}>Starting from: Rs. {pro.price}.00</p>
+                  <p className='card-text' style={{ color: '#b16f23',fontWeight:'bold' }}>Starting from: Rs. {pro.price}.00</p>
                   <p className='card-text logss' style={{ color: '#b16f23' }}>Radhe Krishna Mart</p>
                  
                 </div>
@@ -89,6 +84,8 @@ const GemStone = () => {
           ))
         ))}
       </div>
+      </div>
+    </div>
     </div>
   );
 };

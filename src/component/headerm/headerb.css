@@ -8,7 +8,8 @@
 }
 
 .title img {
-  max-height: 90px; /* Adjust based on your desired logo size */
+  padding-left: 20px;
+  max-height: 110px; /* Adjust based on your desired logo size */
   width: auto;
 }
 

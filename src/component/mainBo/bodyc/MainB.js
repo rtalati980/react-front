@@ -43,7 +43,8 @@ export default function MainB ({cat}) {
   }, []);
 
   return (
-    <div className='container-fluid cnt cnt-fl' style={{ height: '500px', backgroundColor: '#b16f23' }}>
+    <div className='collection_section'>
+    <div className='container cnt cnt-fl' style={{  }}>
     <div className='text-center' style={{ color: 'white'  }}>
       <h2>Collections</h2>
     </div>
@@ -65,6 +66,7 @@ export default function MainB ({cat}) {
         </div>
       ))}
     </div>
+  </div>
   </div>
   )
 }

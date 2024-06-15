@@ -1,3 +1,15 @@
+.product_section{
+  background-color: #deb88c;
+  padding: 0px 30px;
+}
+
+.product_rudraksh{
+  background-color: #f2f2f2;
+  padding: 0px 30px;
+}
+
+
+
 .product_box{
   min-height: 400px !important;
   height: 100% !important;
@@ -27,15 +39,10 @@
   }
 }
 
-.intro {
-  padding: 20px;
- 
-  
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
+
 
 .intro h2 {
+  padding-top: 40px;
   color: #b16f23;
   margin-bottom: 10px;
   font-weight: 700;
@@ -70,7 +77,10 @@
 
 
 @media only screen and (max-width: 600px){
+  .product_section{
   
+    padding: 0px 10px;
+  }
 
   .ct .ctr .cp .crd{
         

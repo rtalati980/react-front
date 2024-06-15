@@ -18,13 +18,15 @@
   }
   
   .footer_section .btn {
-    background-color: #ceaa82;
+    background-color:#fff ;
     border: none;
-    color: #fff;
+    color: #b16f23;
+    max-width: 150px;
   }
   
   .footer_section .btn:hover {
-    background-color: #d6dfb7;
+    background-color: #7d480f;
+    color: white;
   }
   
   .footer_section .social-icons {
