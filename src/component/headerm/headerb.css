@@ -1,20 +1,15 @@
 .head {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 10px 20px;
-  background-color: white;
-  position: relative;
-  
- /* To position search input absolutely within the header */
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
 }
 
-.title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  padding-left: 10px;
+.title img {
+  max-height: 90px; /* Adjust based on your desired logo size */
+  width: auto;
 }
 
 .naviga {

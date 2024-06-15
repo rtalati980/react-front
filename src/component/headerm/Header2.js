@@ -6,7 +6,7 @@ import AnchorTemporaryDrawer from './AnchorTemporaryDrawer';
 import { useCart } from '../CartContext';
 import { useSelector } from "react-redux"; 
 import { Link } from 'react-router-dom';
-import radhakrilogo from 'https://martimages.blob.core.windows.net/imagesmart/White And Black Modern Abstract Beauty Logo.jpg';
+
 
 export default function Headerb() {
   const { cart } = useSelector((state) => state);
@@ -42,7 +42,9 @@ export default function Headerb() {
     <div className={`head ${showSearch ? 'show-search' : ''}`}>
       {isMobile && <AnchorTemporaryDrawer />}
       <div className='title'>
-        <img src={radhakrilogo} alt ><Link to='/' style={{ textDecoration:'none'}}></Link></img>
+        <Link to='/' style={{ textDecoration: 'none'  }}>
+          <img src="https://martimages.blob.core.windows.net/imagesmart/whiteREDLogo-removebg-preview.png" alt="Logo" />
+        </Link>
       </div>
 
       <div className={`naviga ${isOpen && !showSearch ? 'active overlay' : ''}`}>
@@ -58,7 +60,7 @@ export default function Headerb() {
 
       <div className='ricons'>
         <div className='fa'>
-          <a id='ci' onClick={toggleSearch}><CiSearch style={{ color: '#b16f23', cursor: 'pointer',fontSize:'25px' }} /></a>
+          <a id='ci' onClick={toggleSearch}><CiSearch style={{ color: '#b16f23', cursor: 'pointer', fontSize: '25px' }} /></a>
           {showSearch && (
             <input
               type="text"
@@ -67,7 +69,8 @@ export default function Headerb() {
             />
           )}
           
-          <Link to='/cart'><FiShoppingBag style={{ color: '#b16f23' ,fontSize:'25px'}} />
+          <Link to='/cart'>
+            <FiShoppingBag style={{ color: '#b16f23', fontSize: '25px' }} />
             <span className='cart-count'>{itemCount}</span>
           </Link>
         </div>
