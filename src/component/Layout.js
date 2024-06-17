@@ -4,6 +4,7 @@ import Footer from './bottom/Bottom';
 import {Outlet} from 'react-router-dom'
 
 
+
 const Layout = ({ children ,  itemCount}) => {
     return <>
       <Header />

@@ -6,7 +6,7 @@ import AnchorTemporaryDrawer from './AnchorTemporaryDrawer';
 import { useCart } from '../CartContext';
 import { useSelector } from "react-redux"; 
 import { Link } from 'react-router-dom';
-
+import SearchSection from './SearchSection'; // Import the SearchSection component
 
 export default function Headerb() {
   const { cart } = useSelector((state) => state);
@@ -38,6 +38,10 @@ export default function Headerb() {
     setIsOpen(!isOpen);
   };
 
+  const closeSearch = () => {
+    setShowSearch(false);
+  };
+
   return (
     <div className={`head ${showSearch ? 'show-search' : ''}`}>
       {isMobile && <AnchorTemporaryDrawer />}
@@ -61,13 +65,7 @@ export default function Headerb() {
       <div className='ricons'>
         <div className='fa'>
           <a id='ci' onClick={toggleSearch}><CiSearch style={{ color: '#b16f23', cursor: 'pointer', fontSize: '25px' }} /></a>
-          {showSearch && (
-            <input
-              type="text"
-              placeholder="Search..."
-              className='search-input'
-            />
-          )}
+          {showSearch && <SearchSection onClose={closeSearch} />}
           
           <Link to='/cart'>
             <FiShoppingBag style={{ color: '#b16f23', fontSize: '25px' }} />
