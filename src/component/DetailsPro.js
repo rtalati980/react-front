@@ -120,10 +120,11 @@ const DetailsPro = () => {
                                 <p className="m-0">{count}</p>
                                 <FaMinus onClick={handleDecrement} className="ms-2" />
                             </div>
-                            <button onClick={addToCart} style={{width:'30%'}}>Add to Cart</button>
+                            <div className='btnrt'>
+                            <button   onClick={addToCart} style={{width:'30%'}}>Add to Cart</button>
                             <Link to={`/checkout?totalPrice=${product.price * count}&totalQuantity=${count}&productNames=${product.name}&productQuantities=${count}`}>
-                                <button className='btn btn-primary' style={{width:'30%'}}>Buy Now</button>
-                            </Link>
+                                <button   style={{width:'30%'}}>Buy Now</button>
+                            </Link></div>
                             <div className={styles.description}>
                                 <p dangerouslySetInnerHTML={{ __html: product.discription }}></p>
                             </div>
