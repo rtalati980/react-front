@@ -76,7 +76,7 @@
   }
 
 
-/* {
+  .btnrt button {
     width: 100%;
     height: 35px;
     margin-bottom: 20px;
@@ -87,7 +87,7 @@
     color: white; 
     text-align: center !important; 
     margin-right: 50px;
-} */
+} 
 
 .cl {
     display: flex;
