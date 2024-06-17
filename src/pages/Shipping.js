@@ -3,35 +3,34 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Shipping() {
   return (
-    <div className="container pri py-5">
-      <h1 className="text-center mb-4">Shipping Policy</h1>
-      <div className="card p-4">
-        <h2>Delivery Timeframe</h2>
-        <p>
-          At RadhakrishnMart, we strive to deliver your orders in a timely and efficient manner. Our standard delivery timeframe is within 7 to 10 days from the date of shipping. Please note that this timeframe is an estimate and may vary based on several factors including the destination, availability of the product, and any external factors such as weather conditions or logistical issues.
-        </p>
+    <div className="container mt-5">
+      <div className="shipping-info-container">
+        <h1 className="mb-4">Shipping Information</h1>
+        
+        <p>Radha Krishna Mart strives to deliver your groceries fresh and fast. Here's a breakdown of our shipping process to help you plan your shopping:</p>
+        
+        <h2 className="mt-4">Shipping Process Time</h2>
+        <p>Once your order is placed and payment confirmed, it typically takes 1-2 business days to process and pack your order.</p>
 
-        <h2>Order Processing</h2>
-        <ul>
-          <li><strong>Order Confirmation:</strong> Once your order is placed, you will receive an order confirmation email with the details of your purchase.</li>
-          <li><strong>Order Processing:</strong> Orders are typically processed within 1-2 business days. During peak times or sales events, processing times may be extended.</li>
-          <li><strong>Shipping Notification:</strong> You will receive a shipping notification email once your order has been dispatched, along with a tracking number to monitor the progress of your shipment.</li>
-        </ul>
+        <h2 className="mt-4">Delivery Timeline</h2>
+        <p>Delivery timelines depend on your chosen shipping method and location. We offer various options, from expedited delivery within a day to standard delivery within 3-5 business days. You'll see estimated delivery dates clearly displayed during checkout based on your selected option.</p>
 
-        <h2>Shipping Methods</h2>
-        <p>
-          We use reputable courier services to ensure your order reaches you safely and on time. The specific courier service will depend on your location and the nature of the product ordered.
-        </p>
+        <h2 className="mt-4">Shipping Rates and Delivery Estimates</h2>
+        <p>Shipping rates are calculated based on your order weight, destination, and chosen delivery speed. You'll see the exact cost reflected before confirming your order.</p>
 
-        <h2>Delays and Issues</h2>
-        <p>
-          While we aim to deliver within the stated timeframe, there may be unforeseen delays. If your order has not arrived within the expected delivery period, please contact our customer service team for assistance.
-        </p>
+        <h2 className="mt-4">Shipment to the Address</h2>
+        <p>We deliver to most residential addresses within our service area. Please ensure you enter your complete and accurate address during checkout, including any apartment numbers or specific delivery instructions.</p>
 
-        <h2>Contact Information</h2>
-        <p>
-          For any inquiries related to shipping or your order status, please contact our customer service team at:
-        </p>
+        <h2 className="mt-4">Shipment Confirmation and Order Tracking</h2>
+        <p>Once your order ships, you'll receive a confirmation email with a tracking number. You can use this number to track your order's progress on our website or the courier's website.</p>
+
+        <h2 className="mt-4">Customs/ Duties/ Taxes</h2>
+        <p>For international orders, any customs duties or taxes are the responsibility of the recipient. Please check with your local customs office for any applicable charges.</p>
+
+        <h2 className="mt-4">Damages</h2>
+        <p>In the rare case that your order arrives damaged, please contact us immediately. We'll work swiftly to resolve the issue and ensure your satisfaction.</p>
+
+        <p className="mt-4">We recommend reviewing our full Shipping Policy for detailed information on excluded locations, delivery restrictions, and our returns and exchange process. Shop with confidence at Radha Krishna Mart!</p>
         <ul>
           <li><strong>Email:</strong> <a href="mailto:radhakrishnmart6@gmail.com">radhakrishnmart6@gmail.com</a></li>
           <li><strong>Phone:</strong> +917300002965</li>

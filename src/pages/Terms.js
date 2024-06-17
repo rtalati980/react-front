@@ -1,82 +1,94 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './text.css';
 
-export default function Terms() {
+export default function TermsOfService() {
   return (
-    <div className="container pri py-5">
-      <h1 className="text-center mb-4">Terms and Conditions</h1>
-      <div className="card p-4">
-        <h2>1. Introduction</h2>
+    <div className="container mt-5">
+      <div className="terms-of-service-container">
+        <h1 className="mb-4">Terms of Service</h1>
         <p>
-          Welcome to RadhakrishnMart. By accessing and using our website, you agree to comply with and be bound by the following terms and conditions. Please review them carefully. If you do not agree with these terms, you should not use our website.
+          By accessing and using the services provided by Radha Krishna Mart, you agree to comply with and be bound by these Terms of Service. If you do not agree with these terms, you are not authorized to use our services.
         </p>
 
-        <h2>2. Acceptance of Terms</h2>
+        <h2 className="mt-4">1. Description of Radha Krishna Mart</h2>
         <p>
-          By accessing, browsing, or using this website, you acknowledge that you have read, understood, and agree to be bound by these terms and conditions and to comply with all applicable laws and regulations.
+          Radha Krishna Mart provides astrological content, reports, data, and telephone and email consultations ("Content") via the World Wide Web, electronic mail, and telephone. Portions of the Content may be accessed by visiting the Radha Krishna Mart site ("General Services"), but to access the personalized astrological zone and receive additional Content and services, including telephone-based services, you must register as a member ("Personalized Services"). The General Services and the Personalized Services are collectively referred to as the "Services."
         </p>
 
-        <h2>3. Modifications to Terms</h2>
+        <h2 className="mt-4">2. Member Eligibility</h2>
         <p>
-          RadhakrishnMart reserves the right to modify these terms and conditions at any time without prior notice. Your continued use of the website after any such changes constitutes your acceptance of the new terms.
+          To use our Services, you must be at least 18 years old and capable of forming a binding contract under applicable law. By registering, you represent that you meet these requirements.
         </p>
 
-        <h2>4. Use of the Website</h2>
-        <ul>
-          <li><strong>Eligibility:</strong> You must be at least 18 years old to use our website.</li>
-          <li><strong>Account Security:</strong> You are responsible for maintaining the confidentiality of your account information and password. You agree to accept responsibility for all activities that occur under your account.</li>
-          <li><strong>Prohibited Activities:</strong> You agree not to use the website for any unlawful purpose or in any way that could harm, disable, overburden, or impair the site.</li>
-        </ul>
-
-        <h2>5. Products and Orders</h2>
-        <ul>
-          <li><strong>Product Descriptions:</strong> We strive to ensure that the product descriptions are accurate. However, we do not warrant that the descriptions or other content is error-free.</li>
-          <li><strong>Pricing:</strong> All prices are listed in [Currency] and are subject to change without notice. Prices do not include applicable taxes or shipping costs.</li>
-          <li><strong>Order Acceptance:</strong> We reserve the right to refuse or cancel any order for any reason at any time. If your order is canceled, we will notify you and refund any payments made.</li>
-        </ul>
-
-        <h2>6. Payment</h2>
-        <ul>
-          <li><strong>Payment Methods:</strong> We accept various payment methods including credit/debit cards, and other electronic payment methods.</li>
-          <li><strong>Payment Security:</strong> All transactions are processed through secure payment gateways to ensure your information is protected.</li>
-        </ul>
-
-        <h2>7. Shipping and Delivery</h2>
-        <ul>
-          <li><strong>Shipping Policy:</strong> Our standard delivery timeframe is within 7 to 10 days from the date of shipping. See our Shipping Policy for more details.</li>
-          <li><strong>Delivery Issues:</strong> If there are any issues with your delivery, please contact our customer service team.</li>
-        </ul>
-
-        <h2>8. Returns and Refunds</h2>
-        <ul>
-          <li><strong>Return Policy:</strong> Products can be returned within [X] days of receipt. Items must be unused and in their original packaging. See our Return Policy for more details.</li>
-          <li><strong>Refunds:</strong> Refunds will be processed within [X] days of receiving the returned items. Refunds will be issued to the original payment method.</li>
-        </ul>
-
-        <h2>9. Intellectual Property</h2>
+        <h2 className="mt-4">3. Member Registration Data</h2>
         <p>
-          All content on this website, including text, graphics, logos, images, and software, is the property of RadhakrishnMart and is protected by intellectual property laws. Unauthorized use of any content is prohibited.
+          As a condition of using the Personalized Services, you agree to provide and maintain true, accurate, current, and complete information about yourself as prompted during registration ("Registration Data"). Failure to do so constitutes a breach of these Terms, which may result in immediate termination of your account.
         </p>
 
-        <h2>10. Limitation of Liability</h2>
+        <h2 className="mt-4">4. Our Access to Your Account</h2>
         <p>
-          RadhakrishnMart will not be liable for any direct, indirect, incidental, special, or consequential damages that result from the use or inability to use our website or products. This includes, but is not limited to, reliance by a user on any information obtained from RadhakrishnMart or that result from mistakes, omissions, interruptions, deletion of files or email, loss of or damage to data, errors, defects, viruses, or delays in operation or transmission.
+          Radha Krishna Mart reserves the right to access your account as necessary to provide support, ensure compliance with these Terms, and comply with applicable laws.
         </p>
 
-        <h2>11. Governing Law</h2>
+        <h2 className="mt-4">5. Modification to Services</h2>
         <p>
-          These terms and conditions are governed by and construed in accordance with the laws of India/Rajasthan, without regard to its conflict of law principles. You agree to submit to the exclusive jurisdiction of the courts located in Rajasthan for the resolution of any disputes.
+          Radha Krishna Mart reserves the right to modify or discontinue, temporarily or permanently, the Services (or any part thereof) with or without notice. You agree that Radha Krishna Mart shall not be liable to you or to any third party for any modification, suspension, or discontinuance of the Services.
         </p>
 
-        <h2>12. Contact Information</h2>
+        <h2 className="mt-4">6. Breach</h2>
         <p>
-          For any questions about these terms and conditions, please contact us at:
+          Any unauthorized use of the Services or breach of these Terms may result in the termination of your account. We reserve the right to seek all remedies available at law and in equity for such breaches.
         </p>
-        <ul>
-          <li><strong>Email:</strong> <a href="mailto:radhakrishnmart6@gmail.com">radhakrishnmart6@gmail.com</a></li>
-          <li><strong>Phone:</strong> +917300002965</li>
-          <li><strong>Business Hours:</strong> Monday to Friday, 9 AM to 6 PM (local time)</li>
-        </ul>
+
+        <h2 className="mt-4">7. Termination</h2>
+        <p>
+          You agree that Radha Krishna Mart may, under certain circumstances and without prior notice, immediately terminate your account and access to the Services. Causes for termination may include breaches or violations of these Terms, requests by law enforcement or other government agencies, and unexpected technical or security issues or problems.
+        </p>
+
+        <h2 className="mt-4">8. Privacy Policy</h2>
+        <p>
+          Your use of the Services is also governed by our Privacy Policy, which is incorporated by reference into these Terms. Please review our Privacy Policy to understand our practices regarding the collection, use, and disclosure of your personal information.
+        </p>
+
+        <h2 className="mt-4">9. Member Behavior and Restrictions</h2>
+        <p>
+          You agree not to use the Services for any unlawful purpose or in any way that could harm the Services or impair anyone else’s use of the Services. Prohibited behavior includes but is not limited to harassment, transmitting offensive content, and infringing on the intellectual property rights of others.
+        </p>
+
+        <h2 className="mt-4">10. Compliance with Laws</h2>
+        <p>
+          You agree to comply with all applicable laws and regulations regarding your use of the Services.
+        </p>
+
+        <h2 className="mt-4">11. No Warranty</h2>
+        <p>
+          You understand and agree that the Services are provided "as is" and "as available." Radha Krishna Mart makes no warranty that the Services will meet your requirements or that the Services will be uninterrupted, timely, secure, or error-free.
+        </p>
+
+        <h2 className="mt-4">12. Limitations of Liability</h2>
+        <p>
+          To the fullest extent permitted by applicable law, Radha Krishna Mart shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from (i) your use or inability to use the Services; (ii) any unauthorized access to or use of our servers and/or any personal information stored therein; (iii) any interruption or cessation of transmission to or from the Services.
+        </p>
+
+        <h2 className="mt-4">13. Proprietary Rights to Content</h2>
+        <p>
+          All content included in the Services, such as text, graphics, logos, images, and software, is the property of Radha Krishna Mart or its content suppliers and is protected by copyright and other intellectual property laws. You agree not to modify, rent, lease, loan, sell, distribute, or create derivative works based on the Content.
+        </p>
+
+        <h2 className="mt-4">14. Notices</h2>
+        <p>
+          Any notices to you from Radha Krishna Mart will be made via email or regular mail, and notices to Radha Krishna Mart should be sent to our contact address provided on the website.
+        </p>
+
+        <h2 className="mt-4">15. General Provisions</h2>
+        <p>
+          These Terms constitute the entire agreement between you and Radha Krishna Mart and govern your use of the Services, superseding any prior agreements. If any provision of these Terms is found to be invalid, the parties agree that the court should endeavor to give effect to the parties' intentions as reflected in the provision, and the other provisions of these Terms shall remain in full force and effect. The failure of Radha Krishna Mart to exercise or enforce any right or provision of these Terms shall not constitute a waiver of such right or provision.
+        </p>
+
+        <p>
+          By using Radha Krishna Mart's Services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
+        </p>
       </div>
     </div>
   );
