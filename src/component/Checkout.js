@@ -90,7 +90,58 @@ const Checkout = () => {
       <div className="title">
         <h2>Product Order Form</h2>
       </div>
+      <div className="summary-container ">
+        <div className='row '>
+          <div className='col-lg-6 col-md-6  '>
+          <h3>Order Summary</h3>
+          {productNames.split(',').map((productName, index) => (
+            <div key={index}>
+              <strong>Product Name:</strong> {productName}
+              <br />
+              <strong>Quantity:</strong> {productQuantities.split(',')[index]}
+              <hr />
+            </div>
+          ))}
+          <div>
+            <strong>Total Quantity:</strong> {totalQuantity}
+          </div>
+          <div>
+            <strong>Total Price:</strong> Rs.{totalPrice}.00
+          </div>
+          </div>
+          <div className='col-lg-6 col-md-6 '>
+                <div className='imges'>
+                 <img src='https://martimages.blob.core.windows.net/imagesmart/imttqfz.jpeg' alt='thg'/>
+                </div>
+          </div>
+          </div>
+          
+        </div>
       <div className="checkout-content">
+        <div className='row'>
+
+          <div className='col-lg-6 col-md-6'>
+
+          </div>
+          <div className='col-lg-6 col-md-6'>
+
+                    </div>
+                  <div className='col-lg-6 col-md-6'>
+
+            </div>
+                <div className='col-lg-6 col-md-6'>
+
+          </div>
+            <div className='col-lg-6 col-md-6'>
+
+          </div>
+        <div className='col-lg-6 col-md-6'>
+
+              </div>
+          <div className='col-lg-6 col-md-6'>
+
+        </div>  
+        </div>
         <div className="form-container">
           <form>
             <h3>Billing Address</h3>
@@ -183,23 +234,7 @@ const Checkout = () => {
             {showModal && <Modal />}
           </form>
         </div>
-        <div className="summary-container">
-          <h3>Order Summary</h3>
-          {productNames.split(',').map((productName, index) => (
-            <div key={index}>
-              <strong>Product Name:</strong> {productName}
-              <br />
-              <strong>Quantity:</strong> {productQuantities.split(',')[index]}
-              <hr />
-            </div>
-          ))}
-          <div>
-            <strong>Total Quantity:</strong> {totalQuantity}
-          </div>
-          <div>
-            <strong>Total Price:</strong> Rs.{totalPrice}.00
-          </div>
-        </div>
+        
       </div>
     </div>
   );

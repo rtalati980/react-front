@@ -115,15 +115,16 @@ const DetailsPro = () => {
                                     <button className="btn crt-btn me-2" onClick={() => handleCaratChange(5)}>10.5 Carat</button>
                                 </div>
                             )}
-                            <div className='d-flex align-items-center mb-3'>
-                                <FaPlus onClick={handleIncrement} className="me-2" />
+                           <div className={`align-items-center mb-3 ${styles.faincrement}`}>
+
+                                <FaPlus  onClick={handleIncrement} className="me-2" />
                                 <p className="m-0">{count}</p>
-                                <FaMinus onClick={handleDecrement} className="ms-2" />
+                                <FaMinus onClick={handleDecrement} className="ms-2 " />
                             </div>
-                            <div className='btnrt'>
-                            <button   onClick={addToCart} style={{width:'30%'}}>Add to Cart</button>
+                            <div className={styles.btnrt}>
+                            <button   onClick={addToCart} >Add to Cart</button>
                             <Link to={`/checkout?totalPrice=${product.price * count}&totalQuantity=${count}&productNames=${product.name}&productQuantities=${count}`}>
-                                <button   style={{width:'30%'}}>Buy Now</button>
+                                <button   >Buy Now</button>
                             </Link></div>
                             <div className={styles.description}>
                                 <p dangerouslySetInnerHTML={{ __html: product.discription }}></p>
