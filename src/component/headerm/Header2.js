@@ -7,6 +7,7 @@ import { useCart } from '../CartContext';
 import { useSelector } from "react-redux"; 
 import { Link } from 'react-router-dom';
 import SearchSection from './SearchSection'; // Import the SearchSection component
+import { FiPhone } from "react-icons/fi"; // Import phone icon for WhatsApp
 
 export default function Headerb() {
   const { cart } = useSelector((state) => state);
@@ -61,18 +62,28 @@ export default function Headerb() {
           <li><Link to='/contact' style={{ color: '#b16f23' }}>CONTACT US</Link></li>
         </ul>
       </div>
-
+  
+       
       <div className='ricons'>
         <div className='fa'>
-          <a id='ci' onClick={toggleSearch}><CiSearch style={{ color: '#b16f23', cursor: 'pointer', fontSize: '25px' }} /></a>
-          {showSearch && <SearchSection onClose={closeSearch} />}
-          
           <Link to='/cart'>
             <FiShoppingBag style={{ color: '#b16f23', fontSize: '25px' }} />
             <span className='cart-count'>{itemCount}</span>
           </Link>
         </div>
       </div>
+
+     
+
+      {/* WhatsApp Button */}
+      <a
+        href="https://api.whatsapp.com/send?phone=+917300002965"
+        className="whatsapp_float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FiPhone style={{ fontSize: '25px', color: '#fff' }} />
+      </a>
     </div>
   );
 }

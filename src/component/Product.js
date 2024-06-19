@@ -61,7 +61,9 @@ const Product = () => {
                   </h5>
                   <p className='card-text' style={{ color: '#b16f23' }}>Starting from: Rs. {pro.price}.00</p>
                   <p className='card-text logss' style={{ color: '#b16f23' }}>Radhe Krishna Mart</p>
-                 
+                  <Link to={`/product/${pro.id}`} className='btn btn-primary' style={{ backgroundColor: '#b16f23', border: 'none' }}>
+                        View
+                      </Link>
                 </div>
               </div>
             </div>

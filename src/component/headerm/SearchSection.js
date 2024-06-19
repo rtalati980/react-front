@@ -1,19 +1,23 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaSearch } from 'react-icons/fa';
+import './headerb.css'; // Import custom CSS for additional styling
 
-const SearchSection = ({ onClose }) => {
+const SearchSection = () => {
   return (
-    <div className="search-section-overlay">
-      <div className="container mt-5">
-        <div className="search-section row mb-4">
-          <form className="form-inline d-flex flex-direction-row">
-            <input className="form-control mr-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-success" type="submit">
-              <FaSearch />
+    <div className="search-section-container">
+      <div className="container">
+        <div className="search-section row justify-content-center">
+          <form className="form-inline form-search d-flex">
+            <input
+              className="form-control mr-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button className="btn btn-outline-success btn-sm" type="submit">
+              GO
             </button>
           </form>
-          <button className="close-search" onClick={onClose}>Close</button>
         </div>
       </div>
     </div>

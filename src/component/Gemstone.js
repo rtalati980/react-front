@@ -54,38 +54,39 @@ const GemStone = () => {
 
   return (
     <div className='product_section'>
-    <div className='container-fluid ct' >
-      <div className='intro'>
-        <h2>Discover the Assurance of Certified Gemstones</h2>
-        <p>
-          When it comes to purchasing gemstones, authenticity and quality are paramount. At Radha Krishna Mart, we are committed to providing you with only the finest certified gemstones, ensuring that every piece you purchase is genuine and of the highest quality.
-        </p>
-        
-      </div>
-          <div  className='' style={{ backgroundColor: '#deb88c', height: 'auto' }}>
-      <div className='row ctr row-cols-2 row-cols-sm-2  row-cols-md-4' >
-        {filteredCategory.map((cat) => (
-          cat.products.map((pro) => (
-            <div key={pro.id} className='col cp '>
-              <div className='card mb-3 crd' style={{ border: '1px solid #b16f23', padding: '10px', backgroundColor: '#deb88c', maxWidth: '250px', height:'auto' }}>
-                <Link to={`/product/${pro.id}`}>
-                  <img src={`${pro.images[0]}`} className='card-img-top' alt={`${pro.name}`} style={{ height: 'auto', width: '100%', objectFit: 'cover' }} />
-                </Link>
-                <div className='card-body'>
-                  <h5 className='card-title' style={{ color: '#b16f23'  }}>
-                    <Link to={`/product/${pro.id}`} style={{ fontSize: '17px', color: '#b16f23', textDecoration: 'none' }}>{pro.name}</Link>
-                  </h5>
-                  <p className='card-text' style={{ color: '#b16f23',fontWeight:'bold' }}>Starting from: Rs. {pro.price}.00</p>
-                  <p className='card-text logss' style={{ color: '#b16f23' }}>Radhe Krishna Mart</p>
-                 
+      <div className='container-fluid ct'>
+        <div className='intro'>
+          <h2>Discover the Assurance of Certified Gemstones</h2>
+          <p>
+            When it comes to purchasing gemstones, authenticity and quality are paramount. At Radha Krishna Mart, we are committed to providing you with only the finest certified gemstones, ensuring that every piece you purchase is genuine and of the highest quality.
+          </p>
+        </div>
+        <div className='' style={{ backgroundColor: '#deb88c', height: 'auto' }}>
+          <div className='row ctr row-cols-2 row-cols-sm-2 row-cols-md-4'>
+            {filteredCategory.map((cat) =>
+              cat.products.map((pro) => (
+                <div key={pro.id} className='col cp'>
+                  <div className='card mb-3 crd' style={{ border: '1px solid #b16f23', padding: '10px', backgroundColor: '#deb88c', maxWidth: '250px', height: 'auto' }}>
+                    <Link to={`/product/${pro.id}`}>
+                      <img src={`${pro.images[0]}`} className='card-img-top' alt={`${pro.name}`} style={{ height: 'auto', width: '100%', objectFit: 'cover' }} />
+                    </Link>
+                    <div className='card-body'>
+                      <h5 className='card-title' style={{ color: '#b16f23' }}>
+                        <Link to={`/product/${pro.id}`} style={{ fontSize: '17px', color: '#b16f23', textDecoration: 'none' }}>{pro.name}</Link>
+                      </h5>
+                      <p className='card-text' style={{ color: '#b16f23', fontWeight: 'bold' }}>Starting from: Rs. {pro.price}.00</p>
+                      <p className='card-text logss' style={{ color: '#b16f23' }}>Radhe Krishna Mart</p>
+                      <Link to={`/product/${pro.id}`} className='btn btn-primary' style={{ backgroundColor: '#b16f23', border: 'none' }}>
+                        View
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))
-        ))}
+              ))
+            )}
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
     </div>
   );
 };

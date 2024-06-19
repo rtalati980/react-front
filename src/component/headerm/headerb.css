@@ -92,11 +92,62 @@
   pointer-events: none; /* Prevent interaction when hidden */
 } 
 
+
+.whatsapp_float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.whatsapp_float:hover {
+  background-color: #128c7e;
+}
+
+.search-section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0; /* Adjust as needed */
+}
+
+.search-section {
+  width: 100%;
+}
+
+.form-search {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.form-search input {
+  flex-grow: 1;
+}
+
+.form-search button {
+  flex-shrink: 0;
+}
+
+
+
+
 @media only screen and (max-width: 600px) {
 
   .head{
     AnchorTemporaryDrawer{
-      margin-left: -30px;
+      margin-left: -20px;
     }
   }
 
