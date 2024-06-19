@@ -118,123 +118,111 @@ const Checkout = () => {
           
         </div>
       <div className="checkout-content">
-        <div className='row'>
-
-          <div className='col-lg-6 col-md-6'>
-
-          </div>
-          <div className='col-lg-6 col-md-6'>
-
-                    </div>
-                  <div className='col-lg-6 col-md-6'>
-
-            </div>
-                <div className='col-lg-6 col-md-6'>
-
-          </div>
-            <div className='col-lg-6 col-md-6'>
-
-          </div>
-        <div className='col-lg-6 col-md-6'>
-
-              </div>
-          <div className='col-lg-6 col-md-6'>
-
-        </div>  
-        </div>
         <div className="form-container">
           <form>
-            <h3>Billing Address</h3>
-            <label>
-              <span className="fname">Full Name <span className="required">*</span></span>
-              <input
-                type="text"
-                name="fullName"
-                placeholder="John M. Doe"
-                onChange={handleInputChange}
-                required
-              />
-              {formErrors.fullName && <span className="error">{formErrors.fullName}</span>}
-            </label>
-            
-            <label>
-              <span className="email">Email <span className="required">*</span></span>
-              <input
-                type="email"
-                name="email"
-                placeholder="john@example.com"
-                onChange={handleInputChange}
-                required
-              />
-              {formErrors.email && <span className="error">{formErrors.email}</span>}
-            </label>
-            
-            <label>
-              <span className="mobileno">Mobile Number <span className="required">*</span></span>
-              <input
-                type="tel"
-                name="mobileno"
-                placeholder="+9112347890"
-                onChange={handleInputChange}
-                required
-              />
-              {formErrors.mobileno && <span className="error">{formErrors.mobileno}</span>}
-            </label>
-            
-            <label>
-              <span className="address">Address <span className="required">*</span></span>
-              <input
-                type="text"
-                name="address"
-                placeholder="542 W. 15th Street"
-                onChange={handleInputChange}
-                required
-              />
-              {formErrors.address && <span className="error">{formErrors.address}</span>}
-            </label>
-            
-            <label>
-              <span className="city">City <span className="required">*</span></span>
-              <input
-                type="text"
-                name="city"
-                placeholder="New York"
-                onChange={handleInputChange}
-                required
-              />
-              {formErrors.city && <span className="error">{formErrors.city}</span>}
-            </label>
-            
-            <label>
-              <span className="state">State <span className="required">*</span></span>
-              <input
-                type="text"
-                name="state"
-                placeholder="NY"
-                onChange={handleInputChange}
-                required
-              />
-              {formErrors.state && <span className="error">{formErrors.state}</span>}
-            </label>
-            
-            <label>
-              <span className="zip">Zip <span className="required">*</span></span>
-              <input
-                type="text"
-                name="zip"
-                placeholder="10001"
-                onChange={handleInputChange}
-                required
-              />
-              {formErrors.zip && <span className="error">{formErrors.zip}</span>}
-            </label>
-
-            <button type="button" onClick={handlePayment}>Pay Now</button>
-            {paymentError && <p className="error">{paymentError}</p>}
-            {showModal && <Modal />}
+            <div className='row'>
+              <div className="col-lg-12 col-md-12">
+                  <h3>Billing Address</h3>
+              </div>
+              <div className='col-lg-6 col-md-6'>
+                  <label>
+                    <span className="fname">Full Name <span className="required">*</span></span>
+                    <input
+                      type="text"
+                      name="fullName"
+                      placeholder="John M. Doe"
+                      onChange={handleInputChange}
+                      required
+                    />
+                    {formErrors.fullName && <span className="error">{formErrors.fullName}</span>}
+                  </label>
+              </div>
+              <div className='col-lg-6 col-md-6'>
+                  <label>
+                    <span className="email">Email <span className="required">*</span></span>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="john@example.com"
+                      onChange={handleInputChange}
+                      required
+                    />
+                    {formErrors.email && <span className="error">{formErrors.email}</span>}
+                  </label>
+              </div>
+              <div className='col-lg-6 col-md-6'>
+                  <label>
+                    <span className="mobileno">Mobile Number <span className="required">*</span></span>
+                    <input
+                      type="tel"
+                      name="mobileno"
+                      placeholder="+9112347890"
+                      onChange={handleInputChange}
+                      required
+                    />
+                    {formErrors.mobileno && <span className="error">{formErrors.mobileno}</span>}
+                  </label>
+              </div>
+              <div className='col-lg-6 col-md-6'>
+                  <label>
+                    <span className="address">Address <span className="required">*</span></span>
+                    <input
+                      type="text"
+                      name="address"
+                      placeholder="542 W. 15th Street"
+                      onChange={handleInputChange}
+                      required
+                    />
+                    {formErrors.address && <span className="error">{formErrors.address}</span>}
+                  </label>
+              </div>
+              <div className='col-lg-6 col-md-6'>
+                <label>
+                  <span className="city">City <span className="required">*</span></span>
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="New York"
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {formErrors.city && <span className="error">{formErrors.city}</span>}
+                </label>
+              </div>
+              <div className='col-lg-6 col-md-6'>
+                <label>
+                  <span className="state">State <span className="required">*</span></span>
+                  <input
+                    type="text"
+                    name="state"
+                    placeholder="NY"
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {formErrors.state && <span className="error">{formErrors.state}</span>}
+                </label>
+              </div>
+              <div className='col-lg-6 col-md-6'>
+                  <label>
+                    <span className="zip">Zip <span className="required">*</span></span>
+                    <input
+                      type="text"
+                      name="zip"
+                      placeholder="10001"
+                      onChange={handleInputChange}
+                      required
+                    />
+                    {formErrors.zip && <span className="error">{formErrors.zip}</span>}
+                  </label>
+              </div>  
+              <div className='col-lg-6 col-md-6'>
+                <button type="button" onClick={handlePayment}>Pay Now</button>
+                {paymentError && <p className="error">{paymentError}</p>}
+                {showModal && <Modal />}
+              </div>
+            </div>
           </form>
         </div>
-        
       </div>
     </div>
   );
