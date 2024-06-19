@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import "./headerb.css";
-import { CiSearch } from "react-icons/ci";
+
 import { FiShoppingBag } from "react-icons/fi";
 import AnchorTemporaryDrawer from './AnchorTemporaryDrawer';
 import { useCart } from '../CartContext';
 import { useSelector } from "react-redux"; 
 import { Link } from 'react-router-dom';
-import SearchSection from './SearchSection'; // Import the SearchSection component
+ // Import the SearchSection component
 import { FiPhone } from "react-icons/fi"; // Import phone icon for WhatsApp
 
 export default function Headerb() {
@@ -15,12 +15,7 @@ export default function Headerb() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
-
-  const toggleSearch = () => {
-    setShowSearch(!showSearch);
-    setIsOpen(false); // Close the menu when search is opened
-  };
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,12 +34,10 @@ export default function Headerb() {
     setIsOpen(!isOpen);
   };
 
-  const closeSearch = () => {
-    setShowSearch(false);
-  };
+ 
 
   return (
-    <div className={`head ${showSearch ? 'show-search' : ''}`}>
+    <div className={`head`}>
       {isMobile && <AnchorTemporaryDrawer />}
       <div className='title'>
         <Link to='/' style={{ textDecoration: 'none'  }}>
@@ -52,7 +45,7 @@ export default function Headerb() {
         </Link>
       </div>
 
-      <div className={`naviga ${isOpen && !showSearch ? 'active overlay' : ''}`}>
+      <div className={`naviga ${isOpen ? 'active overlay' : ''}`}>
         <ul>
           <li><Link style={{ color: '#b16f23' }}>Track Order</Link></li>
           <li><Link to='/products' style={{ color: '#b16f23' }}>All Product</Link></li>
@@ -62,8 +55,6 @@ export default function Headerb() {
           <li><Link to='/contact' style={{ color: '#b16f23' }}>CONTACT US</Link></li>
         </ul>
       </div>
-  
-       
       <div className='ricons'>
         <div className='fa'>
           <Link to='/cart'>
@@ -72,9 +63,6 @@ export default function Headerb() {
           </Link>
         </div>
       </div>
-
-     
-
       {/* WhatsApp Button */}
       <a
         href="https://api.whatsapp.com/send?phone=+917300002965"

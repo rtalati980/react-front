@@ -6,17 +6,24 @@ const SearchSection = () => {
   return (
     <div className="search-section-container">
       <div className="container">
-        <div className="search-section row justify-content-center">
-          <form className="form-inline form-search d-flex">
-            <input
+        <div className="search-section ">
+          <form className=" form-search ">
+            <div className='row'>
+
+              <div className='col-lg-6 col-md-6' >
+              <input
               className="form-control mr-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success btn-sm" type="submit">
+              </div>
+              <div className='col-lg-6 col-md-6' >
+              <button className="btn btn-outline-success btn-sm" type="submit">
               GO
             </button>
+               </div>
+            </div>
           </form>
         </div>
       </div>
