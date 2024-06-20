@@ -116,14 +116,30 @@
 }
 
 
-
-
+.search-section-container .container{
+  display: inline !important;
+  padding: unset;
+}
 
 
 .form-search button{
   margin-top: 0;
   width: 100%;
   max-width: 150px;
+}
+.form-search input{
+  width: 100%;
+  max-width : 355px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+
+}
+.form-search{
+  padding: 20px;
+  display: flex;
+  align-items: center; /* Align items vertically */
+  flex-direction: row;
+  justify-content: center;
 }
 
 
