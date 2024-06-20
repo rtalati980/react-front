@@ -41,7 +41,7 @@ export default function Headerb() {
       {isMobile && <AnchorTemporaryDrawer />}
       <div className='title'>
         <Link to='/' style={{ textDecoration: 'none'  }}>
-          <img src="https://martimages.blob.core.windows.net/imagesmart/whiteREDLogo-removebg-preview.png" alt="Logo" />
+          <img src="https://martimages.blob.core.windows.net/imagesmart/logo-radhakrisna.png" alt="Logo" />
         </Link>
       </div>
 
