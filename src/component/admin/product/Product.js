@@ -5,6 +5,7 @@ import {
 } from '@mui/material';
 import { MdDelete } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
+import JoditEditor from 'jodit-react';
 import './product.css';
 
 const fetchData = async () => {
@@ -184,14 +185,10 @@ export default function Product() {
               value={updatedProduct.categoryId}
               onChange={(e) => setUpdatedProduct({ ...updatedProduct, categoryId: e.target.value })}
             />
-            <StyledTextField
-              label="Description"
-              fullWidth
-              margin="dense"
-              multiline
-              rows={4}
+            <label>Description</label>
+            <JoditEditor
               value={updatedProduct.discription}
-              onChange={(e) => setUpdatedProduct({ ...updatedProduct, discription: e.target.value })}
+              onChange={(newContent) => setUpdatedProduct({ ...updatedProduct, discription: newContent })}
             />
             <StyledTextField
               label="Price"

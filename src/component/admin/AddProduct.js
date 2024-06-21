@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import JoditEditor from 'jodit-react';
 import './addpro.css';
 
 const AddProductForm = () => {
@@ -64,7 +65,7 @@ const AddProductForm = () => {
   };
 
   return (
-    <div className='addFrom'>
+    <div className='addForm'>
       {successMessage && <div>{successMessage}</div>}
       {errorMessage && <div>{errorMessage}</div>}
       <form onSubmit={handleSubmit}>
@@ -73,7 +74,11 @@ const AddProductForm = () => {
         <label>Price:</label>
         <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
         <label>Description:</label>
-        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+        <JoditEditor
+          value={description}
+          onChange={(newContent) => setDescription(newContent)}
+        />
+        <label>Category:</label>
         <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
           <option value="">Select category</option>
           {categories.map(category => (
