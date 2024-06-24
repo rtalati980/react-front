@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
-import { add } from "../component/Slices/CartSlice";
+import { add as addToCart } from "../component/Slices/CartSlice"; // Rename add import to avoid conflict
 import { useSnackbar } from "notistack";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './detailspr.module.css';
@@ -11,7 +11,7 @@ const DetailsPro = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [count, setCount] = useState(1);
-    const [selectedCarat, setSelectedCarat] = useState(null);
+    const [selectedCarat, setSelectedCarat] = useState(3.25);
     const [fluctuatedPrice, setFluctuatedPrice] = useState(null);
     const [mainImage, setMainImage] = useState('');
     const dispatch = useDispatch();
@@ -47,8 +47,12 @@ const DetailsPro = () => {
 
     const handleCaratChange = (carat) => {
         setSelectedCarat(carat);
-        const newPrice = (product.price + carat * 300) * count;
-        setFluctuatedPrice(newPrice);
+        if (carat !== 3.25) {
+            const newPrice = (product.price + (carat - 3.25) * 300) * count;
+            setFluctuatedPrice(newPrice);
+        } else {
+            setFluctuatedPrice(product.price * count);
+        }
     };
 
     useEffect(() => {
@@ -57,6 +61,7 @@ const DetailsPro = () => {
             if (fetchedProduct) {
                 setProduct(fetchedProduct);
                 setMainImage(fetchedProduct.images[0]);
+                setFluctuatedPrice(fetchedProduct.price * count); // Initial price is for 3.25 carat
             }
         };
 
@@ -64,14 +69,19 @@ const DetailsPro = () => {
     }, []);
 
     useEffect(() => {
-        if (selectedCarat !== null && product) {
-            const newPrice = (product.price + selectedCarat * 300) * count;
-            setFluctuatedPrice(newPrice);
+        if (product) {
+            if (selectedCarat !== 3.25) {
+                const newPrice = (product.price + (selectedCarat - 3.25) * 300) * count;
+                setFluctuatedPrice(newPrice);
+            } else {
+                setFluctuatedPrice(product.price * count);
+            }
         }
     }, [selectedCarat, count, product]);
 
-    const addToCart = () => {
-        dispatch(add(product));
+    const addToCartHandler = () => {
+        const itemToAdd = { ...product, selectedCarat, quantity: count };
+        dispatch(addToCart(itemToAdd));
         enqueueSnackbar(`Item added to your cart successfully`, {
             variant: "success",
             autoHideDuration: 3000,
@@ -108,24 +118,28 @@ const DetailsPro = () => {
                             <h2>Rs. {fluctuatedPrice !== null ? fluctuatedPrice : product.price * count}</h2>
                             {(product.category).name === 'Gemstone' && (
                                 <div className={`${styles.gemc} mb-3`}>
-                                    <button className="btn crt-btn me-2" onClick={() => handleCaratChange(1)}>6.5 Carat</button>
-                                    <button className="btn crt-btn me-2" onClick={() => handleCaratChange(2)}>7.5 Carat</button>
-                                    <button className="btn crt-btn  me-2" onClick={() => handleCaratChange(3)}>8.5 Carat</button>
-                                    <button className="btn crt-btn me-2" onClick={() => handleCaratChange(4)}>9.5 Carat</button>
-                                    <button className="btn crt-btn me-2" onClick={() => handleCaratChange(5)}>10.5 Carat</button>
+                                    {[3.25, 4.25, 5.25, 6.25, 7.25, 8.25, 9.25, 10.25].map((carat) => (
+                                        <button
+                                            key={carat}
+                                            className={`btn crt-btn me-2 ${selectedCarat === carat ? styles.active : ''}`}
+                                            onClick={() => handleCaratChange(carat)}
+                                        >
+                                            {carat} Carat
+                                        </button>
+                                    ))}
                                 </div>
                             )}
-                           <div className={`align-items-center mb-3 ${styles.faincrement}`}>
-
-                                <FaPlus  onClick={handleIncrement} className="me-2" />
+                            <div className={`align-items-center mb-3 ${styles.faincrement}`}>
+                                <FaPlus onClick={handleIncrement} className="me-2" />
                                 <p className="m-0">{count}</p>
                                 <FaMinus onClick={handleDecrement} className="ms-2 " />
                             </div>
                             <div className={styles.btnrt}>
-                            <button   onClick={addToCart} >Add to Cart</button>
-                            <Link to={`/checkout?totalPrice=${product.price * count}&totalQuantity=${count}&productNames=${product.name}&productQuantities=${count}`}>
-                                <button   >Buy Now</button>
-                            </Link></div>
+                                <button onClick={addToCartHandler}>Add to Cart</button>
+                                <Link to={`/checkout?totalPrice=${fluctuatedPrice || product.price * count}&totalQuantity=${count}&productNames=${product.name}&productQuantities=${count}&carat=${selectedCarat}`}>
+                                    <button>Buy Now</button>
+                                </Link>
+                            </div>
                             <div className={styles.description}>
                                 <p dangerouslySetInnerHTML={{ __html: product.discription }}></p>
                             </div>

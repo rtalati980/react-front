@@ -1,3 +1,4 @@
+/* CSS Code */
 .head {
   display: flex;
   align-items: center;
@@ -9,7 +10,7 @@
 
 .title img {
   padding-left: 20px;
-  max-height: 110px; /* Adjust based on your desired logo size */
+  max-height: 110px;
   width: auto;
 }
 
@@ -56,7 +57,7 @@
 
 .search-input {
   position: fixed;
-  top: 120px; /* Adjust based on header height */
+  top: 120px;
   left: 50%;
   transform: translateX(-50%);
   height: 30px;
@@ -66,8 +67,8 @@
   max-width: 500px;
   border: 1px solid #b16f23;
   border-radius: 5px;
-  background-color: white; /* Ensure it's visible on any background */
-  z-index: 1000; /* Ensure it appears above other content */
+  background-color: white;
+  z-index: 1000;
 }
 
 .cart-count {
@@ -87,11 +88,11 @@
   right: -10px;
 }
 
-.show-search .naviga {
-  opacity: 0;
-  pointer-events: none; /* Prevent interaction when hidden */
-} 
-
+.show-search .naviga,
+.show-search .title,
+.show-search .menu-icon {
+  display: none;
+}
 
 .whatsapp_float {
   position: fixed;
@@ -115,46 +116,40 @@
   background-color: #128c7e;
 }
 
-
-.search-section-container .container{
+.search-section-container .container {
   display: inline !important;
   padding: unset;
 }
 
-
-.form-search button{
+.form-search button {
   margin-top: 0;
   width: 100%;
   max-width: 150px;
 }
-.form-search input{
+
+.form-search input {
   width: 100%;
-  max-width : 355px;
+  max-width: 355px;
   margin-right: 20px;
   margin-bottom: 0px;
-
 }
-.form-search{
+
+.form-search {
   padding: 20px;
   display: flex;
-  align-items: center; /* Align items vertically */
+  align-items: center;
   flex-direction: row;
   justify-content: center;
 }
 
-
-
-
-
 @media only screen and (max-width: 600px) {
-
-  .head{
-    AnchorTemporaryDrawer{
+  .head {
+    AnchorTemporaryDrawer {
       margin-left: -20px;
     }
   }
 
-  .title img{
+  .title img {
     padding-left: 0;
   }
 
@@ -162,7 +157,12 @@
     display: none;
   }
 
-  .ricons{
+  .ricons {
     padding-right: 10px;
+  }
+
+  .show-search .naviga,
+  .show-search .title img {
+    display: none;
   }
 }

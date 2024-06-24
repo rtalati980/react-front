@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import "./headerb.css";
-
-import { FiShoppingBag } from "react-icons/fi";
+import { CiSearch } from "react-icons/ci";
+import { FiShoppingBag, FiPhone } from "react-icons/fi"; 
 import AnchorTemporaryDrawer from './AnchorTemporaryDrawer';
-import { useCart } from '../CartContext';
 import { useSelector } from "react-redux"; 
 import { Link } from 'react-router-dom';
- // Import the SearchSection component
-import { FiPhone } from "react-icons/fi"; // Import phone icon for WhatsApp
 
 export default function Headerb() {
   const { cart } = useSelector((state) => state);
@@ -15,7 +12,16 @@ export default function Headerb() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  
+  const [showSearch, setShowSearch] = useState(false);
+
+  const toggleSearch = () => {
+    setShowSearch(!showSearch);
+    setIsOpen(false); // Close the menu when search is opened
+  };
+
+  const closeSearch = () => {
+    setShowSearch(false);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,11 +40,9 @@ export default function Headerb() {
     setIsOpen(!isOpen);
   };
 
- 
-
   return (
-    <div className={`head`}>
-      {isMobile && <AnchorTemporaryDrawer />}
+    <div className={`head ${showSearch ? 'show-search' : ''}`}>
+      {isMobile && !showSearch && <AnchorTemporaryDrawer />}
       <div className='title'>
         <Link to='/' style={{ textDecoration: 'none'  }}>
           <img src="https://martimages.blob.core.windows.net/imagesmart/logo-radhakrisna.png" alt="Logo" />
@@ -55,14 +59,24 @@ export default function Headerb() {
           <li><Link to='/contact' style={{ color: '#b16f23' }}>CONTACT US</Link></li>
         </ul>
       </div>
+
       <div className='ricons'>
         <div className='fa'>
+          <a id='ci' onClick={toggleSearch}><CiSearch style={{ color: '#b16f23', cursor: 'pointer', fontSize: '25px' }} /></a>
+          {showSearch && (
+            <input
+              type="text"
+              placeholder="Search..."
+              style={{ marginLeft: '10px', padding: '5px' }}
+            />
+          )}
           <Link to='/cart'>
             <FiShoppingBag style={{ color: '#b16f23', fontSize: '25px' }} />
             <span className='cart-count'>{itemCount}</span>
           </Link>
         </div>
       </div>
+      
       {/* WhatsApp Button */}
       <a
         href="https://api.whatsapp.com/send?phone=+917300002965"

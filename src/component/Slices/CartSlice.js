@@ -12,8 +12,15 @@ const cartSlice = createSlice({
     remove(state, action) {
       return state.filter((item) => item.id !== action.payload);
     },
+    updateCarat(state, action) {
+      const { id, selectedCarat } = action.payload;
+      const itemToUpdate = state.find((item) => item.id === id);
+      if (itemToUpdate) {
+        itemToUpdate.selectedCarat = selectedCarat;
+      }
+    },
   },
 });
 
-export const { add, remove } = cartSlice.actions;
+export const { add, remove, updateCarat } = cartSlice.actions;
 export default cartSlice.reducer;

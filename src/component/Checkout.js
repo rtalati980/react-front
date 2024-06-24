@@ -12,6 +12,7 @@ const Checkout = () => {
   const totalQuantity = searchParams.get('totalQuantity');
   const productNames = searchParams.get('productNames');
   const productQuantities = searchParams.get('productQuantities');
+  const carat = searchParams.get('carat'); // Retrieve the carat value from the query parameters
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -64,7 +65,8 @@ const Checkout = () => {
         mobileNumber: formData.mobileno,
         emailAddress: formData.email,
         city: formData.city,
-        state: formData.state
+        state: formData.state,
+        carat: carat // Include carat value if available
       });
       console.log('Payment successful:', response.data);
       window.location.href = response.data.redirectUrl; // Redirect to the payment URL
@@ -90,91 +92,95 @@ const Checkout = () => {
       <div className="title">
         <h2>Product Order Form</h2>
       </div>
-      <div className="summary-container ">
-        <div className='row '>
-          <div className='col-lg-6 col-md-6  '>
-          <h3>Order Summary</h3>
-          {productNames.split(',').map((productName, index) => (
-            <div key={index}>
-              <strong>Product Name:</strong> {productName}
-              <br />
-              <strong>Quantity:</strong> {productQuantities.split(',')[index]}
-              <hr />
+      <div className="summary-container">
+        <div className='row'>
+          <div className='col-lg-6 col-md-6'>
+            <h3>Order Summary</h3>
+            {productNames.split(',').map((productName, index) => (
+              <div key={index}>
+                <strong>Product Name:</strong> {productName}
+                <br />
+                <strong>Quantity:</strong> {productQuantities.split(',')[index]}
+                <hr />
+              </div>
+            ))}
+            <div>
+              <strong>Total Quantity:</strong> {totalQuantity}
             </div>
-          ))}
-          <div>
-            <strong>Total Quantity:</strong> {totalQuantity}
+            <div>
+              <strong>Total Price:</strong> Rs.{totalPrice}.00
+            </div>
+            {carat && (
+              <div>
+                <strong>Carat:</strong> {carat}
+              </div>
+            )}
           </div>
-          <div>
-            <strong>Total Price:</strong> Rs.{totalPrice}.00
+          <div className='col-lg-6 col-md-6'>
+            <div className='imges'>
+              <img src='https://martimages.blob.core.windows.net/imagesmart/imttqfz.jpeg' alt='Product' />
+            </div>
           </div>
-          </div>
-          <div className='col-lg-6 col-md-6 '>
-                <div className='imges'>
-                 <img src='https://martimages.blob.core.windows.net/imagesmart/imttqfz.jpeg' alt='thg'/>
-                </div>
-          </div>
-          </div>
-          
         </div>
+      </div>
       <div className="checkout-content">
         <div className="form-container">
           <form>
             <div className='row'>
               <div className="col-lg-12 col-md-12">
-                  <h3>Billing Address</h3>
+                <h3>Billing Address</h3>
               </div>
               <div className='col-lg-6 col-md-6'>
-                  <label>
-                    <span className="fname">Full Name <span className="required">*</span></span>
-                    <input
-                      type="text"
-                      name="fullName"
-                      placeholder="John M. Doe"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    {formErrors.fullName && <span className="error">{formErrors.fullName}</span>}
-                  </label>
+                <label>
+                  <span className="fname">Full Name <span className="required">*</span></span>
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="John M. Doe"
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {formErrors.fullName && <span className="error">{formErrors.fullName}</span>}
+                </label>
               </div>
               <div className='col-lg-6 col-md-6'>
-                  <label>
-                    <span className="email">Email <span className="required">*</span></span>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="john@example.com"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    {formErrors.email && <span className="error">{formErrors.email}</span>}
-                  </label>
+                <label>
+                  <span className="email">Email <span className="required">*</span></span>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="john@example.com"
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {formErrors.email && <span className="error">{formErrors.email}</span>}
+                </label>
               </div>
               <div className='col-lg-6 col-md-6'>
-                  <label>
-                    <span className="mobileno">Mobile Number <span className="required">*</span></span>
-                    <input
-                      type="tel"
-                      name="mobileno"
-                      placeholder="+9112347890"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    {formErrors.mobileno && <span className="error">{formErrors.mobileno}</span>}
-                  </label>
+                <label>
+                  <span className="mobileno">Mobile Number <span className="required">*</span></span>
+                  <input
+                    type="tel"
+                    name="mobileno"
+                    placeholder="+9112347890"
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {formErrors.mobileno && <span className="error">{formErrors.mobileno}</span>}
+                </label>
               </div>
               <div className='col-lg-6 col-md-6'>
-                  <label>
-                    <span className="address">Address <span className="required">*</span></span>
-                    <input
-                      type="text"
-                      name="address"
-                      placeholder="542 W. 15th Street"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    {formErrors.address && <span className="error">{formErrors.address}</span>}
-                  </label>
+                <label>
+                  <span className="address">Address <span className="required">*</span></span>
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="542 W. 15th Street"
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {formErrors.address && <span className="error">{formErrors.address}</span>}
+                </label>
               </div>
               <div className='col-lg-6 col-md-6'>
                 <label>
@@ -203,18 +209,18 @@ const Checkout = () => {
                 </label>
               </div>
               <div className='col-lg-6 col-md-6'>
-                  <label>
-                    <span className="zip">Zip <span className="required">*</span></span>
-                    <input
-                      type="text"
-                      name="zip"
-                      placeholder="10001"
-                      onChange={handleInputChange}
-                      required
-                    />
-                    {formErrors.zip && <span className="error">{formErrors.zip}</span>}
-                  </label>
-              </div>  
+                <label>
+                  <span className="zip">Zip <span className="required">*</span></span>
+                  <input
+                    type="text"
+                    name="zip"
+                    placeholder="10001"
+                    onChange={handleInputChange}
+                    required
+                  />
+                  {formErrors.zip && <span className="error">{formErrors.zip}</span>}
+                </label>
+              </div>
               <div className='col-lg-6 col-md-6'>
                 <button type="button" onClick={handlePayment}>Pay Now</button>
                 {paymentError && <p className="error">{paymentError}</p>}

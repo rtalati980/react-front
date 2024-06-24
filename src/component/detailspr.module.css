@@ -122,6 +122,10 @@
     background-color: none;
 }
 
+.active {
+    background-color: #b16f23;
+    color: white !important;
+}
 @media only screen and (max-width: 600px) {
     .product-container {
         flex-direction: column;
