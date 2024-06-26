@@ -55,10 +55,10 @@ export default function Contact() {
             <th>Email Address</th>
             <th>City</th>
             <th>State</th>
-            <th>Action</th>
             <th>status</th>
               <th>carat</th>
               <th>merchantTransactionId</th>
+              <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -78,7 +78,7 @@ export default function Contact() {
               <td>{order.status}</td>
               <td>{order.carat}</td>
               <td>{order.merchantTransactionId}</td>
-              <td>{}</td>
+             
               <td>
                 <button onClick={() => handleDelete(order.id)}><MdDelete /></button>
               </td>
