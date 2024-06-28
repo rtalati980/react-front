@@ -3,6 +3,8 @@ import './contact.css';
 import { AiFillFacebook, AiOutlineInstagram } from "react-icons/ai";
 import { BsYoutube, BsTwitter } from "react-icons/bs";
 import { FaPinterestSquare } from "react-icons/fa";
+import API_BASE_URL from '../../config';
+
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -24,7 +26,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://ec2.radhakrishnamart.com:8443/api/contact', {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

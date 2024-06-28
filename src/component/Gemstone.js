@@ -5,10 +5,11 @@ import { useParams } from 'react-router-dom';
 import { add } from "../component/Slices/CartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useSnackbar } from "notistack";
+import API_BASE_URL from '../config';
 
 const fetchData = async () => {
   try {
-    const response = await fetch('https://ec2.radhakrishnamart.com:8443/category/api/', {
+    const response = await fetch(`${API_BASE_URL}/category/api/`, {
       method: 'GET'
     });
 
@@ -75,6 +76,11 @@ const GemStone = () => {
                         <Link to={`/product/${pro.id}`} style={{ fontSize: '17px', color: '#b16f23', textDecoration: 'none' }}>{pro.name}</Link>
                       </h5>
                       <p className='card-text' style={{ color: '#b16f23', fontWeight: 'bold' }}>Starting from: Rs. {pro.price}.00</p>
+                      <div className='rating' style={{ color: '#b16f23', fontWeight: 'bold' }}>
+                        {Array.from({ length: 5 }, (_, i) => (
+                          <span key={i} className={i < pro.rating ? 'fa fa-star checked' : 'fa fa-star'}></span>
+                        ))}
+                      </div>
                       <p className='card-text logss' style={{ color: '#b16f23' }}>Radhe Krishna Mart</p>
                       <Link to={`/product/${pro.id}`} className='btn btn-primary' style={{ backgroundColor: '#b16f23', border: 'none' }}>
                         View

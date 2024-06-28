@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './contact/contact.css';
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import axiosInstance from './axiousInstance'; // Corrected import statement
+import axiosInstance from './axiousInstance';
+import API_BASE_URL from '../../config'; // Corrected import statement
 
 const fetchOrders = async () => {
   try {
-    const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/api/orders');
+    const response = await axiosInstance.get(`${API_BASE_URL}/api/orders`);
     return response.data; 
       console.log(response.data);// assuming the data is in response.data
   } catch (error) {

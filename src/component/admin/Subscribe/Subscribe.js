@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import axiosInstance from '../axiousInstance';
+import API_BASE_URL from '../../../config';
 
 export default function EmailSubscription() {
   const [subscriptions, setSubscriptions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
 
   useEffect(() => {
     fetchSubscriptions();
@@ -13,7 +15,7 @@ export default function EmailSubscription() {
 
   const fetchSubscriptions = async () => {
     try {
-      const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/api/email');
+      const response = await axiosInstance.get(`${API_BASE_URL}/api/email`);
       setSubscriptions(response.data);
       setLoading(false);
     } catch (error) {

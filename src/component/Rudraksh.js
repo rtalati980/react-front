@@ -4,10 +4,11 @@ import { add, remove } from "../component/Slices/CartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useSnackbar } from "notistack";
 import './productc.css';
+import API_BASE_URL from '../config';
 
 const fetchData = async () => {
   try {
-    const response = await fetch('https://ec2.radhakrishnamart.com:8443/category/api/', {
+    const response = await fetch(`${API_BASE_URL}/category/api/`, {
       method: 'GET'
     });
 

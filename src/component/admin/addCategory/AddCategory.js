@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../addpro.css';
+import API_BASE_URL from '../../../config';
 
 
 const AddCategory = () => {
@@ -23,7 +24,7 @@ const AddCategory = () => {
     formData.append('images', image);
 
     try {
-      const response = await fetch('https://ec2.radhakrishnamart.com:8443/category/api/save', {
+      const response = await fetch(`${API_BASE_URL}/category/api/save`, {
         method: 'POST',
         body: formData
       });

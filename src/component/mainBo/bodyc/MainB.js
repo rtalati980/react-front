@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './body.css';
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import API_BASE_URL from '../../../config';
 
 
 
  
 const fetchData = async () => {
   try {
-    const response = await fetch('https://ec2.radhakrishnamart.com:8443/category/api/',{
+    const response = await fetch(`${API_BASE_URL}/category/api/`,{
       method: 'GET'
     }
     

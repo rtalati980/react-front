@@ -6,10 +6,11 @@ import {
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import './category.css';
+import API_BASE_URL from '../../../config';
 
 const fetchData = async () => {
   try {
-    const response = await fetch('https://ec2.radhakrishnamart.com:8443/category/api/', {
+    const response = await fetch(`${API_BASE_URL}/category/api/`, {
       method: 'GET'
     });
 

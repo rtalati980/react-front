@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { add, remove } from "../component/Slices/CartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useSnackbar } from "notistack";
+import API_BASE_URL from '../config';
 
 const Product = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +29,7 @@ const Product = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://ec2.radhakrishnamart.com:8443/category/api/`);
+        const response = await axios.get(`${API_BASE_URL}/category/api/`);
         setCategory(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

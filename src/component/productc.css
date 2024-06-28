@@ -75,6 +75,19 @@
   font-weight: 900;
 }
 
+.fa {
+  font-size: 1em;
+}
+
+.fa-star {
+  color: #ccc; /* Color for unfilled stars */
+}
+
+.checked {
+  color: #ffdd00; /* Color for filled stars */
+}
+
+
 
 @media only screen and (max-width: 600px){
   .product_section{

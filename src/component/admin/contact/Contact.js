@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './contact.css';
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import axiosInstance from '../axiousInstance'; // Corrected import statement
+import axiosInstance from '../axiousInstance';
+import API_BASE_URL from '../../../config'; // Corrected import statement
 
 const fetchContacts = async () => {
   try {
-    const response = await axiosInstance.get('https://ec2.radhakrishnamart.com:8443/api/contact');
+    const response = await axiosInstance.get(`${API_BASE_URL}/api/contact`);
     return response.data;
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -16,7 +17,7 @@ const fetchContacts = async () => {
 
 const deleteContact = async (contactId) => {
   try {
-    const response = await axiosInstance.delete(`https://ec2.radhakrishnamart.com:8443/contact/api/${contactId}/`);
+    const response = await axiosInstance.delete(`${API_BASE_URL}/contact/api/${contactId}/`);
     if (!response.ok) {
       throw new Error('Failed to delete contact');
     }

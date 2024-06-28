@@ -6,6 +6,7 @@ import { add as addToCart } from "../component/Slices/CartSlice"; // Rename add 
 import { useSnackbar } from "notistack";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './detailspr.module.css';
+import API_BASE_URL from '../config';
 
 const DetailsPro = () => {
     const { id } = useParams();
@@ -19,7 +20,7 @@ const DetailsPro = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`https://ec2.radhakrishnamart.com:8443/product/api/id/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/product/api/id/${id}`, {
                 method: 'GET'
             });
 

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-import './Checkout.css'; // Make sure to create and import a CSS file for styling
+import './Checkout.css'; 
+import API_BASE_URL from '../config';// Make sure to create and import a CSS file for styling
 
 const Checkout = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showOtpModal, setShowOtpModal] = useState(false);
+  const [otp, setOtp] = useState('');
+  const [orderId, setOrderId] = useState(null); // State to store the order ID
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
@@ -26,6 +30,7 @@ const Checkout = () => {
 
   const [formErrors, setFormErrors] = useState({});
   const [paymentError, setPaymentError] = useState(null);
+  const [otpError, setOtpError] = useState(null);
 
   // Handle form input change
   const handleInputChange = (e) => {
@@ -54,7 +59,7 @@ const Checkout = () => {
     }
 
     try {
-      const response = await axios.post('https://ec2.radhakrishnamart.com:8443/api/orders/pg/v1/pay', {
+      const response = await axios.post(`${API_BASE_URL}/api/orders/pg/v1/pay`, {
         productId: 1, // Replace with actual product ID
         productName: productNames,
         quantity: totalQuantity,
@@ -76,16 +81,80 @@ const Checkout = () => {
     }
   };
 
-  const Modal = () => {
-    return (
-      <div className="modal">
-        <div className="modal-content">
-          <h2>Thank you for your purchase!</h2>
-          <p>You will receive an email confirmation shortly.</p>
-        </div>
-      </div>
-    );
+  // Handle COD order
+  const handleCodOrder = async () => {
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+
+    try {
+      const response = await axios.post(`${API_BASE_URL}/api/orders/cod`, {
+        productId: 1, // Replace with actual product ID
+        productName: productNames,
+        quantity: totalQuantity,
+        totalPrice: totalPrice,
+        customerName: formData.fullName,
+        address: formData.address,
+        zipCode: formData.zip,
+        mobileNumber: formData.mobileno,
+        emailAddress: formData.email,
+        city: formData.city,
+        state: formData.state,
+        carat: carat // Include carat value if available
+      });
+      console.log('COD order placed:', response.data);
+      setOrderId(response.data.orderId); // Save the order ID for OTP verification
+      setShowOtpModal(true);
+    } catch (error) {
+      console.error('COD order error:', error);
+      setPaymentError('Failed to place COD order. Please try again.');
+    }
   };
+
+  // Handle OTP submission
+  const handleOtpSubmit = async () => {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/api/orders/verifyOtp`, {
+        orderId: orderId, // Use the saved order ID
+        otp: otp
+      });
+      console.log('OTP verified:', response.data);
+      setShowModal(true);
+      setShowOtpModal(false);
+    } catch (error) {
+      console.error('OTP verification error:', error);
+      setOtpError('Invalid OTP. Please try again.');
+    }
+  };
+
+  const Modal = () => (
+    <div className="modal">
+      <div className="modal-content">
+        <h2>Thank you for your purchase!</h2>
+        <p>You will receive an email confirmation shortly.</p>
+        <button type="button" onClick={() => setShowModal(false)}>Close</button>
+      </div>
+    </div>
+  );
+
+  const OtpModal = () => (
+    <div className="modal">
+      <div className="modal-content">
+        <h2>Enter OTP</h2>
+        <input
+          type="text"
+          placeholder="Enter OTP"
+          value={otp}
+          onChange={(e) => setOtp(e.target.value)}
+        />
+        <button type="button" onClick={handleOtpSubmit}>Submit</button>
+        {otpError && <p className="error">{otpError}</p>}
+        <button type="button" onClick={() => setShowOtpModal(false)}>Close</button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="container">
@@ -169,7 +238,7 @@ const Checkout = () => {
                   {formErrors.mobileno && <span className="error">{formErrors.mobileno}</span>}
                 </label>
               </div>
-              <div className='col-lg-6 col-md-6'>
+              <div className='col-lg-6 col-md=6'>
                 <label>
                   <span className="address">Address <span className="required">*</span></span>
                   <input
@@ -224,7 +293,10 @@ const Checkout = () => {
               <div className='col-lg-6 col-md-6'>
                 <button type="button" onClick={handlePayment}>Pay Now</button>
                 {paymentError && <p className="error">{paymentError}</p>}
+                <button type="button" onClick={handleCodOrder}>Cash on Delivery</button>
+                {paymentError && <p className="error">{paymentError}</p>}
                 {showModal && <Modal />}
+                {showOtpModal && <OtpModal />}
               </div>
             </div>
           </form>

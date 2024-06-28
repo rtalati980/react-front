@@ -7,10 +7,11 @@ import { MdDelete } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
 import JoditEditor from 'jodit-react';
 import './product.css';
+import API_BASE_URL from '../../../config';
 
 const fetchData = async () => {
   try {
-    const response = await fetch('https://ec2.radhakrishnamart.com:8443/product/api/', {
+    const response = await fetch(`${API_BASE_URL}/product/api/`, {
       method: 'GET'
     });
 
@@ -28,7 +29,7 @@ const fetchData = async () => {
 
 const deleteProduct = async (productId) => {
   try {
-    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/product/api/${productId}`, {
+    const response = await fetch(`${API_BASE_URL}/product/api/${productId}`, {
       method: 'DELETE'
     });
 
@@ -48,6 +49,7 @@ const updateProduct = async (productId, updatedProduct, imageFiles) => {
     if (updatedProduct.price) formData.append('price', updatedProduct.price);
     if (updatedProduct.discription) formData.append('description', updatedProduct.discription);
     if (updatedProduct.categoryId) formData.append('category_id', updatedProduct.categoryId);
+    if (updatedProduct.rating) formData.append('rating', updatedProduct.rating);
 
     if (imageFiles && imageFiles.length > 0) {
       imageFiles.forEach(file => {
@@ -57,7 +59,7 @@ const updateProduct = async (productId, updatedProduct, imageFiles) => {
 
     console.log(formData.get('description')); // Debug: log the description field to check its length and content
 
-    const response = await fetch(`https://ec2.radhakrishnamart.com:8443/product/api/${productId}`, {
+    const response = await fetch(`${API_BASE_URL}/product/api/${productId}`, {
       method: 'PATCH',
       body: formData
     });
@@ -84,7 +86,7 @@ export default function Product() {
   const [products, setProducts] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
-  const [updatedProduct, setUpdatedProduct] = useState({ name: '', categoryId: '', discription: '', price: '' });
+  const [updatedProduct, setUpdatedProduct] = useState({ name: '', categoryId: '', discription: '', price: '', rating: '' });
   const [imageFiles, setImageFiles] = useState([]);
 
   useEffect(() => {
@@ -110,7 +112,8 @@ export default function Product() {
       name: product.name,
       categoryId: product.category?.id || '',
       discription: product.discription,
-      price: product.price
+      price: product.price,
+      rating: product.rating || '' // Include the rating field
     });
   };
 
@@ -140,6 +143,7 @@ export default function Product() {
               <TableCell>Image</TableCell>
               <TableCell>Description</TableCell>
               <TableCell>Price</TableCell>
+              <TableCell>Rating</TableCell>
               <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
@@ -157,6 +161,7 @@ export default function Product() {
                   </TableCell>
                   <TableCell>{product.discription}</TableCell>
                   <TableCell>{product.price}</TableCell>
+                  <TableCell>{product.rating}</TableCell>
                   <TableCell>
                     <IconButton onClick={() => handleEdit(product)}><FaEdit /></IconButton>
                     <IconButton onClick={() => handleDelete(product.id)}><MdDelete /></IconButton>
@@ -197,6 +202,15 @@ export default function Product() {
               type="number"
               value={updatedProduct.price}
               onChange={(e) => setUpdatedProduct({ ...updatedProduct, price: e.target.value })}
+            />
+            <StyledTextField
+              label="Rating"
+              fullWidth
+              margin="dense"
+              type="number"
+              step="0.1"
+              value={updatedProduct.rating}
+              onChange={(e) => setUpdatedProduct({ ...updatedProduct, rating: e.target.value })}
             />
             <input
               type="file"
