@@ -47,7 +47,7 @@ const updateProduct = async (productId, updatedProduct, imageFiles) => {
     const formData = new FormData();
     if (updatedProduct.name) formData.append('name', updatedProduct.name);
     if (updatedProduct.price) formData.append('price', updatedProduct.price);
-    if (updatedProduct.discription) formData.append('description', updatedProduct.discription);
+    if (updatedProduct.description) formData.append('description', updatedProduct.description);
     if (updatedProduct.categoryId) formData.append('category_id', updatedProduct.categoryId);
     if (updatedProduct.rating) formData.append('rating', updatedProduct.rating);
 
@@ -111,7 +111,7 @@ export default function Product() {
     setUpdatedProduct({
       name: product.name,
       categoryId: product.category?.id || '',
-      discription: product.discription,
+      discription: product.description,
       price: product.price,
       rating: product.rating || '' // Include the rating field
     });
@@ -159,7 +159,7 @@ export default function Product() {
                       <img src={product.images[0]} alt={product.name} width="50" height="50" />
                     )}
                   </TableCell>
-                  <TableCell>{product.discription}</TableCell>
+                  <TableCell>{product.description}</TableCell>
                   <TableCell>{product.price}</TableCell>
                   <TableCell>{product.rating}</TableCell>
                   <TableCell>
@@ -192,8 +192,8 @@ export default function Product() {
             />
             <label>Description</label>
             <JoditEditor
-              value={updatedProduct.discription}
-              onChange={(newContent) => setUpdatedProduct({ ...updatedProduct, discription: newContent })}
+              value={updatedProduct.description}
+              onChange={(newContent) => setUpdatedProduct({ ...updatedProduct, description: newContent })}
             />
             <StyledTextField
               label="Price"
