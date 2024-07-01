@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Button, Dialog, DialogContent, DialogActions, TextField, IconButton,
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, styled
@@ -86,8 +86,9 @@ export default function Product() {
   const [products, setProducts] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
-  const [updatedProduct, setUpdatedProduct] = useState({ name: '', categoryId: '', discription: '', price: '', rating: '' });
+  const [updatedProduct, setUpdatedProduct] = useState({ name: '', categoryId: '', description: '', price: '', rating: '' });
   const [imageFiles, setImageFiles] = useState([]);
+  const editorRef = useRef(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -111,7 +112,7 @@ export default function Product() {
     setUpdatedProduct({
       name: product.name,
       categoryId: product.category?.id || '',
-      discription: product.description,
+      description: product.description,
       price: product.price,
       rating: product.rating || '' // Include the rating field
     });
@@ -129,6 +130,10 @@ export default function Product() {
 
   const handleImageChange = (e) => {
     setImageFiles(Array.from(e.target.files));
+  };
+
+  const handleDescriptionChange = (newContent) => {
+    setUpdatedProduct({ ...updatedProduct, description: newContent });
   };
 
   return (
@@ -192,8 +197,9 @@ export default function Product() {
             />
             <label>Description</label>
             <JoditEditor
+              ref={editorRef}
               value={updatedProduct.description}
-              onChange={(newContent) => setUpdatedProduct({ ...updatedProduct, description: newContent })}
+              onChange={handleDescriptionChange}
             />
             <StyledTextField
               label="Price"
