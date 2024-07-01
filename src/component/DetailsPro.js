@@ -142,7 +142,7 @@ const DetailsPro = () => {
                                 </Link>
                             </div>
                             <div className={styles.description}>
-                                <p dangerouslySetInnerHTML={{ __html: product.discription }}></p>
+                                <p dangerouslySetInnerHTML={{ __html: product.description }}></p>
                             </div>
                         </>
                     )}
